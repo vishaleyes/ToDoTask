@@ -1,0 +1,707 @@
+<?php 
+ $extraPaginationPara='&mylist='.$extraPara['mylist'].'&mytodoStatus='.$extraPara['mytodoStatus'];
+if(trim($extraPara['keywordAssignByMe'])!='')
+ {
+	 $extraPaginationPara.= '&keywordAssignByMe='.$extraPara['keywordAssignByMe'];
+ }
+ if(trim($extraPara['assignToSearch'])!='')
+ {
+	 $extraPaginationPara.= '&assignToSearch='.$extraPara['assignToSearch'];
+ }
+ 
+
+
+$ListBox='<select id="txtSearchListDP" name="txtSearchListDP" style="width:120px;" onchange="reloadHomeByList(1, 2)">';
+$ListBox.='<option value="0">All</option>';
+$listData	=	'{';
+for($i=0; $i<=count($assignbyme['myLists']); $i++){
+	
+	if( $i != count($assignbyme['myLists']) ) {
+		if( isset($assignbyme['currentList']) && $assignbyme['currentList'] == $assignbyme['myLists'][$i]['id'] ) {
+			$selected	=	'selected="selected"';
+		} else {
+			$selected	=	'';
+		}
+	}
+	
+	if($i == count($assignbyme['myLists'])){
+		$listData .= "}";
+	} else if($i == 0) {
+		$ListBox.='<option '.$selected.' value="'.$assignbyme['myLists'][$i]['id'].'">'.$assignbyme['myLists'][$i]['name'].'</option>';
+		$listData .= "'".$assignbyme['myLists'][$i]['id']."':'".$assignbyme['myLists'][$i]['name']."'";
+	} else {
+		$ListBox.='<option '.$selected.' value="'.$assignbyme['myLists'][$i]['id'].'">'.$assignbyme['myLists'][$i]['name'].'</option>';
+		$listData .= ",'".$assignbyme['myLists'][$i]['id']."':'".$assignbyme['myLists'][$i]['name']."'";
+	}
+}
+$ListBox.='</select>';?>
+<?php if($assignbyme['moreflag']==1){?>
+<div class="RightSide">	
+    <?php echo CHtml::beginForm(Yii::app()->params->base_path.'user','post',array('id' => 'serchDPForm','name' => 'serchDPForm')) ?>
+		<div class="todoList">
+            <span class="floatLeft">##_HOME_TODO_LIST_##:</span>
+            <div id="searchListDP">
+                <?php echo $ListBox;?>
+            </div>
+        </div>
+     <?php echo CHtml::endForm(); ?>	        
+	<?php } ?>
+	<script type="text/javascript">
+    
+    function getByContainer() {
+        if( '<?php echo $assignbyme['moreflag'];?>' == 1 ) {
+            return 'mainContainer';
+        } else {
+            return 'assignedByMeTodoItem';
+        }
+    }
+    
+    $j(document).ready(function(){
+        $j(".reassign").fancybox(
+        {	
+            'titlePosition'	 : 'inside',
+            'transitionIn'	 : 'none',
+            'transitionOut'	 : 'none',	
+            'type'	 : 'iframe',		
+            'width' : 400,
+            'height' : 200
+        });
+        
+        $j('.statusChange').click(function() {
+            var details	=	$j(this).attr('lang'),
+                id	=	details.split('*');
+                value	=	$j(this).val();
+            
+            $j.ajax({
+                url: '<?php echo Yii::app()->params->base_path;?>user/changeItemStatus/id/'+id[0]+'/stat/'+value,
+                success: function(response){
+                    var obj	=	$j.parseJSON(response);
+                    if( obj.status == 0 ) {
+						$j('#status_'+id[0]).html('<div class="checkbox1"><span class="'+id[1]+'">'+id[1].charAt(0).toUpperCase()+id[1].slice(1)+'</span></div>');
+                        $j('#listAjaxBox').load('<?php echo Yii::app()->params->base_path;?>user/listAjax');
+                    }
+                }
+            });
+        });
+        
+        /****** CHANGE TODO ITEM DUE DATE *******/
+        $j(".datepicker-initiative")
+            .editable('<?php echo Yii::app()->params->base_path;?>user/changeItemField/field/dueDate', {
+                indicator : '<img src="'+BASHPATH+'images/progress_indicator_16_gray_transparent.gif">',
+                type: 'datepicker',
+                tooltip: 'Click to edit',
+                submitdata : {<?php echo Yii::app()->request->csrfTokenName;?>:"<?php echo Yii::app()->request->csrfToken;?>"},
+                callback: function(response){
+                    if(response == 'success'){
+                        var container	=	getByContainer();
+                        $j('#'+container).load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>');
+                        
+                    }
+                }
+        });
+    
+        $j('#assignedByBubble').click(function(){
+            $j('#mainContainer').load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/1'+'<?php echo  $extraPaginationPara;?>');
+        });
+        
+        $j('.sortByMe').click(function() {
+            var url	=	$j(this).attr('lang'),
+				container	=	getByContainer();
+            loadBoxContent('<?php echo Yii::app()->params->base_path;?>'+url+'<?php echo  $extraPaginationPara;?>', container);
+        });
+        
+        /****** CHANGE TODO LISTS *******/
+        $j('.changeList').editable('<?php echo Yii::app()->params->base_path;?>user/changeItemField/field/listId', {
+            
+            indicator : '<img src="'+BASHPATH+'images/progress_indicator_16_gray_transparent.gif">',
+            data   : " <?php echo $listData;?>",
+            submitdata : {<?php echo Yii::app()->request->csrfTokenName;?>:"<?php echo Yii::app()->request->csrfToken;?>"},
+            style  : "inherit",
+            type   : 'select',
+            tooltip: 'Click to edit',
+            submit : 'Save',
+            callback: function(response){
+                if(response == 'success'){
+                    var container	=	getByContainer();
+                    $j('#'+container).load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>');
+                }
+            }
+            
+        });
+        
+        /****** CHANGE TODO ITEM STATUS *******/
+        $j('.changeStatus').editable('<?php echo Yii::app()->params->base_path;?>user/changeItemStatus', { 
+            indicator : '<img src="'+BASHPATH+'images/progress_indicator_16_gray_transparent.gif">',
+            data   : " {'1':'OPEN','4':'CLOSE'}",
+            submitdata : {<?php echo Yii::app()->request->csrfTokenName;?>:"<?php echo Yii::app()->request->csrfToken;?>"},
+            style  : "inherit",
+            type   : 'select',
+            submit : 'Save',
+            callback: function(response){
+                var obj	=	$j.parseJSON(response);
+                if(obj.status == 0){
+                    if(obj.change == 1) {
+                        $j(this)
+                            .removeClass()
+                            .addClass('open')
+                            .html('Open');
+                    } else {
+                        $j(this)
+                            .removeClass()
+                            .addClass('close')
+                            .html('Close');
+                    }
+                }
+            }
+        });
+        
+        /****** CHANGE TODO ITEM PRIORITY *******/
+        $j('.changePriority').editable('<?php echo Yii::app()->params->base_path;?>user/changeItemField/field/priority', { 
+            indicator : '<img src="'+BASHPATH+'images/progress_indicator_16_gray_transparent.gif">',
+            data   : " {'0':'Low','1':'Medium','2':'High','3':'Urgent'}",
+            submitdata : {<?php echo Yii::app()->request->csrfTokenName;?>:"<?php echo Yii::app()->request->csrfToken;?>"},
+            style  : "inherit",
+            type   : 'select',
+            submit : 'Save',
+            callback: function(response){
+                if(response == 'success'){
+                    var container	=	getByContainer();
+                    $j('#'+container).load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>');
+                }
+            }
+        });
+        
+        /****** CHANGE TODO ITEM TITILE *******/
+        $j('.changeTitle').editable('<?php echo Yii::app()->params->base_path;?>user/changeItemField/field/title', { 
+            indicator : '<img src="'+BASHPATH+'images/progress_indicator_16_gray_transparent.gif">',
+            type   : 'textarea',
+            submitdata : {<?php echo Yii::app()->request->csrfTokenName;?>:"<?php echo Yii::app()->request->csrfToken;?>"},
+            submit : 'Save',
+            callback: function(response){
+				var container	=	getByContainer();
+				if(response == 'success'){
+                    $j('#'+container).load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>');
+                } else {
+					$j("#update-message")
+						.addClass('error-msg')
+						.html(response)
+						.fadeIn();
+					smoothScroll('update-message');
+					setTimeout(function() { $j("#update-message").fadeOut();}, 10000 );
+					$j('#'+container).load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>');
+				}
+            }
+        });
+        
+        /****** CHANGE TODO ITEM ASSIGN *******/
+        $j('.changeAssign').editable('<?php echo Yii::app()->params->base_path;?>user/addToDoItem/edit/true', { 
+            indicator : '<img src="'+BASHPATH+'images/progress_indicator_16_gray_transparent.gif">',
+            type   : 'text',
+            submitdata : {<?php echo Yii::app()->request->csrfTokenName;?>:"<?php echo Yii::app()->request->csrfToken;?>"},
+            submit : 'Save',
+            callback: function(response){
+                var obj = $j.parseJSON(response),
+                    container	=	getByContainer();
+                if(obj.status == 0){
+                    $j("#update-message")
+                        .removeClass()
+                        .addClass('msg_success')
+                        .html('Item assigned successfully')
+                        .fadeIn();
+                    $j('#'+container).load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>');
+                } else {
+                    $j("#update-message")
+                        .removeClass()
+                        .addClass('error-msg')
+                        .html(obj.message)
+                        .fadeIn();
+                    smoothScroll('update-message');
+                    $j('#'+container).load('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>');
+                }
+                setTimeout(function() { $j("#update-message").fadeOut();}, 10000 );
+            }
+        });
+        
+    $j('.deleteAssignBymeTodo').click(function(){
+            
+        var details	=	$j(this).attr('lang'),
+        id	=	details.split('*');
+        value	=	$j(this).attr('rel');
+        
+        jConfirm('##_ASSIGNED_BY_ME_AJAX_CLOSE_TODO_##', 'Confirmation dialog', function(res){
+            if(res == true){
+                $j.ajax({
+                    url: '<?php echo Yii::app()->params->base_path;?>user/changeItemStatus/id/'+id[0]+'/stat/'+value,
+                    success: function(response){
+                        var obj	=	$j.parseJSON(response),
+                            container	=	getByContainer();
+                        if( obj.status == 0 ) {
+                            if( id[1] == 'close' ) {
+                                $j("#contentrow_"+id[0]).fadeOut(0);
+                                loadBoxContent('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>',container);
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    });
+    
+    
+        /**********CHANGE TODO ITEM DESCRIPTION********/
+        $j('.changedescription').editable('<?php echo Yii::app()->params->base_path;?>user/changeItemField/field/description', { 
+            indicator : '<img src="'+BASHPATH+'images/progress_indicator_16_gray_transparent.gif">',
+            type   : 'textarea',
+            submitdata : {<?php echo Yii::app()->request->csrfTokenName;?>:"<?php echo Yii::app()->request->csrfToken;?>"},
+            submit : 'Save',
+            callback: function(response){
+                if(response == 'success'){
+                    var container	=	getByContainer();
+                    loadBoxContent('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>',container);
+                }
+            }
+        });
+        
+        $j('.remindAgain').click(function(){
+            var data	=	$j(this).attr('lang');
+            var details	=	data.split('*');
+                            
+            jConfirm('Send reminder again?', 'Confirmation dialog', function(res){
+                if(res == true){
+                    $j.ajax({
+                        url: '<?php echo Yii::app()->params->base_path;?>'+details[1]+'/itemId/'+details[0],
+                        data: 'json',
+                        success: function(response){
+                            var obj	=	$j.parseJSON(response);
+                            if(obj.status == 0) {
+                                $j("#update-message").removeClass().addClass('msg_success');
+                                $j("#update-message").html('Reminder sent successfully');
+                                $j("#update-message").fadeIn();
+                                setTimeout(function() 
+                                {
+                                    $j('#update-message').fadeOut();
+                                }, 10000 );
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        
+		        
+    });
+    </script>
+    <script type="text/javascript">
+        
+		function searchFromAssignByMeTodo()
+        {	
+		//$j('#update-message').removeClass().html('<div class="updateLoader"><img src="'+imgPath+'/spinner-small.gif" alt="loading" border="0" /> Loading...</div>').show();
+				container	=	getByContainer();
+            $j.ajax({
+                    type: 'POST',
+                    url: '<?php echo Yii::app()->params->base_path;?>user/AssignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>'+'<?php echo  $extraPaginationPara;?>',
+                    data: $j("#assignByMeSearch").serialize(),
+                    cache: false,
+                    success: function(data)
+                    {
+                        $j('#'+container).html(data);
+						
+                    }
+                });
+				//$j('#update-message').removeClass().html('<div class="updateLoader"><img src="'+imgPath+'/spinner-small.gif" alt="loading" border="0" /> Loading...</div>').hide();
+            
+        }
+        function updateByShowStatus( field, status, url ) {
+            $j.ajax({
+                url	: '<?php echo Yii::app()->params->base_path;?>user/changeShowStatus',
+                data : 'field='+field+'&status='+status+'&'+csrfToken,
+                type : 'POST',
+                dataType : 'json',
+                success : function(response) {
+                    if( response.status == 0 ) {
+                        var container	=	getByContainer();
+						loadBoxContent('<?php echo Yii::app()->params->base_path;?>user/'+url+'<?php echo  $extraPaginationPara;?>',container);
+                    }
+                }
+            });
+        }
+    </script>
+    <iframe id="frame1" style="display:none"></iframe>
+    <div class="listHeading" align="right">
+        <div class="label reddot greendot">
+            <p>
+            	##_ASSIGNED_BY_ME_AJAX_## <span class="green"><?php if( $assignbyme['moreflag'] == 1 ) { echo '('.$assignbyme['count'].')'; }?></span>
+            </p>
+            <?php
+            if( $assignbyme['count'] > 0 && $assignbyme['moreflag'] == 0 ){ ?>
+                <p class="reddot-bg">
+                    <a class="spch-bubble-inside" href="javascript:;"><span class="bubblepoint"></span>
+                        <em id="assignedByBubble"><?php echo $assignbyme['count']; ?></em>
+                    </a>
+                </p>
+            <?php 
+            } ?>
+        </div>
+        <div class="floatRight">
+            <div>
+				<?php echo CHtml::beginForm(Yii::app()->params->base_path,'post',array('id' => 'assignByMeSearch','name' => 'assignByMeSearch','onsubmit' => 'return false;')) ?>
+                    <input type="text" name="keywordAssignByMe" id="searchAssignByMeText" onkeypress="if(event.keyCode==13){searchFromAssignByMeTodo();}"   value="<?php echo $extraPara['keywordAssignByMe'];?>" class="textbox floatLeft" />
+                    <input type="button" class="searchImg floatLeft" name="searchBtn" id="searchBtnAssignByMeTodo" onclick="searchFromAssignByMeTodo();"  />
+				<?php echo CHtml::endForm(); ?>
+            </div>
+            <div class="topOptions">
+                <div class="checkbox1"><input type="checkbox" <?php if( $assignbyme['user']['byMeOpenStatus'] == 1 ) {?>onchange="updateByShowStatus('byMeOpenStatus', 0, 'assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>')" checked="checked" <?php } else {?> onchange="updateByShowStatus('byMeOpenStatus', 1, 'assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>')"<?php }?> id="assignByMeOpen" name="assignByMeOpen" /><span>Open</span></div>
+                <div class="checkbox1"><input type="checkbox" <?php if( $assignbyme['user']['byMeDoneStatus'] == 3 ) {?>onchange="updateByShowStatus('byMeDoneStatus', 0, 'assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>')" checked="checked" <?php } else {?> onchange="updateByShowStatus('byMeDoneStatus', 3, 'assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>')"<?php }?> id="assignByMeDone" name="assignByMeDone" /><span>Done</span></div>
+                <div class="checkbox1"><input type="checkbox" <?php if( $assignbyme['user']['byMeCloseStatus'] == 4 ) {?>onchange="updateByShowStatus('byMeCloseStatus', 0, 'assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>')" checked="checked" <?php } else {?> onchange="updateByShowStatus('byMeCloseStatus', 4, 'assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>')"<?php }?> id="assignByMeClose" name="assignByMeClose" /><span>Close</span></div>
+                <span class="floatRight"><b>##_OTHER_TODO_AJAX_SHOWS_##:</b></span>
+            	<div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <table cellpadding="0" cellspacing="0" border="0" class="listing width690">
+        <tr>
+            <th width="5%">##_ASSIGNED_BY_ME_AJAX_NO_##</th>
+            
+            <th width="12%">
+            <?php
+            if(count($assignbyme['items']) > 0){ ?>
+                <a href="javascript:;" class="sortByMe" lang='<?php Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>/sortType/<?php echo $assignbyme['sortType'];?>/sortBy/assignedToFname/flag/1' >##_ASSIGNED_BY_ME_AJAX_TO##
+                <?php 
+                if($assignbyme['img_name'] != '' && $assignbyme['sortBy'] == 'assignedToFname'){ ?>
+                    <img src="<?php echo Yii::app()->params->base_url;?>images/<?php echo $assignbyme['img_name'];?>" class="sortImage" />
+                    <?php
+                } ?>
+                </a>
+            <?php 
+            } else { ?>
+                ##_ASSIGNED_BY_ME_AJAX_TO##
+            <?php 
+            } ?>
+            </th>
+            
+            <th width="12%">
+            <?php
+            if(count($assignbyme['items']) > 0){ ?>
+                <a href="javascript:;" class="sortByMe" lang='<?php Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>/sortType/<?php echo $assignbyme['sortType'];?>/sortBy/listName/flag/1' >##_ASSIGNED_BY_ME_AJAX_LIST_NAME##
+                <?php 
+                if($assignbyme['img_name'] != '' && $assignbyme['sortBy'] == 'listName'){ ?>
+                    <img src="<?php echo Yii::app()->params->base_url;?>images/<?php echo $assignbyme['img_name'];?>" class="sortImage" />
+                    <?php
+                } ?>
+                </a>
+            <?php 
+            } else { ?>
+                ##_ASSIGNED_BY_ME_AJAX_LIST_NAME##
+            <?php 
+            } ?>
+            </th>
+            
+            <th width="36%">
+            <?php
+            if(count($assignbyme['items']) > 0){ ?>
+                <a href="javascript:;" class="sortByMe" lang='<?php Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>/sortType/<?php echo $assignbyme['sortType'];?>/sortBy/title/flag/1' >##_ASSIGNED_BY_ME_AJAX_TITLE_##
+                <?php 
+                if($assignbyme['img_name'] != '' && $assignbyme['sortBy'] == 'title'){ ?>
+                    <img src="<?php echo Yii::app()->params->base_url;?>images/<?php echo $assignbyme['img_name'];?>" class="sortImage" />
+                    <?php
+                } ?>
+                </a>
+            <?php 
+            } else { ?>
+                ##_ASSIGNED_BY_ME_AJAX_TITLE_##
+            <?php 
+            } ?>
+            </th>
+            
+            <th width="8%">
+            <?php
+            if(count($assignbyme['items']) > 0){ ?>
+                <a href="javascript:;" class="sortByMe" lang='<?php Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>/sortType/<?php echo $assignbyme['sortType'];?>/sortBy/dueDate/flag/1' >##_ASSIGNED_BY_ME_AJAX_DUE_DATE_##
+                <?php 
+                if($assignbyme['img_name'] != '' && $assignbyme['sortBy'] == 'dueDate'){ ?>
+                    <img src="<?php echo Yii::app()->params->base_url;?>images/<?php echo $assignbyme['img_name'];?>" class="sortImage" />
+                    <?php
+                } ?>
+                </a>
+            <?php 
+            } else { ?>
+                ##_ASSIGNED_BY_ME_AJAX_DUE_DATE_##
+            <?php 
+            } ?>
+            </th>
+            
+            <th width="5%">
+            <?php
+            if(count($assignbyme['items']) > 0){ ?>
+                <a href="javascript:;" class="sortByMe" lang='<?php Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>/sortType/<?php echo $assignbyme['sortType'];?>/sortBy/priority/flag/1' >##_ASSIGNED_BY_ME_AJAX_PRIORITY_##
+                <?php 
+                if($assignbyme['img_name'] != '' && $assignbyme['sortBy'] == 'priority'){ ?>
+                    <img src="<?php echo Yii::app()->params->base_url;?>images/<?php echo $assignbyme['img_name'];?>" class="sortImage" />
+                    <?php
+                } ?>
+                </a>
+            <?php 
+            } else { ?>
+                ##_ASSIGNED_BY_ME_AJAX_PRIORITY_##
+            <?php 
+            } ?>
+            </th>
+            
+            <th width="9%">
+            <?php
+            if(count($assignbyme['items']) > 0){ ?>
+                <a href="javascript:;" class="sortByMe" lang='<?php Yii::app()->params->base_path;?>user/assignedByMeTodoItem/moreflag/<?php echo $assignbyme['moreflag'];?>/sortType/<?php echo $assignbyme['sortType'];?>/sortBy/status/flag/1' >##_ASSIGNED_BY_ME_AJAX_STATUS_##
+                <?php 
+                if($assignbyme['img_name'] != '' && $assignbyme['sortBy'] == 'status'){ ?>
+                    <img src="<?php echo Yii::app()->params->base_url;?>images/<?php echo $assignbyme['img_name'];?>" class="sortImage" />
+                    <?php
+                } ?>
+                </a>
+            <?php 
+            } else { ?>
+                ##_ASSIGNED_BY_ME_AJAX_STATUS_##
+            <?php 
+            } ?>
+            </th>
+            
+            <th width="23%" class="lastcolumn">&nbsp;</th>
+        </tr>
+        <?php 
+          if(count($assignbyme['items']) > 0){
+            foreach($assignbyme['items'] as $row) { ?>
+            <tr id="contentrow_<?php echo $row['id'];?>">
+                <td><?php echo $row['id'] ?></td>
+                <td class="changeAssign" id="assign_<?php echo $row['id'];?>" lang="<?php echo $row['id'];?>"><?php echo $row['assignedByFname'] .' '. $row['assignedByLname']; ?></td>
+                <td class="changeList" id="list_<?php echo $row['id'];?>" lang="<?php echo $row['id'];?>">
+                    <?php echo $row['listName']; ?> <?php if(isset($seen) && in_array($row['listName'],$seen)) { echo " - " .$row['listOwner']; } ?>
+                </td>
+                
+                <td>
+					<?php if( $row['commentCount'] > 0 )
+                    {
+                    ?>
+                    <span class="commentIcon">
+                        <a href="javascript:;" onclick="setUrl('<?php echo Yii::app()->params->base_path;?>user/itemDescription/id/<?php echo $row['id'];?>/flag/<?php echo $assignbyme['moreflag'];?>/url/assignedByMeTodoItem')" lang="<?php echo $row['id'];?>">
+                            <?php echo $row['commentCount']; ?>
+                        </a>
+                    </span>
+                    <?php } ?>
+                	<p class="changeTitle"  id="title_<?php echo $row['id'];?>" lang="<?php echo $row['id'];?>"><?php
+                    echo $row['title'];
+                    ?>
+                    </p>
+                    <div class="bubbleInfo">
+                        <div>
+                            <?php
+                            if( isset($row['description']) && $row['description'] != '' ) {
+                            ?>
+                            <a href="#" class="trigger">##_ASSIGNED_BY_ME_AJAX_MORE_##</a>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                         <?php
+                        if( isset($row['description']) && $row['description'] != '' ) {
+                        ?>
+                            <div id="#popup_tooltip_<?php echo $row['id'];?>" class="popup_tooltip" >
+                                <div class="popupbg"> <img src="<?php echo Yii::app()->params->base_url;?>images/tooltip/arrow.png" alt="" title="" class="popuparrow" />
+                                    <div class="summary">
+                                        <a  href="javascript:;" onclick="$j('.popup_tooltip').css('display','none');"><img src="<?php echo Yii::app()->params->base_url;?>images/tooltip/close.png" align="right" alt="" title="close" /></a><p class="headline changedescription"  id="description_<?php echo $row['id'];?>" lang="<?php echo $row['id'];?>"> <?php if( isset($row['description']) && $row['description'] != '' ){echo $row['description'];}else{ ?> ##_ASSIGNED_BY_ME_ASSIGNED_NO_DESC_##<?php }?></p></div>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="clear"></div>
+                </td>
+                
+                <?php
+				$generalObj=new General();
+				$dueDate=$generalObj->pastdue($row['dueDate'],$row['myTimeZone']);
+                ?>
+                
+                <td class="datepicker-initiative" style="color:<?php echo $dueDate['class'];?>;" id="dueDate_<?php echo $row['id'];?>" lang="<?php echo $row['id'];?>"><?php echo $dueDate['value'];?></td>
+                
+                
+                <td class="changePriority" id="priority_<?php echo $row['id'];?>" lang="<?php echo $row['id'];?>">
+                    <?php
+                    if($row['priority'] == 0){
+                        echo 'Low';
+                    } else if($row['priority'] == 1){
+                        echo 'Medium';
+                    }else if($row['priority'] == 2){
+                        echo 'High';
+                    } else{
+                        echo 'Urgent';
+                    }
+                    ?>
+                </td>
+                <?php
+                if($row['status'] == 1) {
+                    $class	=	'open';
+                    $value	=	'Open';
+                } else if($row['status'] == 2) {
+                    $class	=	'';
+                    $value	=	'QA';
+                } else if($row['status'] == 3) {
+                    $class	=	'done';
+                    $value	=	'Done';
+                } else {
+                    $class	=	'close';
+                    $value	=	'Close';
+                }
+                ?>
+                <td id="status_<?php echo $row['id'];?>" class="" lang="<?php echo $row['id'];?>">
+                    <?php
+                    if( $row ['status'] == 1  && Yii::app()->session['loginId']==$row['creater'] ){ ?>
+                    
+                        <input type="checkbox"  name="status" lang="<?php echo $row['id'].'*close';?>" class="statusChange" value="4" />
+                      <?php
+					}else if( $row ['status'] == 1  && Yii::app()->session['loginId']!=$row['creater'])
+					{
+					  ?>
+                      <input type="checkbox"  name="status" lang="<?php echo $row['id'].'*done';?>" class="statusChange" value="3" />
+                    <?php }else if( $row['status']==3 ){ 
+								
+					?>
+                    <input type="checkbox" checked="checked" name="status" lang="<?php echo $row['id'].'*open';?>" class="statusChange" value="1" />
+                    <?php
+                    } else { ?>
+                        <input type="checkbox"  name="status" lang="<?php echo $row['id'].'*open';?>" class="statusChange" value="1" />
+                    <?php
+                    } ?>
+                    <span class="<?php echo $class;?>"><?php echo $value;?></span>
+                </td>
+                
+                <td class="lastcolumn">
+                    <a href="javascript:;" onclick="setUrl('<?php echo Yii::app()->params->base_path;?>user/itemDescription/id/<?php echo $row['id'];?>/flag/<?php echo $assignbyme['moreflag'];?>/url/assignedByMeTodoItem')" lang="<?php echo $row['id'];?>" id="viewMore_<?php echo $row['id'];?>" class="viewIcon viewMore floatLeft noMartb" title="##_ASSIGNED_BY_ME_AJAX_VIEW_##">
+                    </a>
+                    
+                    <a href="<?php echo Yii::app()->params->base_path;?>user/reassignTask/id/<?php echo $row['id'];?>" id="reassign" class="reassign floatLeft noMartb" title="##_ASSIGNED_BY_ME_AJAX_REASSIGN_##"><img src="<?php echo Yii::app()->params->base_url;?>images/reassign.png" alt="Reassign" /></a>						
+                       <?php if($row ['status'] != 4 && Yii::app()->session['loginId']==$row['creater']){ ?>
+                  
+                    <a href="javascript:;" class="deleteAssignBymeTodo deleteIcon floatLeft noMartb " rel="4" lang="<?php echo $row['id'].'*close';?>" id="delete_<?php echo $row['id'];?>" title="##_ASSIGNED_BY_ME_AJAX_CLOSE_##"></a>      <?php } ?> 
+                    <a href="javascript:;" class="remindAgain floatLeft" lang="<?php echo $row['id'] . '*user/remindAgain';?>" title="##_ASSIGNED_BY_ME_AJAX_EMAIL_##"><img src="<?php echo Yii::app()->params->base_url;?>images/emailreminder.png" alt="email" /></a>
+                        
+                    <?php
+                    if( isset($row['attachmentFile']) && $row['attachmentFile'] != '' ) {
+                    ?>
+                        <a href="javascript:forceDownload('<?php echo Yii::app()->params->base_path;?>upload/getAttach/dir/<?php echo $row['attachmentDir'];?>/fileName/<?php echo $row['attachmentFile'];?>')" class="floatLeft">
+                            <img src="<?php echo Yii::app()->params->base_url;?>images/attachment.png" />
+                        </a>
+                    <?php
+                    }?>
+                </td>
+            </tr>
+        <?php 
+            }
+        } else { ?>
+        <tr>
+            <td colspan="9" class="lastcolumn">
+                ##_ASSIGNED_BY_ME_AJAX_NO_ITEM_##
+            </td>
+        </tr>
+    <?php
+    } ?>
+    </table>                 
+    <?php 
+        if(!empty($assignbyme['pagination']) && $assignbyme['pagination']->getItemCount()  > $assignbyme['pagination']->getLimit()){?>
+    <div class="pagination">
+        <?php
+        $this->widget('application.extensions.WebPager', 
+                        array('cssFile'=>true,
+                                'extraPara'=>$extraPaginationPara,
+                                 'pages' => $assignbyme['pagination'],
+                                 'id'=>'link_pager1',
+        ));
+        ?> </div> <?php
+        }
+        ?>
+    <script type="text/javascript">
+    $j(document).ready(function(){
+        $j('#link_pager1 a').each(function(){
+            $j(this).click(function(ev){
+                ev.preventDefault();
+                $j.get(this.href,{ajax:true},function(html){
+                    var container	=	getByContainer();
+                    $j('#'+container).html(html);
+                });
+            });
+        });
+    });
+    </script>
+    <script type="text/javascript">
+    $j(function () {
+    $j('.bubbleInfo').each(function () {
+    var distance = 10;
+    var time = 250;
+    var hideDelay = 500;
+    
+    var hideDelayTimer = null;
+    
+    var beingShown = false;
+    var shown = false;
+    var trigger = $j('.trigger', this);
+    var info = $j('.popup_tooltip', this).css('opacity', 0);
+    
+    
+    $j([trigger.get(0), info.get(0)]).mouseover(function () {
+        if (hideDelayTimer) clearTimeout(hideDelayTimer);
+        if (beingShown || shown) {
+            // don't trigger the animation again
+            return;
+        } else {
+            // reset position of info box
+            beingShown = true;
+    
+            info.css({
+                top:10,
+                left:20,
+                display: 'block'
+            }).animate({
+                top: '-=' + distance + 'px',
+                opacity: 1
+            }, time, 'swing', function() {
+                beingShown = false;
+                shown = true;
+            });
+        }
+    
+        return false;
+    }).mouseout(function () {
+        if (hideDelayTimer) clearTimeout(hideDelayTimer);
+        hideDelayTimer = setTimeout(function () {
+            hideDelayTimer = null;
+            info.animate({
+                top: '-=' + distance + 'px',
+                opacity: 0
+            }, time, 'swing', function () {
+                shown = false;
+                info.css('display', 'none');
+            });
+    
+        }, hideDelay);
+    
+        return false;
+    });
+    
+    });
+    });
+    </script>
+<?php
+if($assignbyme['moreflag']==1){?>
+</div>
+<?php
+}?>
+<script type="text/javascript">
+$j(document).ready(function () {
+	var flag	=	'<?php echo $assignbyme['moreflag'];?>';
+	if( flag == 1 ) {
+		window.currentPage	=	2;
+	}
+	window.extraPara="<?php echo $extraPaginationPara?>";
+});
+</script>

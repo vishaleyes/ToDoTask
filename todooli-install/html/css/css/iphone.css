@@ -1,0 +1,56 @@
+.title		{ margin:0px 0px; padding:5px 0px 5px 10px; background:#0080C8; font-weight:bold; color:#FFFFFF; text-align:left;}
+.blue-area	{ margin:0px; padding:0px; height:32px; background:#0080C8;}
+
+.page-nav 	{ margin:5px 0px 0px 0px; padding:6px 0px 6px 10px; background:#0080C8; text-align:left;}
+.page-nav a	{text-decoration:none; font-size:14px; font-weight:bold; color:#FFFFFF; text-align:left;}
+.page-nav a:active{ color:#FFFFFF;}
+
+.btn	{ margin:5px 0px; padding:4px 8px; width:auto; border:solid 1px #b9c6da; font-family: 'Droid Sans Mono', arial, serif; 		  font-weight:bold; cursor:pointer; font-size:14px; color:#109FD5;  
+		  border-radius:3px; -moz-border-radius:3px; background:#f1f1f5; 
+		  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f1f1f5)); 
+		  background: -moz-linear-gradient(top, #ffffff, #f1f1f5); 
+		  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f5');}
+.btn:hover{ border:solid 1px #109FD5; background:#f1f1f5; 
+			background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f5), to(#ffffff)); 
+			background: -moz-linear-gradient(top, #f1f1f5, #ffffff); 
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f5', endColorstr='#ffffff');}
+			
+.textbox			{ margin:5px 0px; padding:0px 3px;border-radius:3px;  border:solid 1px #D8F4FF; height:32px; line-height:32px; font-size:small; color:#333; width:100%;}
+.textbox:focus		{ border:solid 1px #7DBEF1; background:#fff; box-shadow:2px 2px 2px #f2ebfa; -moz-box-shadow:0px 0px 10px #C2E3FC; }
+.textarea			{ margin:5px 0px; padding:3px; border-radius:3px; -moz-border-radius:3px; border:solid 1px #D8F4FF; height:55px; line-height:normal; font-size:small; color:#333; width:100%;}
+.textarea:focus		{ border:solid 1px #7DBEF1; background:#fff; box-shadow:2px 2px 2px #f2ebfa; -moz-box-shadow:0px 0px 10px #C2E3FC; }
+.select-box			{ margin:5px 0px; padding:5px 3px;border-radius:3px; -moz-border-radius:3px; border:solid 1px #D8F4FF; height:32px; line-height:32px; font-size:small; color:#333; width:100%;}	
+
+
+.textbox2		{ margin:5px 0px; padding:0px 3px;border-radius:3px; -moz-border-radius:3px; border:solid 1px #D8F4FF; height:32px; line-height:32px; font-size:small; color:#333; width:100%;}
+.textbox2:focus	{ border:solid 1px #7DBEF1; background:#fff; box-shadow:2px 2px 2px #f2ebfa; -moz-box-shadow:0px 0px 10px #C2E3FC; }
+.textarea2		{ margin:5px 0px; padding:3px; border-radius:3px; -moz-border-radius:3px; border:solid 1px #D8F4FF; height:35px; line-height:normal; font-size:small; color:#333; width:100%;}
+.textarea2:focus{ border:solid 1px #7DBEF1; background:#fff; box-shadow:2px 2px 2px #f2ebfa; -moz-box-shadow:0px 0px 10px #C2E3FC; }
+.select-box2	{ margin:5px 0px; padding:5px 3px;border-radius:3px; -moz-border-radius:3px; border:solid 1px #D8F4FF; height:40px; line-height:normal; font-size:small; color:#333; width:100%;}	
+
+.confirmation	{ border:5px solid #007DC8; border-radius:18px; margin:2%; padding:3%; background:#fff; display:block; width:78%; float:left;}
+.line		{ margin:0px 0px; padding:2px 0px 0px 0px; background:#0080C8; font-weight:bold; color:#FFFFFF; text-align:left;}
+
+ul.yiiPager {font-size:11px;border:0;margin:0;padding:0;line-height:100%;display:inline;}
+
+ul.yiiPager li{display:block; float:left; margin:0px 3px;}
+ul.yiiPager li a{ display:block; line-height:22px; width:13px;}
+.pagination ul li a {width:32px !important;}
+ul.yiiPager li.previous-hidden{ display:block; background:url(../img/iphone-pagination.png) no-repeat -1px top; width:32px; height:25px;}
+ul.yiiPager li.previous{ display:block; background:url(../img/iphone-pagination.png) no-repeat -35px top; width:32px; height:25px;}
+
+ul.yiiPager li.first-hidden{ display:block; background:url(../img/pagination.png) no-repeat -24px top; width:22px; height:21px;}
+ul.yiiPager li.first{ display:block; background:url(../img/pagination.png) no-repeat 0px top; width:22px; height:21px;}
+
+ul.yiiPager li.next-hidden{ display:block; background:url(../img/iphone-pagination.png) no-repeat -103px top; width:32px; height:25px;}
+ul.yiiPager li.next{ display:block;background:url(../img/iphone-pagination.png) no-repeat -69px top; width:32px; height:25px;}
+
+ul.yiiPager li.last-hidden{ display:block; background:url(../img/findjobsnear/pagination.png) no-repeat -48px top; width:22px; height:21px;}
+ul.yiiPager li.last{ display:block; background:url(../img/pagination.png) no-repeat -72px top; width:22px; height:21px;}
+
+ul.yiiPager li.page{ display:block; width:22px; font-size:11px; line-height:23px; height:21px; color:#555; text-align:center;}
+ul.yiiPager li.page:hover{ display:block; width:20px; font-size:11px; line-height:21px; height:19px; 
+				border-radius:2px; color:#333; background:#F3F2F2; border:1px solid #39859c;}
+ul.yiiPager li.selected	{ display:block; width:20px; font-size:11px; line-height:23px; height:19px; 
+				  border-radius:2px; color:#333; background:#F3F2F2; border:1px solid #39859c;}			
+ul.yiiPager li.selected a{ color:#666;}

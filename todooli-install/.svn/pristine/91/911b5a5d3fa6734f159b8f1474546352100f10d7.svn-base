@@ -1,0 +1,69 @@
+<script type="text/javascript">
+$j(document).ready(function() {
+	
+	$j('.deleteComment').click(function(){
+		var id	=	$j(this).attr('lang');
+		deleteComment(id);
+	});
+	
+	function deleteComment(id){
+		$j.ajax({
+			url: '<?php echo Yii::app()->params->base_path;?>user/deleteComment/id/'+id,
+			success: function(response){
+				if(response == 'success'){
+					$j('#comment_'+id).html('');
+				}
+			}
+		});
+	}
+
+});
+</script>
+<script type="text/javascript">
+function forceDownload(url) {
+	var ifrm = document.getElementById('frame1');
+    ifrm.src = url;
+}
+</script>
+<iframe id="frame1" style="display:none"></iframe>
+<div class="response">
+	<?php 
+    foreach($data as $comments){ ?>
+    <div id="comment_<?php echo $comments['id'];?>">
+        <div class="comment">
+        	<div>
+                <?php
+                if(isset($comments['avatar']) && $comments['avatar'] != ''){ ?>
+                    <img src="<?php echo Yii::app()->params->base_path; ?>upload/getAvatar/dir/<?php echo $comments['imageDir'];?>/fileName/<?php echo $comments['avatar'];?>" />
+                <?php
+                } else {?>
+                    <img src="<?php echo Yii::app()->params->base_url;?>images/1.png" alt="" border="0" />
+                <?php 
+                }?>
+                <p><?php echo $comments['createdAt'];?></p>
+            </div>
+            <div class="commnet-data">
+                <h2><?php echo $comments['commentedByFname'].' '.$comments['commentedByLname'];?></h2>
+                <p><?php echo $comments['commentText']; ?></p>
+                <?php
+                if( isset($comments['attachmentFile']) && $comments['attachmentFile'] != '' ) {
+                ?>
+                    <span>
+                        <a href="javascript:forceDownload('<?php echo Yii::app()->params->base_path;?>upload/getAttach/dir/<?php echo $comments['attachmentDir'];?>/fileName/<?php echo $comments['attachmentFile'];?>')" >
+                            <img src="<?php echo Yii::app()->params->base_url;?>images/attachment.png" />
+                        </a>
+                    </span>
+                <?php
+                }?>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <?php
+    } 
+    if(empty($data)){
+        echo '##_COMMENT_NO_COMMENTS_##';
+    }
+    ?>
+</div>
+<div class="clear"></div>

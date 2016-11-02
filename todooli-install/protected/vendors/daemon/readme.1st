@@ -1,0 +1,48 @@
+We have following daemons:
+
+hirenow
+contact_seekers
+seekers_response
+send_sms
+rcv_sms
+send_email
+
+And, we user signal_server.php and daemon_starter.php to distribute signals or start/stop daemons.
+
+There pid and logs are stored in /var/www/html/logs/daemons directory. These logs can be seen by /logs/showdaemons.php
+
+It works like this:
+
+1. When employer presses hirenow button -> add to hirenow_request and send a signal
+to hirenow daemon.
+2. hirenow daemons look for matching seekers and adds them in a matching_seekers table and sends a signal to contact_seekers
+3. contact_seekers figures out the communication preferences for the matching seekers and queues a SMS or queues an email in outgoing_SMS table or outgoing_email table and sends signal to send_sms as well as send_email
+4. send_sms will send SMS messages based using our SMS gateway API
+5. send_email will send email messages 
+----> Our seekers now have alerts
+
+6. Whenever a seeker replies that he is interested then an entry is added to active_seekers tables and a signal is sent to seekers_response which is collecting all the active seekers respones. 
+----> We now have active seekers which we show to the employer
+
+These daemons are all started by: monitor_daemons.sh
+//
+// this script should be started at startup of system or whenever we reboot
+// if you are changing daemons, kill this script first and restart it
+//
+
+All the above daemons act upon SIGUSR1
+
+To wake up a daemon, use the message name same as daemon name and send to that daemon using code similar to:
+
+    $this->load->library('base/signals_lib');
+    $this->signals_lib->get_queue(APP_QUEUE_ID);
+    $this->signals_lib->send_msg("send_sms");
+
+All constants of code are defined in one place.
+
+define("APP_QUEUE_ID",                          "100379");
+
+This message queue is used through out for signals.
+
+
+

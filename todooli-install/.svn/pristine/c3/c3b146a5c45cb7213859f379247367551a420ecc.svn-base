@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1 a		{ color:#217BB7;}
+
+/*.header			{ margin:0px; padding:0px; background:url(../../images/todooliapp/header_bg.png) repeat; height:113px;}*/
+
+.forgot-link	{ margin:0px 0px 0px 5px; line-height:25px; float:left; font-size:13px;}
+
+.menu-bar		{ margin:11px auto 0px auto; .margin:8px auto 0px auto; padding:0px; background:url(../../images/todooliapp/menu-bar-bg.png) repeat-x; height:29px; width:962px; float:left;}
+
+.textbox		{ margin:5px 0px;}
+.textarea		{ margin:5px 0px;}
+
+.textbox1		{ margin:0px; padding:0px 3px; background:#FFFFFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; border:solid 1px #A590BE; height:22px; line-height:22px; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333; width:310px;}
+.textbox2		{ margin:0px; padding:0px 3px; background:#FFFFFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; border:solid 1px #A590BE; height:28px; line-height:28px; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333; width:250px;}
+.textbox2:focus { border:solid 1px #7DBEF1; background:#fff; box-shadow:2px 2px 2px #f2ebfa; 
+				  -moz-box-shadow:0px 0px 10px #C2E3FC; -webkit-box-shadow:0px 0px 10px #C2E3FC; }
+				  
+.select-box	{ margin:5px 0px; padding:5px 5px; width:320px; height:28px; line-height:20px; }
+.select-box2{ width:232px; border:1px solid #A0A0A0;border-radius:3px 3px 3px 3px; color:#333333; font-size:12px; height:25px; line-height:25px; margin:0; padding:3px 4px;}
+.select-box3{ margin:5px 0px; padding:5px 5px; width:212px; border:1px solid #A590BE; border-radius:3px 3px 3px 3px; color:#333333; font-size:14px; height:31px; line-height:25px;}
+
+.find-seeker th	{ background:#43A2C1;}
+.popup-table .textbox{ border:solid 1px #A0A0A0; height:30px; line-height:30px;}
+.popup-table .textarea{ border:solid 1px #A0A0A0;}
+.popup-table .textbox:focus{ border:solid 1px #7DBEF1;}
+.popup-table .textarea:focus{ border:solid 1px #7DBEF1;}
+
+.msg_success{ margin:0px; padding:10px 5px 10px 30px; width:97%; box-shadow:1px 1px 3px #B8CEA7; -moz-box-shadow:1px 1px 3px #B8CEA7; background:#E8F7DC url(../../images/success-icon.png) no-repeat left; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#337A2B; border:solid 1px #9CB786; text-align:left;}
+.clearmsg	{ margin:0px; padding:10px 5px 10px 30px; width:97%; box-shadow:1px 1px 3px #B8CEA7; -moz-box-shadow:1px 1px 3px #B8CEA7; background:#E8F7DC url(../../images/success-icon.png) no-repeat left; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#337A2B; border:solid 1px #9CB786; text-align:left;}
+
+.content-box	{ border:solid 1px #D7D7D7; border-top:none;}
+
+.ltf_box	 	{ background:#E7F3F7; border:solid 1px #BCD8D8;}
+.ltf_button		{color:#FFF; font-size:14px; float:left; line-height:20px; background:#2E77AA; border:1px solid #000; border-radius:0px; cursor:pointer;}
+.ltf_button:hover{color:#FFF; font-size:14px; float:left; line-height:20px; background:#105482; border:1px solid #000;}
+.ltf_button1	{color:#FFF; font-size:14px; float:left; line-height:20px; background:#2E77AA; border:1px solid #000;}
+.ltf_button1:hover{color:#FFF; font-size:14px; float:left; line-height:20px; background:#105482; border:1px solid #000;}
+label.ltf_or			{ margin:2px 8px;line-height:17px;}
+a.ltf_cancel		{width:65px !important; line-height:20px !important; color:#2E77AA !important; font-size:14px !important; font-weight:normal !important;}
+a.ltf_cancel:hover{ color:#2E77AA !important; text-decoration:none !important;}
+
+/* New Pagination Class */
+
+.paging		{ margin:0px auto; padding:5px; text-align:right; color:#5f4967; font-family: 'Droid Sans Mono', arial, serif; font-size:13px; float:right; position:relative; top:-33px; right:370px;}
+.paging a	{ margin:0px 5px; padding:0px 5px; color:#897192;}
+a.current-page{ border:solid 1px #2187CE; background:#CFECFF;}
+.active		{ margin:5px 0px; padding:0px; text-align:right; font-size:12px; color:#5f4967;}
+.active img	{ padding-left:5px;}
+
+.pagination		{ margin:0px 0px; padding:12px 10px 0px 0px; height:28px; line-height:38px; text-align:right !important;
+				  color:#81678a; font-size:12px; font-family: 'Droid Sans Mono', arial, serif; background:none; }
+.pagination span{ margin:0px 3px 0px 3px; display:block; text-align:right;}
+.pagination a	{ margin:0px 3px 0px 3px; display:block; float:left;}
+
+.pagingNum{	margin:0 0px 0 10px; float:right; }
+.records {
+	width:150px;
+	margin:0 auto;
+	text-align:center;
+}
+
+a.aPrew{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat -120px top;
+	width:22px;
+	height:21px;
+}
+a.nPrew{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat -96px top;
+	width:22px;
+	height:21px;
+}
+a.aFirst{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat 0px top;
+	width:22px;
+	height:21px;
+}
+a.nFirst{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat -24px top;
+	width:22px;
+	height:21px;
+}
+
+a.aNext{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat -168px top;
+	width:22px;
+	height:21px;
+}
+a.nNext{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat -144px top;
+	width:22px;
+	height:21px;
+}
+a.aLast{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat -72px top;
+	width:22px;
+	height:21px;
+}
+a.nLast{
+	display:block;
+	background:url(../../images/todooliapp/pagination.png) no-repeat -48px top;
+	width:22px;
+	height:21px;
+}
+a.navNum{
+	display:block;
+	width:22px;
+	font-size:11px;
+	line-height:23px;
+	height:21px;
+	color:#555;
+	text-align:center !important;
+}
+a.navNum:hover
+{
+	display:block;
+	background:#F3F2F2;
+	width:20px;
+	font-size:11px;
+	line-height:21px;
+	height:19px;
+	border-radius:2px;
+	border:1px solid #39859c;
+	text-align:center !important;
+	color:#333;
+}
+a.navCurrentNum
+{
+	display:block;
+	background:#F3F2F2;
+	width:20px;
+	font-size:11px;
+	line-height:23px;
+	height:19px;
+	border-radius:2px;
+	border:1px solid #39859c;
+	text-align:center !important;
+	color:#333;
+}
+
+

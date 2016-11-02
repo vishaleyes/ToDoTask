@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine off
+</IfModule>
+AuthName "Restricted" 
+AuthType Basic 
+AuthUserFile /var/www/html2/logs/.jtpasswd 
+
+require valid-user

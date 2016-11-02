@@ -1,0 +1,880 @@
+<?php
+
+/**
+ * This is the model class for table "reminder".
+ *
+ * The followings are the available columns in table 'reminder':
+ * @property integer $id
+ * @property integer $userId
+ * @property integer $listId
+ * @property string $dueDate
+ * @property string $duration
+ * @property string $time
+ * @property string $createdDate
+ * @property string $modifiedDate
+ */
+class Reminder extends CActiveRecord
+{
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Reminder the static model class
+	 */
+	public $msg;
+	public $errorCode;
+	
+	public function __construct()
+	{
+		$this->msg = Yii::app()->params->msg;
+		$this->errorCode = Yii::app()->params->errorCode;
+	}
+	
+	
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'reminder';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('userId, listId, dueDate, duration, time, createdDate, modifiedDate', 'required'),
+			array('userId, listId', 'numerical', 'integerOnly'=>true),
+			array('duration', 'length', 'max'=>1),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('id, userId, listId, dueDate, duration, time, createdDate, modifiedDate', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+		);
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'userId' => 'User',
+			'listId' => 'List',
+			'dueDate' => 'Due Date',
+			'duration' => 'Duration',
+			'time' => 'Time',
+			'createdDate' => 'Created Date',
+			'modifiedDate' => 'Modified Date',
+		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('userId',$this->userId);
+		$criteria->compare('listId',$this->listId);
+		$criteria->compare('dueDate',$this->dueDate,true);
+		$criteria->compare('duration',$this->duration,true);
+		$criteria->compare('time',$this->time,true);
+		$criteria->compare('createdDate',$this->createdDate,true);
+		$criteria->compare('modifiedDate',$this->modifiedDate,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+	
+	// set the user data
+	function setData($data)
+	{
+		$this->data = $data;
+	}
+	
+	// insert the user
+	function insertData($id=NULL)
+	{
+		if($id!=NULL)
+		{
+			$transaction=$this->dbConnection->beginTransaction();
+			try
+			{
+				$post=$this->findByPk($id);
+				if(is_object($post))
+				{
+					$p=$this->data;
+					
+					foreach($p as $key=>$value)
+					{
+						$post->$key=$value;
+					}
+					$post->save(false);
+				}
+				$transaction->commit();
+			}
+			catch(Exception $e)
+			{						
+				$transaction->rollBack();
+			}
+			
+		}
+		else
+		{
+			$p=$this->data;
+			foreach($p as $key=>$value)
+			{
+				$this->$key=$value;
+			}
+			$this->setIsNewRecord(true);
+			$this->save(false);
+			return Yii::app()->db->getLastInsertID();
+		}
+		
+	}
+	
+	/*
+	DESCRIPTION : GET ALL REMINDERS BY USER ID
+	*/
+	public function getReminderByUserId($id=NULL)
+	{
+		$algo=new Algoencryption();
+		if( !is_numeric($id) ) {
+			$id	=	$algo->decrypt($id);
+		}
+		$reminders	=	Yii::app()->db->createCommand()
+						->select('*')
+						->from($this->tableName())
+						->where('userId=:userId', array(':userId'=>$id))
+						->queryAll();
+		
+		$todoListsObj	=	new TodoLists();
+		$index	=	0;
+		foreach($reminders as $reminder){
+			if($reminder['listId'] == 0) {
+				$reminders[$index]['listName']	=	'All lists';
+			} else {
+				$lists	=	explode(',', $reminder['listId']);
+				//$list	=	$todoListsObj->getMyListById($reminder['listId']);
+				$list	=	$todoListsObj->getReminderListByIds($lists);
+				$reminders[$index]['listName']	=	'';
+				for( $i=0; $i<count($list); $i++ ) {
+					if( $i == count($list)-1 ) {
+						$reminders[$index]['listName']	.=	$list[$i]['name'];
+					} else {
+						$reminders[$index]['listName']	.=	$list[$i]['name'].', ';
+					}
+				}
+				
+				
+			}
+			$reminders[$index]['id_encrypt'] =	$algo->encrypt($reminder['id']);
+			$index++;
+		}
+		
+		return $reminders;
+	}
+	
+	/*
+	DESCRIPTION : GET ALL REMINDERS BY ID
+	*/
+	public function getReminderById($id=NULL)
+	{
+		$algo=new Algoencryption();
+		if( !is_numeric($id) ) {
+			$id	=	$algo->decrypt($id);
+		}
+		$reminders	=	Yii::app()->db->createCommand()
+						->select('*')
+						->from($this->tableName())
+						->where('id=:id', array(':id'=>$id))
+						->queryRow();
+		
+		$todoListsObj	=	new TodoLists();
+		$algoencryptionObj	=	new General();
+		$index	=	0;
+		if(isset($reminders['listId']))
+		{
+			$reminders['reminderList']	=	explode(',', $reminders['listId']);
+			if($reminders['listId'] == 0) {
+				$reminders[$index]['listName']	=	'All lists';
+			} else {
+				$lists	=	explode(',', $reminders['listId']);
+				$list	=	$todoListsObj->getReminderListByIds($lists);
+				$reminders[$index]['listName']	=	'';
+				for( $i=0; $i<count($list); $i++ ) {
+					if( $i == count($list)-1 ) {
+						$reminders[$index]['listName']	.=	$list[$i]['name'];
+					} else {
+						$reminders[$index]['listName']	.=	$list[$i]['name'].', ';
+					}
+					
+				}
+				
+			}
+			$reminders['id_encrypt']  =	$algo->encrypt($reminders['id']);
+			$reminders['reminderTime']	=	$algoencryptionObj->rel_time($reminders['createdDate']);
+		}
+		
+		return $reminders;
+	}
+	
+	public function getAllReminder()
+	{
+		error_log('nextDate="'.date('Y-m-d').'"');
+		$reminders	=	Yii::app()->db->createCommand()
+						->select('*')
+						->where('nextDate="'.date('Y-m-d').'"')
+						->from($this->tableName())
+						->queryAll();
+		return $reminders;
+	}
+	
+	/*
+	DESCRIPTION : UPDATE NEXT DATE BY REMINDER ID
+	PARAMS : $array['id'] -> REMINDER ID AND $array['nextDate'] -> NEXT DATE
+	*/
+	public function updateNextReminder($array=NULL)
+	{
+		$reminder['nextDate']	=	$array['nextDate'];
+		$this->setData($reminder);
+		$this->insertData($array['id']);
+	}
+	
+	function getAllSummaryReminderEmail($listIds=NULL, $userId=NULL, $itemStatus=0)
+	{
+		error_reporting(E_ALL);
+		$todoListObj	=	new TodoLists();
+		$todoItemsObj	=	new TodoItems();
+		$loginObj	=	new Login();
+		$usersObj	=	new Users();
+		
+		$email	=	$loginObj->getVerifiedEmailById($userId);
+		$sms	=	$loginObj->getUserPhonesById($userId, 1);
+		
+		if( isset($listIds) && !in_array(0, $listIds) ) {
+			$allLists	=	$todoListObj->getReminderListByIds($listIds);
+		} else {
+			$allLists	=	$todoListObj->getAllMyList($userId);
+		}
+		
+		$res	=	$usersObj->getUserDetail($userId);
+		$userDetails    =  $res['result'];
+		$fullname	=	$userDetails['firstName'] . ' ' . $userDetails['lastName'];
+		$message	=	'';
+		$message	.=	'<table cellpadding="0" cellspacing="0" border="0">
+						 <tr>
+							<th style="background: none repeat scroll 0 0 #77A423; border-color: #D7D7D7; border-style: solid none solid solid; border-width: 1px medium 1px 1px; color: #fff; font-size: 13px; margin: 0; padding:8px 5px;">TODO List</th>
+							<th style="background: none repeat scroll 0 0 #77A423; border-color: #D7D7D7; border-style: solid none solid solid; border-width: 1px medium 1px 1px; color: #fff; font-size: 13px; margin: 0; padding:8px 5px;">Open TODO</th>
+							<th style="background: none repeat scroll 0 0 #77A423; border-color: #D7D7D7; border-style: solid none solid solid; border-width: 1px medium 1px 1px; color: #fff; font-size: 13px; margin: 0; padding:8px 5px;">Done TODO</th>
+							<th style="background: none repeat scroll 0 0 #77A423; border-color: #D7D7D7; border-style: solid; border-width: 1px; color: #fff; font-size: 13px; margin: 0; padding:8px 5px;">Close TODO</th>
+						 </tr>';
+						 
+		foreach( $allLists as $list ) {
+			$itemCount	=	$todoItemsObj->getItemCount($list['id'], $itemStatus);
+			if( $itemStatus == 1 ) {
+				$itemCount['done']	=	'-';
+				$itemCount['close']	=	'-';
+			}
+			if( $itemStatus == 2 ) {
+				$itemCount['open']	=	'-';
+				$itemCount['done']	=	'-';
+			}
+			$message	.=	'<tr>
+								<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding:3px 5px; text-align: left; vertical-align: top;">'.$list['name'].'</td>
+								<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding:3px 5px; text-align: left; vertical-align: top;">'.$itemCount['open'].'</td>
+								<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding:3px  5px; text-align: left; vertical-align: top;">'.$itemCount['done'].'</td>
+								<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;   border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding:3px 5px; text-align: left; vertical-align: top;">'.$itemCount['close'].'</td>
+							 </tr>' ;
+			
+		}
+		$message	.=	'</table>';
+		$url	=	Yii::app()->params->base_path.'templatemaster/setTemplate/lng/eng/file/all-list-summary';
+		$emailContent = file_get_contents($url);
+		$emailContent = str_replace("_USER_NAME_", $fullname, $emailContent);
+		$emailContent = str_replace("_LOGOBASEPATH_", Yii::app()->params->base_url.'images', $emailContent);
+		$emailContent = str_replace("_MESSAGE_", $message, $emailContent);
+		
+		return array('message'=>$emailContent, 'emailTo'=>$email);
+	}
+	
+	/*
+	DESCRIPTION : GET REMINDER EMAIL BY LIST ID AND USER ID
+	PARAMS : $listId -> LIST ID AND $userId -> USER ID
+	*/
+	public function getReminderEmail($listIds=NULL, $userId=NULL, $itemStatus=0, $dueDate=NULL)
+	{
+		$todoListObj	=	new TodoLists();
+		$todoItemsObj	=	new TodoItems();
+		$loginObj	=	new Login();
+		$usersObj	=	new Users();
+		
+		$email	=	$loginObj->getVerifiedEmailById($userId);
+		$sms	=	$loginObj->getUserPhonesById($userId, 1);
+		
+		if( isset($listIds) && !in_array(0, $listIds) ) {
+			$allLists	=	$todoListObj->getReminderListByIds($listIds);
+		}
+		
+		//$list	=	$todoListObj->getMyListById($listId);
+		$message	=	'';
+		foreach( $allLists as $list ) {
+			
+			$listDetails	=	$todoListObj->getMyListById($list['id']);
+			
+			$message	.=	'<tr>
+								<td><b>'.$listDetails['name'].' list</b></td>
+							 </tr>
+							 <tr>
+								<th style="background: none repeat scroll 0 0 #F4F3FB; border:solid 1px #d7d7d7; color: #555555; font-size: 13px; margin: 0; padding: 5px;">
+								'.$this->msg['_TMP_ALL_REM_ASSIGN_BY_'].'
+								</th>
+								<th style="background: none repeat scroll 0 0 #F4F3FB; border:solid 1px #d7d7d7; color: #555555; font-size: 13px; margin: 0; padding: 5px;">
+								'.$this->msg['_TMP_ALL_REM_ASSIGN_TO_'].'
+								</th>
+								<th style="background: none repeat scroll 0 0 #F4F3FB; border:solid 1px #d7d7d7; color: #555555; font-size: 13px; margin: 0; padding: 5px;">
+								'.$this->msg['_TMP_ALL_REM_TITLE_'].'
+								</th>
+								<th style="background: none repeat scroll 0 0 #F4F3FB; border:solid 1px #d7d7d7; color: #555555; font-size: 13px; margin: 0; padding: 5px;">
+								'.$this->msg['_TMP_ALL_REM_DUE_DATE_'].'
+								</th>
+								<th style="background: none repeat scroll 0 0 #F4F3FB; border:solid 1px #d7d7d7; color: #555555; font-size: 13px; margin: 0; padding: 5px;">
+								'.$this->msg['_TMP_ALL_REM_PRIORITY_'].'
+								</th>
+								<th style="background: none repeat scroll 0 0 #F4F3FB; border:solid 1px #d7d7d7; color: #555555; font-size: 13px; margin: 0; padding: 5px;">
+								'.$this->msg['_TMP_ALL_REM_STATUS_'].'
+								</th>
+							</tr>';
+			if( $itemStatus == 0 ) {
+				$items	=	$todoItemsObj->getItemsByList($list['id']);
+			} else if( $itemStatus == 2 ) {
+				$items	=	$todoItemsObj->getItemsByList($list['id'], 4);
+			}else {
+				$items	=	$todoItemsObj->getItemsByList($list['id'], $itemStatus);
+			}
+		
+			if( count($items) > 0 ) {
+				if( count($items) > 10 ) {
+					$limit	=	10;
+				} else {
+					$limit	=	count($items);
+				}
+				
+				for($i=0; $i<$limit; $i++){
+					
+					if( $items[$i]['assignedBy'] != 0 ) {	//	SELF ASSIGNED TODO ITEM
+						$res	=	$usersObj->getUserDetail($items[$i]['assignedBy']);
+					} else {
+						$res	=	$usersObj->getUserDetail($items[$i]['assignTo']);
+					}
+					$assignerDetails  = $res['result'];
+					if( $items[$i]['assignTo'] != 0 ) {		//	NEW USER EMAIL
+						$res	=	$usersObj->getUserDetail($items[$i]['assignTo']);
+						$assignToDetails  =  $res['result'];
+					} else {
+						$assignToDetails['firstName']	=	$items[$i]['assignToEmail'];
+						$assignToDetails['lastName']	=	'';
+					}
+					if($items[$i]['priority'] == 0){
+						$priority	=	'Low';
+					} else if($items[$i]['priority'] == 1){
+						$priority	=	'Medium';
+					}else if($items[$i]['priority'] == 2){
+						$priority	=	'High';
+					} else{
+						$priority	=	'Urgent';
+					}
+					
+					if( $items[$i]['status'] == 1 ){
+						$status	=	'Open';
+					} else if( $items[$i]['status'] == 2 ){
+						$status	=	'QA';
+					} else if( $items[$i]['status'] == 3 ){
+						$status	=	'Done';
+					} else {
+						$status	=	'Close';
+					}
+					if(!isset($assignerDetails['lastName']))
+					{
+						$assignerDetails['lastName']="";
+						$assignerDetails['firstName']="";	
+					}
+					$message	.=	'<tr>
+										<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$assignerDetails['firstName'].' '.$assignerDetails['lastName'].'</td>
+										
+										<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$assignToDetails['firstName'].' '.$assignToDetails['lastName'].'</td>
+										
+										<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$items[$i]['title'].'</td>
+										
+										<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$items[$i]['dueDate'].'</td>
+										
+										<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$priority.'</td>
+										
+										<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$status.'</td>
+									</tr>
+									';
+					if( $i == $limit-1 ) {	//	MORE MESSAGE FOR TODO ITEMS
+						if( count($items) > 10 ) {
+							$message	.=	'<tr>
+												<td colspan="6" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;" >
+												<a href="'. Yii::app()->params->base_path . 'user" target="_blank">And more...</a>
+												</td>
+											</tr>';
+						}
+					}
+				}
+			} else {
+				$message	.=	'<tr><td colspan="7" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">Nothing to do.</td></tr>';
+			}
+			$message	.=	'<tr><td>&nbsp;</td></tr>';
+		}
+		
+		
+		$url	=	Yii::app()->params->base_path.'templatemaster/setTemplate/lng/eng/file/reminder';
+		$emailContent = file_get_contents($url);
+		$emailContent = str_replace("_LOGOBASEPATH_", Yii::app()->params->base_url.'images', $emailContent);
+		$emailContent = str_replace("_MESSAGE_", $message, $emailContent);
+		
+		return array('message'=>$emailContent, 'emailTo'=>$email);
+	}
+	
+	/*
+	DESCRIPTION : GET ALL LIST REMINDER EMAIL BY LIST ID AND USER ID
+	PARAMS : $listId -> LIST ID AND $userId -> USER ID
+	*/
+	public function getAllListReminderEmail($userId=NULL, $itemStatus=NULL, $dueDate=NULL)
+	{
+		$todoListObj	=	new TodoLists();
+		$todoItemsObj	=	new TodoItems();
+		$loginObj	=	new Login();
+		$usersObj	=	new Users();
+		
+		$email	=	$loginObj->getVerifiedEmailById($userId);
+		$sms	=	$loginObj->getUserPhonesById($userId, 1);
+		
+		if( $itemStatus == 0 ) {
+			$sessionArray['mytodoStatus']	=	NULL;
+		} else if( $itemStatus == 2 ) {
+			$sessionArray['mytodoStatus']	=	4;
+		}else {
+			$sessionArray['mytodoStatus']	=	$itemStatus;
+		}
+		$sessionArray['loginId']	=	$userId;
+		$sessionArray['userId']=Yii::app()->session['userId'];
+		$getMyTodo	=	$todoItemsObj->getMyToDoItems($sessionArray, 5, 'desc', 'itemId', NULL);
+		$assignedByTodo	=	$todoItemsObj->getAssignedByMeItems($sessionArray, 5, 'desc', 'itemId', NULL);
+		$otherTodo	=	$todoItemsObj->getOtherToDoItems($sessionArray, 5, 'desc', 'itemId', NULL);
+		
+		$message	=	'';
+		$assignedByMessage	=	'';
+		$otherMessage	=	'';
+		$head	=	'<tr><td align="left">
+							<div><img src="'.Yii::app()->params->base_url.'images/logo/logo.png" alt="##_LOGO_ALTER_##"/></div>
+					</td></tr>
+					
+					<tr><td>&nbsp;</td></tr>
+					
+					<tr><td>Hello,</td></tr>
+					
+					<tr><td>&nbsp;</td></tr>';
+					
+		//	MY TODO ITEM TABLE LISTING
+		if( $getMyTodo['pagination']->getItemCount() > 0 ) {
+			foreach( $getMyTodo['items'] as $item ) {
+				if($item['priority'] == 0){
+					$priority	=	'Low';
+				} else if($item['priority'] == 1){
+					$priority	=	'Medium';
+				}else if($item['priority'] == 2){
+					$priority	=	'High';
+				} else{
+					$priority	=	'Urgent';
+				}
+				
+				if( $item['status'] == 1 ){
+					$status	=	'Open';
+				} else if( $item['status'] == 2 ){
+					$status	=	'QA';
+				} else if( $item['status'] == 3 ){
+					$status	=	'Done';
+				} else {
+					$status	=	'Close';
+				}
+				
+				$message	.=	'<tr>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['id'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['assignedByFname'].' '.$item['assignedByLname'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['listName'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['title'].'</td>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['dueDate'].'</td>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$priority.'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$status.'</td>
+								</tr>
+								';
+				
+				
+			}
+			if( $getMyTodo['pagination']->getItemCount() > 5 ) {
+				$message	.=	'<tr>
+									<td colspan="7" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;" >
+									<a href="'. Yii::app()->params->base_path . 'user" target="_blank">And more...</a>
+									</td>
+								</tr>';
+			}
+		} else {
+			$message	.=	'<tr><td colspan="7" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">Nothing to do.</td></tr>';
+		}
+		
+		//	ASSIGNED BY ME TODO ITEM TABLE LISTING
+		if( $assignedByTodo['pagination']->getItemCount() > 0 ) {
+			foreach( $assignedByTodo['items'] as $item ) {
+				if($item['priority'] == 0){
+					$priority	=	'Low';
+				} else if($item['priority'] == 1){
+					$priority	=	'Medium';
+				}else if($item['priority'] == 2){
+					$priority	=	'High';
+				} else{
+					$priority	=	'Urgent';
+				}
+				
+				if( $item['status'] == 1 ){
+					$status	=	'Open';
+				} else if( $item['status'] == 2 ){
+					$status	=	'QA';
+				} else if( $item['status'] == 3 ){
+					$status	=	'Done';
+				} else {
+					$status	=	'Close';
+				}
+				
+				$assignedByMessage	.=	'<tr>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['id'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['assignedByFname'].' '.$item['assignedByLname'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['listName'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['title'].'</td>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['dueDate'].'</td>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$priority.'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$status.'</td>
+								</tr>
+								';
+				
+				
+			}
+			if( $assignedByTodo['pagination']->getItemCount() > 5 ) {
+				$assignedByMessage	.=	'<tr>
+									<td colspan="7" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;" >
+									<a href="'. Yii::app()->params->base_path . 'user" target="_blank">And more...</a>
+									</td>
+								</tr>';
+			}
+		} else {
+			$assignedByMessage	.=	'<tr><td colspan="7" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">Nothing to do.</td></tr>';
+		}
+		
+		//	OTHER TODO ITEM TABLE LISTING
+		if( $otherTodo['pagination']->getItemCount() > 0 ) {
+			foreach( $otherTodo['items'] as $item ) {
+				if($item['priority'] == 0){
+					$priority	=	'Low';
+				} else if($item['priority'] == 1){
+					$priority	=	'Medium';
+				}else if($item['priority'] == 2){
+					$priority	=	'High';
+				} else{
+					$priority	=	'Urgent';
+				}
+				
+				if( $item['status'] == 1 ){
+					$status	=	'Open';
+				} else if( $item['status'] == 2 ){
+					$status	=	'QA';
+				} else if( $item['status'] == 3 ){
+					$status	=	'Done';
+				} else {
+					$status	=	'Close';
+				}
+				
+				$otherMessage	.=	'<tr>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['id'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['assignedByFname'].' '.$item['assignedByLname'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['assignedToFname'].' '.$item['assignedToLname'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['listName'].'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['title'].'</td>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$item['dueDate'].'</td>
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$priority.'</td>
+									
+									<td style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">'.$status.'</td>
+								</tr>
+								';
+			}
+			if( $otherTodo['pagination']->getItemCount() > 5 ) {
+				$otherMessage	.=	'<tr>
+									<td colspan="8" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;" >
+									<a href="'. Yii::app()->params->base_path . 'user" target="_blank">And more...</a>
+									</td>
+								</tr>';
+			}
+		} else {
+			$otherMessage	.=	'<tr><td colspan="8" style="border-bottom: 1px solid #D7D7D7; border-left: 1px solid #D7D7D7; border-right: 1px solid #D7D7D7;  color: #666666; font-size: 12px; margin: 0; padding: 5px; text-align: left; vertical-align: top;">Nothing to do.</td></tr>';
+		}
+		
+		$url	=	Yii::app()->params->base_path.'templatemaster/setTemplate/lng/eng/file/all-list-reminder';
+		$emailContent = file_get_contents($url);
+		$emailContent = str_replace("_HEAD_", $head, $emailContent);
+		$emailContent = str_replace("_MYTODO_MESSAGE_", $message, $emailContent);
+		$emailContent = str_replace("_ASSIGNED_BY_ME_MESSAGE_", $assignedByMessage, $emailContent);
+		$emailContent = str_replace("_OTHER_TODO_MESSAGE_", $otherMessage, $emailContent);
+		$foot	=	'<tr><td><p> Thanks,<br />The Todooli Team<br />http://todooli.com </p></td></tr>';
+		$emailContent = str_replace("_THANKS_", $foot, $emailContent);
+		
+		print_r($emailContent);exit;
+		return array('message'=>$emailContent, 'emailTo'=>$email);
+	}
+	
+	public function deleteReminder($id=NULL)
+	{
+		$algo=new Algoencryption();
+		if( !is_numeric($id) ) {
+			$id	=	$algo->decrypt($id);
+		}
+		$this->deleteByPk($id);
+		return array('status'=>0, 'message'=>$this->msg['_REMINDER_DELETE_MESSAGE_']);
+	}
+	
+	public function deleteReminderByListId($userId)
+	{
+		$algo=new Algoencryption();
+		if( !is_numeric($userId) ) {
+			$id	=	$algo->decrypt($userId);
+		}
+		$condition = "userId=:userId";
+		$params[':userId'] = $userId;
+		Reminder::model()->deleteAll($condition,$params);
+	}
+	
+	public function addReminder($postData, $sessionArray, $reminderId=NULL)
+	{
+		$generalObj	=	new General();
+		$validation	=	new Validation();
+		$result	=	$validation->addReminder($postData);
+		if($result['status'] != 0) {
+			return $result;
+		} else {
+			$postData['todoList']	=	(in_array(0, $postData['todoList'])) ? 0 : implode(',', $postData['todoList']);
+			
+			if( isset($postData['reminderName']) && $postData['reminderName'] != '' ) {
+				$remiderData['name']	=	$postData['reminderName'];
+			}
+			
+			$time	=	$postData['time']. ' ' .$postData['ampm'];
+			$remiderData['userId']	=	$sessionArray['loginId'];
+			$remiderData['listId']	=	$postData['todoList'];
+			$remiderData['itemStatus']	=	$postData['status'];
+			$remiderData['dueDate']	=	$postData['dueDate'];
+			$remiderData['duration']	=	$postData['duration'];
+			$remiderData['time']	=	date('G:i:s', strtotime($time));
+			if( isset($postData['summaryOnly']) ) {
+				$remiderData['summaryStatus']	=	$postData['summaryOnly'];
+			} else {
+				$remiderData['summaryStatus']	=	0;
+			}
+			$remiderDatatime	=	date('G', strtotime($time));
+			$currentDate	=	date('Y-m-d');
+			$newcurrentDate	=	$currentDate." ".$remiderData['time'];
+			$userObj	=	new Users();
+			$timeZone	=	$userObj->getTimeZone(Yii::app()->session['userId']);
+			$dateandTime	=	$generalObj->ConvertOneTimezoneToAnotherTimezone($newcurrentDate,$timeZone);
+			$firstTime	=	$generalObj->getNextDate($postData['duration'],$dateandTime[1],1);
+			$remiderData['matchTime']	=	$dateandTime[1].':00:00';
+			
+			$nextDate	=	$firstTime;
+			$remiderData['nextDate']	=	$nextDate;
+			
+			$isReminder=$this->chkIsReminder($remiderData,$reminderId);
+			
+			if($isReminder['status']!=0)
+			{
+				return $isReminder;
+			}
+			if( isset($reminderId) ){
+				$remiderData['modifiedDate']	=	date("Y-m-d H:i:s");
+				
+				$algo=new Algoencryption();
+				if( !is_numeric($reminderId) ) {
+					$id	=	$algo->decrypt($reminderId);
+				}
+				$this->setData($remiderData);
+				$this->insertData($reminderId);
+				return array('status'=>0, 'message'=>$this->msg['_REMINDER_EDIT_MESSAGE_']);
+			} else {
+				$remiderData['createdDate']	=	date("Y-m-d H:i:s");
+				$remiderData['modifiedDate']	=	date("Y-m-d H:i:s");
+				
+				
+				$this->setData($remiderData);
+				$this->insertData();
+				
+				return array('status'=>0, 'message'=>$this->msg['_REMINDER_MESSAGE_']);
+			}
+		}
+	}
+	
+	function chkIsReminder($data,$id=NULL)
+	{
+		if($id==NULL)
+		{
+			$id=0;	
+		}
+		$condition=" 1=1 AND ";
+		foreach($data as $key=>$value)
+		{
+			if($key!='nextDate')
+			{
+				$condition.=" ".$key.'="'.$value.'" AND ';	
+			}
+		}
+		$condition.="  id!=".$id;
+		
+		$reminders	=	Yii::app()->db->createCommand()
+		->select('id')
+		->where($condition)
+		->from($this->tableName())
+		->queryRow();
+		
+		if(!empty($reminders))
+		{
+			return array('status'=>45, 'message'=>"Reminder already exist.");
+		}
+		else
+		{
+			return array('status'=>0, 'message'=>"");
+		}
+	}
+	public function remindMe($id=NULL, $sessionArray=NULL)
+	{
+		$todoListsObj	=	new TodoLists();
+		$reminder	=	$this->getReminderById($id);
+		$messageContent	=	'';
+		
+		if( $reminder['name'] != '' ) {
+			$subject	=	$reminder['name'];
+		} else {
+			$listIds	=	$reminder['reminderList'];
+			if( in_array(0, $listIds) ) {
+				$subject	=	'All Lists';
+			} else {
+				$subject	=	'';
+				for( $i=0; $i<count($listIds); $i++ ) {
+					$name	=	$todoListsObj->getMyListById($listIds[$i]);
+					if( $i == count($listIds)-1 ) {
+						$subject	.=	$name['name'];
+					} else {
+						$subject	.=	$name['name'].', ';
+					}
+				}
+			}
+		}
+		
+		if( $reminder['summaryStatus'] == 1 ) {
+			$template	=	'all-list-summary';
+			$emailContent	=	$this->getAllSummaryReminderEmail($reminder['reminderList'], $reminder['userId'], $reminder['itemStatus'], $reminder['dueDate']);
+			$emailContent['subject']	=	$subject.' List summary reminder';
+		} else {
+			if( $reminder['listId'] == 0 ) {
+				$template	=	'all-list-reminder';
+				$emailContent	=	$this->getAllListReminderEmail($reminder['userId'], $reminder['itemStatus'], $reminder['dueDate']);
+			} else {
+				$template	=	'reminder';
+				$emailContent	=	$this->getReminderEmail($reminder['reminderList'], $reminder['userId'], $reminder['itemStatus'], $reminder['dueDate']);
+			}
+			$emailContent['subject']	=	$subject.' List reminder';
+		}
+		
+		//error_log(print_r($emailContent, true));
+		//echo '<pre>';print_r($emailContent);exit;
+		if(!empty($emailContent)) {
+			
+			$helperObj=new Helper();
+			$helperObj->mailSetup($emailContent['emailTo'],$emailContent['subject'],$emailContent['message'],$sessionArray['loginId'],$reminder['userId']);
+		}
+		
+		return array('status'=>0, 'message'=>$this->msg['_REMINDER_SEND_MESSAGE_']);
+	}
+	
+	public function remindeAgain($itemId=NULL, $sessionArray)
+	{
+		
+		if(isset($itemId) && !is_numeric($itemId))
+		{
+			$algoencryptionObj	=	new Algoencryption();
+			$itemId=$algoencryptionObj->decrypt($itemId);	
+		}
+		$todoItem	=	new TodoItems();
+		$itemDetail	=	$todoItem->getItemDetails($itemId);
+		
+		if($itemDetail['assignedBy']==0) {
+			$sessionArray['loginId']	=	$itemDetail['assignTo'];
+		} else {
+			$sessionArray['loginId']	=	$itemDetail['assignedBy'];	
+		}
+		
+		$to	=	$itemDetail['assignedToEmail'];
+		$subject	=	$itemDetail['title'];
+		
+		$registerLink	=	Yii::app()->params->base_path;
+		$url	=	Yii::app()->params->base_path.'templatemaster/setTemplate/lng/eng/file/assign-task-link';
+		$message	=	file_get_contents($url);
+		$message	=	str_replace("_LOGOBASEPATH_",Yii::app()->params->image_path,$message);
+		$message	=	str_replace("_ASSIGNER_",$sessionArray['fullname'],$message);
+		$message	=	str_replace("_TITLE_",$itemDetail['title'],$message);
+		$message	=   str_replace("_DESCRIPTION_",$itemDetail['description'],$message);
+		$message	=	str_replace("_DUEDATE_",$itemDetail['dueDate'],$message); 
+		$message	=	str_replace("_REGISTER_",$registerLink,$message);
+		
+		$helperObj	=	new Helper();
+		$helperObj->mailSetup($to,$subject,$message,$sessionArray['loginId'],$itemDetail['assignTo']);
+		
+		return array("status"=>0,"message"=>$this->msg['_REMINDER_ME_MESSAGE_']);
+	}
+	
+}

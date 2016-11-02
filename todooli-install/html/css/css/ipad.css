@@ -1,0 +1,77 @@
+@media only screen and (device-width: 768px) and (orientation:portrait) {
+	
+	footer {
+		position: absolute;
+		bottom: 0;
+	}
+	.mask li:hover .top {
+    	top: -155px;
+	}
+	.mask li:hover .btm {
+		bottom: -155px;
+	}
+	.mask li:hover .full {
+		top: -309px;
+	}
+	.ipad {
+		-webkit-transform: rotate(-45deg);
+		background: #000;
+		color: #FFF;
+		text-align: center;
+		width: 218px;
+		height: 218px;
+		position: absolute;
+		top: 117px;
+		left: 486px;
+		display: block !important;	
+		overflow: hidden;
+	}
+	.ipad .full {
+		-webkit-transform: rotate(45deg);
+		position: absolute;
+		width: 155px;
+		height: 155px;
+		top: 60px;
+		left: 10px;
+	}
+	
+}
+
+@media only screen and (device-width: 768px) and (orientation:landscape) {
+	
+	.mask li:hover .top {
+    	top: -155px;
+	}
+	.mask li:hover .btm {
+		bottom: -155px;
+	}
+	.mask li:hover .full {
+		top: -309px;
+	}
+	.ipad {
+		-webkit-transform: rotate(-45deg);
+		background: #000;
+		color: #FFF;
+		text-align: center;
+		width: 218px;
+		height: 218px;
+		position: absolute;
+		top: 117px;
+		left: 486px;
+		display: block;	
+		overflow: hidden;
+	}
+	.ipad .full {
+		-webkit-transform: rotate(45deg);
+		position: absolute;
+		width: 155px;
+		height: 155px;
+		top: 60px;
+		left: 10px;
+	}
+	
+}
+
+
+
+

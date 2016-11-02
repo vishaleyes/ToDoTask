@@ -1,0 +1,130 @@
+	<?php if(isset($_GET['id']) && $_GET['id'] != ''){ ?>
+    <div class="title">##_MOBILE_USER_REM_EDIT_REM_##</div>
+	<?php }else { ?>
+    <div class="title">##_MOBILE_USER_REM_ADD_REM_##</div>
+    <?php } ?>
+	<?php if(Yii::app()->user->hasFlash('success')): ?>								   
+    <div id="msgbox" class="clearmsg"> <?php echo Yii::app()->user->getFlash('success'); ?></div>
+    <div class="clear"></div>
+    <?php endif; ?>
+    <?php if(Yii::app()->user->hasFlash('error')): ?>
+    <div id="msgbox" class="clearmsg errormsg"> <?php echo Yii::app()->user->getFlash('error'); ?></div>
+    <div class="clear"></div>
+    <?php endif; ?>
+	
+<?php echo CHtml::beginForm(Yii::app()->params->base_path.'muser/addreminder','post',array('id' => 'addReminder','name' => 'addReminder')) ?>
+	<?php
+	if(isset($data['id'])){ ?>
+    	<input type="hidden" value="<?php if(isset($data['id'])){ echo $data['id']; } ?>" name="id" />
+    <?php
+	}?>
+    
+	<div class="field-area">
+		<div class="field">
+            <label>##_REMINDER_NAME_##<span id="nameError"></span></label>
+            <input type="text" maxlength="25" class="textbox" id="reminderName" name="reminderName" <?php if( isset($data['name']) ) {?> value="<?php echo $data['name'];?>"<?php }?> onkeyup="validateReminderName()" />
+        </div>
+        <div class="field">
+        	<label>##_MOBILE_USER_REM_LIST_NAME_##</label>
+            <select class="select-box" multiple="multiple" name="todoList[]" style="height:90px;">
+			   <option value="0" <?php if( isset($data['reminderList']) && in_array(0, $data['reminderList']) ) {?> selected="selected"<?php }?> >##_MOBILE_USER_REM_ALL_##</option>
+				<?php 
+				foreach($data['lists'] as $row){ ?>
+					<option value="<?php echo $row['id']; ?>" id="opt_selection_<?php echo $row['id']; ?>" <?php if( isset($data['reminderList']) && in_array($row['id'], $data['reminderList']) ) {?> selected="selected"<?php }?>>
+					<?php 
+					echo $row['name'];
+					if(isset($seen) && in_array($row['name'],$seen)) {
+						echo " - " .$row['firstName'].' '. $row['lastName'];
+					}?>
+					</option>
+				<?php 
+				}?>
+            </select>
+        </div>
+		<div class="field">
+            <label>##_MOBILE_USER_REM_STATUS_##</label>
+            <div class="fields fieldswidth88" id="languagesselected">
+                <input type="radio" name="status" value="0" <?php if(isset($data['itemStatus'])){ if($data['itemStatus']==0){?>checked="checked"<?php }} else {?>checked="checked" <? }?> /> ##_MOBILE_USER_REM_STATUS_ANY_##
+                <input type="radio" name="status" value="1" <?php if(isset($data['itemStatus']) && $data['itemStatus']==1){?>checked="checked"<?php }?> /> ##_MOBILE_USER_REM_STATUS_OPEN_##
+                <input type="radio" name="status" value="2" <?php if(isset($data['itemStatus']) && $data['itemStatus']==2){?>checked="checked"<?php }?> /> ##_MOBILE_USER_REM_STATUS_CLOSE_##
+        	</div>
+        	<div class="clear"></div>
+        </div> 	
+		<div class="field">
+            <label>##_MOBILE_USER_REM_DUE_DATE_##</label>
+            <div class="fields fieldswidth88" id="languagesselected">
+                <input type="radio" name="dueDate" value="0" <?php if(isset($data['dueDate'])){ if($data['dueDate']==0){?>checked="checked"<?php }} else {?>checked="checked"<? }?> /> ##_MOBILE_USER_REM_DUE_DATE_ANY_##
+                <input type="radio" name="dueDate" value="1" <?php if(isset($data['dueDate']) && $data['dueDate']==1){?>checked="checked"<?php }?> /> ##_MOBILE_USER_REM_DUE_DATE_TODAY_##
+                <input type="radio" name="dueDate" value="2" <?php if(isset($data['dueDate']) && $data['dueDate']==2){?>checked="checked"<?php }?> /> ##_MOBILE_USER_REM_DUE_DATE_WEEK_##
+        	</div>
+        	<div class="clear"></div>
+        </div> 
+		<div class="field">
+        	<label>##_MOBILE_USER_REM_AT_##</label>
+            <select name="time" class="select-box width119">
+                  <option <?php if(isset($data['time']) && $data['time']==1){?>selected="selected"<?php }?>>
+                  	1
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==2){?>selected="selected"<?php }?>>
+                  	2
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==3){?>selected="selected"<?php }?>>
+                  	3
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==4){?>selected="selected"<?php }?>>
+                  	4
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==5){?>selected="selected"<?php }?>>
+                  	5
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==6){?>selected="selected"<?php }?>>
+                  	6
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==7){?>selected="selected"<?php }?>>
+                  	7
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==8){?>selected="selected"<?php }?>>
+                  	8
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==9){?>selected="selected"<?php }?>>
+                  	9
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==10){?>selected="selected"<?php }?>>
+                  	10
+                  </option>
+				  <option <?php if(isset($data['time']) && $data['time']==11){?>selected="selected"<?php }?>>
+                  	11
+                  </option>
+                  <option <?php if(isset($data['time']) && $data['time']==12){?>selected="selected"<?php }?>>
+                  	12
+                  </option>
+			</select>&nbsp;
+            <select name="ampm" class="select-box width119">
+                  <option <?php if(isset($data['ampm']) && $data['ampm']=='am'){?>selected="selected"<?php }?>>
+                    AM
+                  </option>
+                  <option <?php if(isset($data['ampm']) && $data['ampm']=='pm'){?>selected="selected"<?php }?>>
+                    PM
+                  </option>
+            </select>
+            
+            <select class="select-box width119" name="duration">
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 0){ ?>selected="selected" <?php } ?> value="0">Daily</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 1){ ?>selected="selected" <?php } ?> value="1">Sunday</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 2){ ?>selected="selected" <?php } ?> value="2">Monday</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 3){ ?>selected="selected" <?php } ?> value="3">Tuesday</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 4){ ?>selected="selected" <?php } ?> value="4">Wednesday</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 5){ ?>selected="selected" <?php } ?> value="5">Thursday</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 6){ ?>selected="selected" <?php } ?> value="6">Friday</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 7){ ?>selected="selected" <?php } ?> value="7">Saturday</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 8){ ?>selected="selected" <?php } ?> value="8">Monthly</option>
+                      <option <?php if(isset($data['duration']) && $data['duration'] == 9){ ?>selected="selected" <?php } ?> value="9">Yearly</option>
+			</select>
+        </div>	
+		<div align="left">
+			<input type="submit" id="btn_submit"  name="btn_submit" value="##_BTN_SUBMIT_##" class="btn" />  
+            <input type="button" value="##_BTN_CANCEL_##" onclick="javascript:history.go(-1);" class="btn" />
+		</div>               
+	</div>
+	<div class="clear"></div>
+<?php echo CHtml::endForm();?>

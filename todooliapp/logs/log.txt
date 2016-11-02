@@ -1,0 +1,18 @@
+total 196
+-rwxrwxr-x 1 jobtaxi jobtaxi   902 Sep 19 22:41 awk_compare_languages.awk
+-rwxrwxr-x 1 jobtaxi jobtaxi  1830 Sep 26 10:46 awk_show_languages2.awk
+-rwxrwxr-x 1 jobtaxi jobtaxi  1986 Sep 26 10:46 awk_show_languages3.awk
+-rwxrwxr-x 1 jobtaxi jobtaxi  1974 Sep 26 10:46 awk_show_languages.awk
+-rwxrwxr-x 1 jobtaxi jobtaxi  3530 Jan 25 06:32 check_languages.php
+-rwxrwxr-x 1 jobtaxi jobtaxi    18 Sep 19 22:41 clearlogs
+-rwxrwxr-x 1 jobtaxi jobtaxi    79 Jan 23 11:25 compare_languages
+-rwxrwxr-x 1 jobtaxi jobtaxi   118 Sep 19 22:41 cron.sh
+-rwxrwxr-x 1 jobtaxi jobtaxi 19167 Jan 25 06:32 index.php
+-rwxrwxr-x 1 jobtaxi jobtaxi  7125 Jan 25 06:32 killall.php
+-rwxrwxr-x 1 jobtaxi jobtaxi  9004 Jan 25 06:32 logs.php
+-rw-rw-r-- 1 jobtaxi jobtaxi     0 Jan 27 10:50 log.txt
+-rwxrwxr-x 1 jobtaxi jobtaxi  2152 Dec  7 06:44 monitor_daemons.sh
+-rwxrwxr-x 1 jobtaxi jobtaxi   401 Jan 25 06:32 monitor.php
+-rwxrwxr-x 1 jobtaxi jobtaxi 14385 Dec 11 08:50 overlay_bg.png
+-rwxrwxr-x 1 jobtaxi jobtaxi   715 Jan 23 11:25 show_languages
+-rwxrwxr-x 1 jobtaxi jobtaxi 93220 Nov 18 21:55 solr.log

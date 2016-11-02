@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Todooli Graphics</title>
+<style type="text/css">
+.listing	{ margin:0px; padding:0px; background:#f3f3f3; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#333; border:solid 1px #CCC;}
+.listing th	{ margin:0px; padding:8px 5px; background:#78A524; color:#FFF;}
+.listing td	{ margin:0px; padding:8px 5px; font-size:13px; text-align:center; border-bottom:solid 1px #CCC; border-left:solid 1px #ccc;}
+.listing tr.last-row td{ border-bottom:none;}
+.listing td.first-field { border-left:none; text-align:left;}
+
+</style>
+</head>
+
+<body>
+<table cellpadding="0" cellspacing="0" border="0" class="listing">
+	<tr>
+    	<th width="170"></th>
+    	<th>findjobsnear.com</th>
+    	<th>jobsmo.com</th>
+    	<th>todooli.com</th>
+    	<th>theauthorcentral.com</th>
+    </tr>
+    <tr>
+    	<td class="first-field">Sitename</td>
+    	<td>Findjobsnear</td>
+    	<td>Jobsmo</td>
+    	<td>Todooli</td>
+    	<td>Author Central</td>
+    </tr>
+    <tr>
+    	<td class="first-field">Favicon</td>
+    	<td><a href="http://findjobsnear.com/images/findjobsnear/logo/favicon.ico"><img src="http://findjobsnear.com/images/findjobsnear/logo/favicon.ico" alt="" border="0" /></a></td>
+    	<td><a href="http://jobsmo.com/images/jobsmo/logo/favicon.ico"><img src="http://jobsmo.com/images/jobsmo/logo/favicon.ico" alt="" border="0" /></a></td>
+    	<td><a href="http://todooli.com/images/favicon.ico"><img src="http://todooli.com/images/favicon.ico" alt="" border="0" /></a></td>
+    	<td><a href="http://theauthorcentral.com/images/favicon.ico"><img src="http://theauthorcentral.com/images/favicon.ico" alt="" border="0" /></a></td>
+    </tr>
+    <tr>
+    	<td class="first-field">Apple-touch-icon</td>
+    	<td><a href="http://findjobsnear.com/images/logo/apple-touch-icon.png"><img src="http://findjobsnear.com/images/logo/apple-touch-icon.png" alt="" border="0" /></a></td>
+    	<td><a href="http://jobsmo.com/images/jobsmo/logo/apple-touch-icon.png"><img src="http://jobsmo.com/images/jobsmo/logo/apple-touch-icon.png" alt="" border="0" /></a></td>
+    	<td><a href="http://todooli.com/images/logo/apple-touch-icon.png"><img src="http://todooli.com/images/logo/apple-touch-icon.png" alt="" border="0" /></a></td>
+    	<td><a href="http://theauthorcentral.com/images/apple-touch-icon.png"><img src="http://theauthorcentral.com/images/apple-touch-icon.png" alt="" border="0" /></a></td>
+    </tr>
+    <tr>
+    	<td class="first-field">Mobile web logo</td>
+    	<td><a href="http://findjobsnear.com/images/findjobsnear/logo/findjobsnear-215.png"><img src="http://findjobsnear.com/images/findjobsnear/logo/findjobsnear-215.png" alt="" border="0" /></a></td>
+    	<td><a href="http://jobsmo.com/images/jobsmo/logo/jobsmo.png"><img src="http://jobsmo.com/images/jobsmo/logo/jobsmo.png" alt="" border="0" /></a></td>
+    	<td><a href="http://todooli.com/images/logo/logo_m.png"><img src="http://todooli.com/images/logo/logo_m.png" alt="" border="0" /></a></td>
+    	<td></td>
+    </tr>
+    <tr>
+    	<td class="first-field">Web logo</td>
+    	<td><a href="http://findjobsnear.com/images/findjobsnear/logo/findjobsnear-254.png"><img src="http://findjobsnear.com/images/findjobsnear/logo/findjobsnear-254.png" alt="" border="0" /></a></td>
+    	<td><a href="http://jobsmo.com/images/jobsmo/logo/jobsmo.png"><img src="http://jobsmo.com/images/jobsmo/logo/jobsmo.png" alt="" border="0" /></a></td>
+    	<td><a href="http://todooli.com/images/todooli_logo.png"><img src="http://todooli.com/images/todooli_logo.png" alt="" border="0" /></a></td>
+    	<td><a href="http://theauthorcentral.com/images/logo.png"><img src="http://theauthorcentral.com/images/logo.png" alt="" border="0" /></a></td>
+    </tr>
+    <tr>
+    	<td class="first-field">Web error page logo</td>
+    	<td><a href="http://findjobsnear.com/images/findjobsnear/logo/findjobsnear-180black.png"><img src="http://findjobsnear.com/images/findjobsnear/logo/findjobsnear-180black.png" alt="" border="0" /></a></td>
+    	<td><a href="http://jobsmo.com/images/jobsmo/logo/jobsmo-190.png"><img src="http://jobsmo.com/images/jobsmo/logo/jobsmo-190.png" alt="" border="0" /></a></td>
+    	<td><a href="http://todooli.com/images/todooli_logo.png"><img src="http://todooli.com/images/todooli_logo.png" alt="" border="0" /></a></td>
+    	<td><a href="http://theauthorcentral.com/images/logo.png"><img src="http://theauthorcentral.com/images/logo.png" alt="" border="0" /></a></td>
+    </tr>
+    <tr>
+    	<td class="first-field">iPhone main screen icon</td>
+    	<td></td>
+    	<td></td>
+    	<td></td>
+    	<td></td>
+    </tr>
+    <tr>
+    	<td class="first-field">Splashscreen for iphone</td>
+    	<td></td>
+    	<td></td>
+    	<td></td>
+    	<td></td>
+    </tr>
+    <tr>
+    	<td class="first-field">Android main screen icon</td>
+    	<td><a href="images/ic_launcher-fjn.png"><img src="images/ic_launcher-fjn.png" alt="" border="0" /></td>
+    	<td><a href="images/ic_launcher-jobsmo.png"><img src="images/ic_launcher-jobsmo.png" alt="" border="0" /></td>
+    	<td></td>
+    	<td><a href="images/ic_launcher-author.png"><img src="images/ic_launcher-author.png" alt="" border="0" /></td>
+    </tr>
+    <tr class="last-row">
+    	<td class="first-field" valign="top">Splashscreen for android</td>
+    	<td><a href="images/splash-fjn.png"><img src="images/splash-fjn.png" alt="" border="0" height="30%" width="30%" /></td>
+    	<td><a href="images/jobsmo splash.png"><img src="images/jobsmo splash.png" alt="" border="0" height="30%" width="30%" /></td>
+    	<td></td>
+    	<td><a href="images/ac splash.png"><img src="images/ac splash.png" alt="" border="0" height="30%" width="30%" /></td>
+    </tr>
+</table>
+</body>
+</html>

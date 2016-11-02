@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* CSS Document */
+
+*		{ margin:0px; padding:0px;}
+html	{ margin:0px; padding:0px;}
+body	{ margin:0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:14px;}
+.clear	{ margin:0px; padding:0px; height:0px; line-height:0px; clear:both;}
+.floatLeft{ float:left;}
+.floatRight{ float:right;}
+.wrapper	{ margin:0px auto; padding:0px; width:95%;}
+a		{ color:#666; text-decoration:none;}
+a:hover	{ text-decoration:underline; color:#77A423;}
+
+h2		{ margin:10px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:22px;}
+h3		{ margin:0px 0px 10px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; color:#77a423; font-size:20px; text-shadow:2px 2px 1px #f3f3f3;}
+
+.listing	{ margin:15px 0px; padding:0px; background:#f3f3f3; width:100%; color:#333; border:solid 1px #CCC;}
+.listing tr:hover{ background:#f9f9f9;}
+.listing th	{ margin:0px; padding:8px 5px; color:#FFF; background:#77A423; border-right:solid 1px #FFF;}
+.listing th a{ color:#fff;}
+.listing th a:hover{ text-decoration:none;}
+.listing td	{ margin:0px; padding:5px 5px; border-right:solid 1px #FFF; border-bottom:solid 1px #FFF; vertical-align:top; font-size:13px; line-height:18px;}
+.listing td:last-child,.listing th:last-child{ border-right:none;}
+.listing td.fieldTitle { font-weight:bold;}
+.listing input[type="text"] { margin:0px; padding:0px 2px; height:25px; line-height:25px; width:100px; border:solid 1px #CCC;}
+.listing textarea { margin:0px; padding:0px 2px; height:50px; line-height:18px; width:180px; border:solid 1px #CCC;}
+.listing select	{ margin:0px; padding:3px 5px; height:25px; line-height:25px; width:80px; border:solid 1px #CCC;}
+.listing input[type="button"],.listing input[type="submit"],.listing input[type="reset"]{
+	margin:0px 1px 3px 1px; padding:2px 2px; border:solid 1px #81a340; color:#FFF; font-size:12px; 
+	cursor:pointer; border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px; font-weight:bold;
+	background: #77a423; text-decoration:none; text-shadow:none;
+	background: -webkit-gradient(linear, left top, left bottom, from(#a8d058), to(#77a423));
+	background: -moz-linear-gradient(top, #a8d058, #77a423);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a8d058', endColorstr='#77a423');}
+a.btn, .btn{
+	margin:0px 3px 0px 3px; padding:4px 10px; border:solid 1px #81a340; color:#FFF; font-size:14px; 
+	cursor:pointer; border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px; font-weight:bold;
+	background: #77a423; text-decoration:none; text-shadow:none;
+	background: -webkit-gradient(linear, left top, left bottom, from(#a8d058), to(#77a423));
+	background: -moz-linear-gradient(top, #a8d058, #77a423);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a8d058', endColorstr='#77a423');}
+.green		{ color:#5C8210;}
+.red		{ color:#C00;}
+.yellow		{ color:#F90;}
+
+.field		{ margin:5px 50px 5px 0px; padding:0px; float:left;}
+.field label{ margin:0px; padding:0px; line-height:25px; font-size:13px; font-weight:bold; display:block; color:#333;}
+.sidelist label{ float:left; min-width:80px; text-align:right; margin-right:10px;}
+.textbox	{ margin:0px; padding:0px 2px; height:25px; line-height:25px; width:320px; border:solid 1px #CCC; color:#333;}
+.selectbox	{ margin:0px; padding:3px 5px; height:27px; line-height:27px; width:327px; border:solid 1px #CCC; color:#333;}
+.textarea	{ margin:0px; padding:4px; height:60px; line-height:18px; width:320px; border:solid 1px #CCC; color:#333;}
+
+.innerBox	{ margin:0px; padding:20px 40px; background:#fbfbfb; border:solid 1px #ccc; border-radius:5px;}
+
+.fieldBtn	{ margin:15px 0px 20px 0px;}
+
+.checkbox		{ margin:0px 5px 0px 0px; padding:5px 0px; float:left; font-size:13px;}
+.checkbox input{ float:left;}
+.checkbox span	{ float:left; line-height:15px; padding:0px 0px 5px 5px; color:#333;}
+
+
+.successmsg		{ margin:5px 0px; padding:10px 5px 10px 30px; width:97%; box-shadow:1px 1px 3px #B8CEA7; 
+				  -moz-box-shadow:1px 1px 3px #B8CEA7; -webkit-box-shadow:1px 1px 3px #B8CEA7; 
+				  background:#E8F7DC url(../images/success-icon.png) no-repeat left; position:relative;
+				  font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#337A2B; 
+				  border:solid 1px #9CB786;}
+				  
+.errormsg		{ margin:5px 0px; padding:10px 0px 10px 35px; width:97%; float:left; box-shadow:1px 1px 3px #F2C4C4;
+				 -moz-box-shadow:1px 1px 3px #F2C4C4; -webkit-box-shadow:1px 1px 3px #F2C4C4; 
+				 background:#feecec url(../images/error-icon.png) no-repeat left; border:solid 1px #f7c9c9;
+				 font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#cd4949;}
+
+.true			{ margin:0px 0px 0px 12px; padding:10px 0px 10px 20px; background:url(../images/accept.png) no-repeat left; color:#090; font-size:11px; line-height:15px;}
+.false			{ margin:0px 0px 0px 10px; padding:10px 0px 10px 20px; background:url(../images/error.png) no-repeat left; color:#900; font-size:11px; line-height:12px; font-weight:normal;}
+
+ul{border:0; margin:0; padding:0;}
+
+
+#pagination-clean { float:right;}
+#pagination-clean li{ border:0;	font-size:11px; list-style:none; }
+#pagination-clean li, #pagination-clean a{ line-height:26px;}
+#pagination-clean .previous-off,
+#pagination-clean .next-off { color:#ccc; display:block; float:left; font-weight:bold; }
+#pagination-clean .next a,
+#pagination-clean .previous{float:left;}
+#pagination-clean .previous a { font-weight:bold; border:solid 1px #FFFFFF;}
+#pagination-clean .active{ color:#77a423; font-weight:bold; display:block; float:left; line-height:26px;}
+#pagination-clean a:link,
+#pagination-clean a:visited { color:#999; display:block; float:left; text-decoration:none;
+ border:none; }
+#pagination-clean a:hover{ text-decoration:none; }
+.first, .last{ float:left;}
+#pagination-clean div{ margin-right:8px; float:left;}
+
+.topNav { margin:10px 0px 0px 0px; padding:0px; float:right; color:#999; font-size:12px;}
+.topNav a{ margin:0px 3px; color:#333; font-weight:bold;}
+.width150 {width:150px;}
+
+
+
+#login-form { padding:30px 10px 20px 30px; width:350px; border:1px solid gray; border-radius:5px;
+		 	  box-shadow:0px 0px 20px #999;
+			  background:#FFF; position:absolute; left:40%; top:40%; z-index:500;
+			  font-size:1.3em; outline:none;}
+.popupClose	{ margin:0px; padding:0px; position:absolute; top:10px; right:10px;}
+

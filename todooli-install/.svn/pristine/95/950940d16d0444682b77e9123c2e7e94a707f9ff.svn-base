@@ -1,0 +1,27 @@
+html {overflow: auto;}
+html, body, iframe {margin: 0px; padding: 0px; height:100%;  border: none;}
+iframe {display: block; width: 100%; border: none; overflow-y:auto; overflow-x:hidden; height:89%;}
+h1,h2	{ margin:0px; padding:0px;}
+.top-bar	{ margin:0px; padding:0px; width:100%; background:#000; border-bottom:solid 1px #78a524;}
+.top-bar div { padding:0px;}
+.top-bar a.close	{ position:absolute; right:10px; top:8px;}
+.top-bar a.close img{ padding:2px; border:solid 1px #666;}
+
+.header a		{ color:#ffffff; text-decoration:none; }
+.header h1		{ float:left;}
+.header h1 span	{ font-size:11px; left:46px; position:absolute; top:46px; color:#CCC; font-family:Arial, Helvetica, sans-serif;}
+.header h2		{ float:left; font-size:13px; padding-top:23px; color:#ffffff; }
+.header			{ background:url(../img/header_back.png) repeat-x; height:65px;  }
+
+.top-bar		{ margin:0px; padding:0px 0px; height:auto;}
+.top-bar .header{ background:#000;}
+#facebookPost	{ background:transparent url(../../images/img/facebook.png) no-repeat scroll 0px 0px; height:34px; left:2px;
+				  position:fixed; top:280px; width:40px;}
+#facebookPost a { display:block; height:34px; width:40px; border:none; text-decoration:none;}
+#twitterPost    { background:transparent url(../../images/img/twitter.png) no-repeat scroll 0px 0px; height:34px; left:2px;
+				  position:fixed; top:316px; width:40px;}
+#twitterPost a	{ display:block; height:34px; width:40px; border:none; text-decoration:none;}
+#stumblePost	{ background:transparent url(../../images/img/stumbleupon.png) no-repeat scroll 0px 0px; height:34px; left:2px;
+				  position:fixed; top:352px; width:40px;}
+#stumblePost a	{ display:block; height:34px; width:40px; border:none; text-decoration:none;}
+

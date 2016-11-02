@@ -1,0 +1,135 @@
+
+<script type="text/javascript">
+
+function reloadHomeByListAjax(listId)
+{
+	if($j('#mainPageCheker').val()!=1)
+	{
+		window.location='<?php echo Yii::app()->params->base_path;?>user&list='+listId;
+		return false;
+	}
+	$j.ajax({
+		url	:	'<?php echo Yii::app()->params->base_path;?>user/showAll',
+		success	:	function( response ) {
+			if( trim(response) == 'logout' ) {
+				window.location='<?php echo Yii::app()->params->base_path;?>';
+			}
+			var obj	=	jQuery.parseJSON(response)
+			if( obj.status == 0 ) {
+				mylist=listId;
+				$j("#txtSearchListDP option[value='"+listId+"']").attr('selected', 'selected');
+				//mylistStatus=$j('#txtSearchStatusDP').val();
+				window.list=mylist;
+				//window.todoStatus=mylistStatus;	
+				loadBoxContent('<?php echo Yii::app()->params->base_path;?>user/myTodoItem','items');
+				loadBoxContent('<?php echo Yii::app()->params->base_path;?>user/assignedByMeTodoItem','assignedByMeTodoItem');
+				loadBoxContent('<?php echo Yii::app()->params->base_path;?>user/otherTodoItem','otherTodoItem');
+				$j(".listItem").removeClass('activeListItems');
+				$j("#list_request_"+listId).addClass('activeListItems');
+			}
+		}
+	});
+}
+
+function inviteFromLists(id)
+{
+	setUrl('<?php echo Yii::app()->params->base_path; ?>user/addinvite/id/'+id);
+}
+</script>
+
+<div>
+	<h3 class="reddot">
+        <p>##_LIST_AJAX_TODO_##<div class="addtext"><a href="#" onclick="$j('#mainContainer').load('<?php echo Yii::app()->params->base_path;?>user/AddTodoList');" title="##_LIST_AJAX_ADD_TODO_##"><img src="<?php echo Yii::app()->params->base_url;?>images/plus.png" alt="" border="0" /></a></div></p>
+        <div class="clear"></div>
+	</h3>
+</div>
+<div class="ajaxBox todoLists">
+    <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+    <div class="viewport" style=" <?php if(count($data)==1){?>height:128px !important;<?php } elseif(count($data)==2){?>height:160px !important;<?php } elseif(count($data)==3){?>height:160px !important;<?php } elseif(count($data) >  3){?> height:200px !important; <?php } else { ?>height:30px !important;<?php } ?>">
+        <div class="overview">
+            <ul class="hire-list items list-items">
+                <li id="list_request_0" class="listItem activeListItems">
+                    <a href="javascript:reloadHomeByListAjax('0');">
+                        <div class="hire-data" style="width:53%;">
+                            <div>
+                                <p class="title">
+                                    <b><span id="list_request_name_0">##_LIST_AJAX_ALL_## </span></b>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="post"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="hire-options" style="width:100px; text-align:right;">
+                              <!--  <p><?php  //echo "Total   : ". $totalItems;?> </p>-->
+                                <p><?php echo "Pending : ". $pendingItems;?></p> 
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                </li>
+                <?php unset($data['pendingItems']);foreach($data as $data){ 
+				?>
+                    <li id="list_request_<?php echo $data['id'];?>" class="listItem">
+                        <div class="hire-data" style="width:53%;">
+                            <div>
+                                <p class="title">
+                                    <b><span id="list_request_name_<?php echo $data['id'];?>"><?php echo $data['name'];?> </span></b>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="post"><?php echo $data['firstName']. ' ' . $data['lastName']; ?> </p>
+                            </div>
+                        </div>
+                        <div class="hire-options rightOptions" style="width:100px; text-align:right;">
+                               <!-- <p><?php  //echo "Total   : ". $data[$i]['totalItems'];?> </p>-->
+                                <p><?php echo "Pending : ". $data['pendingItems'];?></p>
+                                <p>
+                                    <a title="##_REM_INVITES_LOGO_##">
+                                        <img src="<?php echo Yii::app()->params->base_url; ?>images/invite.png" alt="Invite" />
+                                    </a> 
+                                </p>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                                                    
+                <?php } 
+				
+				
+				?>
+                <?php if(is_array($data) && count($data) > 0){ } else { ?>
+                    <li class="no_request">
+                        <div>##_LIST_AJAX_NO_ACTIVE_##</div>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</div>	
+    
+<?php 
+if(isset($_GET['list']) && $_GET['list']!='')
+{
+?>
+<script type="text/javascript">
+$j(".listItem").removeClass('activeListItems');
+$j("#list_request_"+<?php echo $_GET['list'];?>).addClass('activeListItems');
+</script>
+<?	
+}
+?>
+<script type="text/javascript">
+	$j(document).ready(function(){
+		$j('.todoLists').tinyscrollbar();
+		$j('.listItem').click(function(event){
+			var detail	=	$j(this).attr('id'),
+				attrib	=	detail.split('list_request_');
+				
+			if( event.target.nodeName == 'IMG' ) {
+				inviteFromLists(attrib[1]);
+			}else{
+				reloadHomeByListAjax(attrib[1]);
+			}
+		});	
+	});
+</script>

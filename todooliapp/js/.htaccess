@@ -1,0 +1,14 @@
+# If the request for inaccessible content comes from a file 
+# called accessible.html, then set an environment variable that 
+# allows the inaccessible version to be displayed.
+<FilesMatch ^(index.html)$>
+    Order Deny,Allow
+    Deny from all
+    Allow from env=let_me_in
+</FilesMatch>
+
+# If the request comes from anyplace but accessible.html, then 
+# redirect the error condition to a location where the accessible 
+# version resides
+ErrorDocument 403 error
+ErrorDocument 404 error

@@ -1,0 +1,32 @@
+/* ie 9 */
+
+.mask ul {
+	margin: 0 0 0 -155px;
+}
+
+.mask .wrap {
+
+}
+
+/* columns */
+
+.c1 { left: 155px; }
+.c2 { left: 463px; }
+.c3 { left: 771px; }
+.c4 { left: 1079px; }
+
+/* rows */
+
+.r1 { top: 0; }
+.r2 { top: 154px; }
+.r3 { top: 309px; }
+.r4 { top: 463px; }
+.r5 { top: 617px; }
+.r6 { top: 771px; }
+.r7 { top: 925px; }
+.r8 { top: 1079px; }
+.r9 { top: 1233px; }
+
+.r1,.r3,.r5,.r7,.r9 {
+	margin-left: -154px !important;
+}

@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+
+<meta property="og:title" content="todooli" /> 
+<meta property="og:description" content="Todooli.com revolutionizes how you get things done!" /> 
+<meta property="og:image" content="<?php echo Yii::app()->params->base_url;?>images/logo/todooliapp-square.png" />
+<link rel="image_src" href="<?php echo Yii::app()->params->base_url;?>images/logo/todooliapp-square.png" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->params->base_url;?>css/custom-theme/jquery-ui-1.8.13.custom.css" />
+
+<title>##_HOME_HEADER_TITLE_NAME_##</title>
+<script type="text/javascript" src="<?php echo Yii::app()->params->base_url; ?>js/slider/jquery.js"></script>
+
+<script type="text/javascript" src="<?php echo Yii::app()->params->base_url; ?>js/slider/disclaimer.js"></script>
+
+<script type="text/javascript" src="<?php echo Yii::app()->params->base_url; ?>js/todooliapp/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+var BASHPATH='<?php echo Yii::app()->params->base_url; ?>';
+var imgPath='<?php echo Yii::app()->params->base_url; ?>images/';
+var $j = jQuery.noConflict();
+var csrfToken	=	'<?php echo Yii::app()->request->csrfTokenName;?>'+'='+'<?php echo Yii::app()->request->csrfToken;?>';
+var csrfTokenVal	=	'<?php echo Yii::app()->request->csrfToken;?>';
+
+function initMenu()
+{
+	$j(document).ready(function() {	
+		$j('.nav').click(function() {
+		$j('#update-message').removeClass().addClass('');
+		$j('#update-message').html('');
+		
+		$arr = $j(this).children('a').attr("lang").split("*");
+		
+		if($arr == '')
+		{
+			$arr = $j(this).children('a').attr("rel").split("*");
+		}
+		
+		$j('.tabRef').removeClass('current');
+		//inner tab menu id
+		var innerId=$j(this).children('a').attr('id');
+		var parentTab=$j(this).attr('lang');
+		if(parentTab!='')
+		{
+			$j('#'+parentTab).addClass('current');
+		}
+		else
+		{
+			$j(this).addClass('current');
+		}
+		if(innerId=='howItWorks')
+		{
+			$j('#middle').load("<?php echo Yii::app()->params->base_path;?>site/HowItWorks");
+		}
+		else
+		{
+			$j('#mainContainer').html('<div class="menuLoader"><img src="'+imgPath+'/spinner-small.gif" alt="loading" border="0" /> Loading...</div>').show();
+			if($j(this).attr("lang")=='home')
+			{
+				$j('.leftSlidebar').hide();
+			}
+			else
+			{
+				if($j('.leftSlidebar').is(":hidden"))
+				{			
+					$j('.leftSlidebar').show();	
+				}
+			}
+				
+			$j.ajax ({
+					url: $arr[0],
+					data: csrfToken,
+					success: function(response)
+					{
+						if(trim(response)=='LOGOUT' || trim(response)=='logout')
+						{
+							window.location=BASHPATH;
+							return false;
+						}
+						$j('#mainContainer').html(response);
+						//inner tab menu
+						$j('#update-message').html('');
+						//close inner tab menu
+						return false;
+					}
+			});
+			
+		}
+		
+	});
+	});
+}
+initMenu();
+	
+
+function searchFromGeneral()
+{
+	var generalSearchKeyword=$j("#generalSearch").val();
+	if($j("#mainPageCheker").val()==1)
+	{
+		window.extraPara=window.extraPara+'&keyword='+generalSearchKeyword;
+		$j("#searchText").val(generalSearchKeyword);
+		$j("#searchAssignByMeText").val(generalSearchKeyword);
+		$j("#searchOthersText").val(generalSearchKeyword);
+		loadBoxContent(base_path+'user/myTodoItem/keywordMyTODO/'+generalSearchKeyword,'items');
+		loadBoxContent(base_path+'user/assignedByMeTodoItem/keywordAssignByMe/'+generalSearchKeyword,'assignedByMeTodoItem');
+		loadBoxContent(base_path+'user/otherTodoItem/moreflag/keywordOther/'+generalSearchKeyword,'otherTodoItem');
+	}
+	else
+	{
+		window.location='<?php echo Yii::app()->params->base_path;?>user/index&keyword='+generalSearchKeyword;	
+	}
+}
+function trim(stringToTrim) {
+	return stringToTrim.replace(/^\s+|\s+$/g,"");
+}
+function ltrim(stringToTrim) {
+	return stringToTrim.replace(/^\s+/,"");
+}
+function rtrim(stringToTrim) {
+	return stringToTrim.replace(/\s+$/,"");
+}
+
+</script>
+<link rel="stylesheet" href="<?php echo Yii::app()->params->base_url; ?>css/todooliapp/todooliapp.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo Yii::app()->params->base_url; ?>css/style.css" type="text/css" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->params->base_url; ?>css/registration.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->params->base_url; ?>css/jquery.fancybox-1.3.1.css" />
+<script type="text/javascript" src="<?php echo Yii::app()->params->base_url; ?>js/jquery.fancybox-1.3.1.js"></script>
+<link rel="shortcut icon" href="<?php echo Yii::app()->params->base_url; ?>images/favicon.ico" />
+<link rel="apple-touch-icon" href="<?php echo Yii::app()->params->base_url; ?>images/logo/apple-touch-icon.png" />
+<script type="text/javascript" src="<?php echo Yii::app()->params->base_url; ?>js/jquery.tinyscrollbar.js"></script>
+</head>
+<body class="body">
+ <!-- Remove select and replace -->
+<script type="text/javascript" src="<?php echo Yii::app()->params->base_url; ?>js/jquery-ui-1.8.13.custom.min.js"></script>
+<!-- Header Part -->
+<script type="text/javascript">
+if (navigator.cookieEnabled == 0) {
+   document.write("<div class='error-area'><a href='' class='error-close'></a>You need to enable cookies for this site to load properly!</div>");
+}
+</script>
+<script src="<?php echo Yii::app()->params->base_path_language; ?>languages/eng/global.js" type="text/javascript"></script>
+<script type="text/javascript">
+function popShareWin(sWidth,sHeight,url) {
+var C=screen.height,B=screen.width,H=Math.round((B/2)-(sWidth/2)),G=0;
+if(C>sHeight){G=Math.round((C/2)-(sHeight/2))};
+url=url.replace("%%URL%%",encodeURIComponent(window.location.href));
+url=url.replace("%%TITLE%%",encodeURIComponent(document.title));
+window.open(url,'','left='+H+',top='+G+',width='+sWidth+',height='+sHeight+',personalbar=0,toolbar=0,scrollbars=1,resizable=1');
+return false;    
+}
+</script>
+<div id="mainWrapper">
+<!-- header Section -->
+
+<div class="header" id="header">
+	<div class="navigation">
+    	<div class="leftNavigation">        	
+            <?php if(!isset(Yii::app()->session['userId'])){?>
+            <ul>
+            	<li class="current tabRef"><a href="<?php echo Yii::app()->params->base_url; ?>">##_HOME_HOME_##</a></li>
+            	<li class="nav tabRef" id="howItWorks" lang=""><a href="javascript:;" id="howItWorks" lang="<?php echo Yii::app()->params->base_path;?>site/HowItWorks">##_HOME_HEADER_HOW_WORKS_##</a></li>
+            </ul>
+            <?php
+			}
+			else
+			{
+			?>
+            <ul>
+            	<li class="current tabRef" id="home"><a href="<?php echo Yii::app()->params->base_path;?>user/index">HOME</a></li>
+                <li class="tabRef" id="myprofile" lang=""><a href="javascript:;" onclick="javascript:$j('#aboutme').trigger('click');" >##_HEADER_MY_PROFILE_##</a>
+                	<ul style="width:230px;">
+						<li class="nav tabRef" id="aboutme" lang="myprofile"><a href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/aboutme" >##_HEADER_ABOUT_ME_##</a></li>
+						<li class="nav tabRef" lang="myprofile">
+                        	<a id="headerLinkChangePassword" href="javascript:;" lang="<?php echo Yii::app()->params->base_path;?>user/changePassword" >##_HEADER_CHANGE_PASSWORD_##</a>
+                        </li>
+                        <li class="nav tabRef" lang="myprofile">
+                        	<a id="headerLinkCloseAccount" href="javascript:;" lang="<?php echo Yii::app()->params->base_path;?>user/setting" >##_HEADER_CLOSE_ACCOUNT_##</a>
+                        </li>
+                        <li class="nav tabRef last-child" lang="myprofile">
+                        	<a id="headerLinkMyWorkReport" href="javascript:;" lang="<?php echo Yii::app()->params->base_path;?>user/myworkstatus" >##_HEADER_MY_WORK_##</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav tabRef" id="mylists" lang=""><a href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/myLists" >##_HEADER_MY_LISTS_##</a></li>
+                
+                <li class="tabRef" id="todoItem" ><a href="javascript:;" onclick="javascript:$j('#myTodo').trigger('click');" >##_HEADER_TODO_ITEMS_##</a>
+                    <ul>
+                        <li class="nav tabRef" lang="todoItem">
+                        	<a id="myTodo" href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/MyTodoItem/moreflag/1" >##_HEADER_MY_TODO_##</a>
+                        </li>
+                        <li class="nav tabRef" lang="todoItem">
+                        	<a id="assignedByMe" href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/assignedByMeTodoItem/moreflag/1" >##_HEADER_ASSIGN_ME_##</a>
+                        </li>
+                        <li class="nav tabRef" lang="todoItem">
+                        	<a id="othersTodo" href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/otherTodoItem/moreflag/1" >##_HEADER_OTHER_TODO_##</a>
+                        </li>
+                    </ul>
+				</li>
+                
+                <li class="nav tabRef" id="myNetwork" lang=""><a href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/myNetwork" >##_HEADER_MY_NETWORK_##</a>
+                </li>
+                <li class="nav tabRef" id="invites" lang=""><a href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/invites" >##_HEADER_INVITES_##</a>
+                </li>
+                <li class="nav tabRef lastNav" id="reminders" lang=""><a href="javascript:;" lang="<?php echo Yii::app()->params->base_path; ?>user/reminders" >##_HEADER_REMINDERS_##</a>
+                </li>
+            </ul>
+            <?php
+			}
+			?>
+        </div>
+    	<div class="rightNavigation">
+        	<div class="login">
+        	<?php
+        	if(isset(Yii::app()->session['userId'])){ 
+			?>
+            	<div class="searchArea padT8 floatRight"> 
+				
+					<?php echo CHtml::beginForm(Yii::app()->params->base_path,'post',array('id' => 'gneralSearchForm','name' => 'gneralSearchForm','onsubmit' => 'return false;')) ?>
+                        <input id="generalSearch" value="<?php echo isset($_GET['keyword'])?$_GET['keyword']:'';?>"   onkeypress="if(event.keyCode==13){searchFromGeneral();}" class="textbox floatLeft" type="text" autocomplete="off" name="keyword">
+                        <input class="searchBtn" type="button" onclick="searchFromGeneral()" value="" name="searchBtn">
+                        <input type="button" class="btn" name="" onclick="setUrl('<?php echo Yii::app()->params->base_path; ?>user/addtodo/from/myTodo')" value="##_ADD_TODO_##" />
+                    <?php echo CHtml::endForm(); ?>
+                </div>
+                <div class="clear"></div>
+            <?php
+            }
+			else
+			{
+				if(isset(Yii::app()->session['loginflag']) && Yii::app()->session['loginflag']!=1)
+				{ 
+			?>
+            	<?php echo CHtml::beginForm(Yii::app()->params->base_path.'site/login','post',array('id' => 'loginform','name' => 'loginorm',)) ?>
+                    <div class="toplogin">
+                        <label class="floatLeft">##_HOME_EMAIL_OR_PHONE_##:</label>
+                        <div class="floatLeft">
+                            <div><input tabindex="1" type="text" id="tt_email_login" name="email_login" class="textbox width130" <?php if(isset($_COOKIE['email_login']) && $_COOKIE['email_login']!='') { ?>  value="<?php echo $_COOKIE['email_login'];?>" <?php } ?> /></div>
+                            <div class="checkbox1"><input type="checkbox" name="remenber" /><span>##_HOME_REMEMBER_##</span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <label class="floatLeft">##_HOME_PASSWORD_##:</label>
+                        <div class="floatLeft">
+                            <div><input tabindex="2"  name="password_login" id="password_login" type="password" class="textbox width130" <?php if(isset($_COOKIE['password_login']) && $_COOKIE['password_login']!='') { ?>  value="<?php echo $_COOKIE['password_login'];?>" <?php } ?>/></div>
+                            <div><a href="<?php echo Yii::app()->params->base_path; ?>site/support">##_HOME_ACCESS_ACCOUNT_##</a></div>
+                        </div>
+                        <div class="floatLeft">
+                            <input tabindex="3" type="submit" name="submit_login" class="btn" value="##_LOGIN_SIGNIN_BUTTON_##" />
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                <?php echo CHtml::endForm(); ?> 
+            <?php
+				}
+			}
+			?>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+
+<div id="middle" class="middle">
+	
+	<div class="wrapper" id="secondLayer">
+    	<div id="lodingContent"></div>
+		<?php echo $content; ?>
+    </div>
+</div>
+
+<!-- Footer Section -->
+
+<div class="appfooter" id="footer">
+	<div class="wrapper width963">
+    	<div>
+            <div class="footerLink">
+	            <label>##_HOME_FOOTER_CONTACT_##</label>
+                <ul>
+                    <li <?php if(isset(Yii::app()->session['userId'])) {?>class="nav"<?php }?> lang="home"><a href="<?php if(isset(Yii::app()->session['userId'])){?>javascript:;" lang="<?php }?><?php echo Yii::app()->params->base_path; ?>site/about">##_HOME_ABOUT_##</a></li>
+                    <li  <?php if(isset(Yii::app()->session['userId'])) {?>class="nav"<?php }?> lang="home"><a href="<?php if(isset(Yii::app()->session['userId'])){?>javascript:;" lang="<?php }?><?php echo Yii::app()->params->base_path; ?>site/contactus">##_HOME_CONTACT_US_##</a></li>
+                    <li  <?php if(isset(Yii::app()->session['userId'])) {?>class="nav"<?php }?> lang="home"><a href="<?php if(isset(Yii::app()->session['userId'])){?>javascript:;" lang="<?php }?><?php echo Yii::app()->params->base_path; ?>site/privacy">##_HOME_PRIVACY_##</a></li>
+                    <li  <?php if(isset(Yii::app()->session['userId'])) {?>class="nav"<?php }?> lang="home"><a href="<?php if(isset(Yii::app()->session['userId'])){?>javascript:;" lang="<?php }?><?php echo Yii::app()->params->base_path; ?>site/tos">##_HOME_T&C_## </a></li>
+                    <li ><a href="<?php echo Yii::app()->params->base_path; ?>site/support">##_HOME_FOOTER_HELP_##</a></li>
+                </ul>
+            </div>
+            <div class="footerLink">
+            	<label>##_HOME_APPS_##</label>
+            	<ul>
+                    <li><a href="<?php echo Yii::app()->params->base_path; ?>finditnear">##_HOME_APPS_FINDITNEAR_##</a></li>
+                    <li><a href="<?php echo Yii::app()->params->base_path; ?>jobsmo">##_HOME_APPS_JOBSMO_##</a></li>
+                    <li><a href="<?php echo Yii::app()->params->base_path; ?>bridgecall">##_HOME_APPS_BRIDGE_##</a></li>
+                    <li><a href="<?php echo Yii::app()->params->base_path; ?>shareudid">##_HOME_APPS_UDID_##</a></li>
+                </ul>
+			</div>
+            <div class="footerLink">
+            	<label>##_HOME_FOOTER_FOLLOW_US_##</label>
+                <ul>
+                    <li>
+                    	<ul class="social">
+                        	<li>
+                            	<a title="Share on Facebook" href='http://www.facebook.com/sharer/sharer.php' onClick="popShareWin(626,436,'http://www.facebook.com/sharer/sharer.php?u=%%URL%%');return false;"><img src="<?php echo Yii::app()->params->base_url; ?>images/todooliapp/facebook.png" alt="" border="0" /></a>
+                            </li>
+                        	<li>
+                            	<a title="Tweet this page" href='http://twitter.com/share' onClick="popShareWin(550,450,'https://twitter.com/intent/tweet?url=%%URL%%');return false;"><img src="<?php echo Yii::app()->params->base_url; ?>images/todooliapp/twitter.png" alt="" border="0" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+			</div>
+            <div class="footerLink contact">
+            	<label>##_HOME_CONTACT_US_##</label>
+                <p><b>##_FOOTER_ADD_##</b></p>
+                <p>##_FOOTER_ADD_1_##<br />
+                   <span>##_FOOTER_ADD_2_##</span><br /> <span class="nav" lang="home"><a href="<?php if(isset(Yii::app()->session['userId'])){?>javascript:;" lang="<?php }?><?php echo Yii::app()->params->base_path; ?>site/contactus"> ##_FOOTER_OTHERS_##</a></span><br /></p>
+                <p>
+                   ##_FOOTER_ADD_3_##<br />
+                   <a href="mailto:info@todooli.com">##_FOOTER_ADD_4_##</a>
+                </p>
+			</div>
+        </div>
+        <div class="siteinfo">##_FOOTER_ADD_5_##</div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+</div>
+<script type="text/javascript">
+$j(document).ready(function(){
+	$j(".tosLink").fancybox({
+		 'transitionIn' : 'none',
+		 'transitionOut' : 'none',
+		 'type' : 'iframe'
+	 });
+});	 
+</script>
+</body>
+</html>

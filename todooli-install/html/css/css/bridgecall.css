@@ -1,0 +1,114 @@
+charset "utf-8";
+/* CSS Document */
+
+*			{ margin:0px; padding:0px;}
+body		{ margin:0px; padding:0px; background:#ebebf1; font-family:Arial, Helvetica, sans-serif;}
+.floatLeft	{ float:left;}
+.floatRight	{ float:right;}
+.clear		{ clear:both;}
+
+.gradient	{ background:#ebebf1;
+		  	  background: -webkit-gradient(linear, left top, left bottom, from(#dedee4), to(#ebebf1));
+          	  background: -moz-linear-gradient(top, #dedee4, #ebebf1);
+          	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dedee4', endColorstr='#ebebf1');}
+
+.wrapper	{ margin:0px auto; padding:0px; width:960px;}
+h1			{ margin:0px; padding:0px 0px 20px 0px; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; font-size:22px; font-weight:normal; color:#333;}
+h2			{ margin:0px; padding:0px; font-size:36px; font-weight:bold; color:#333;}
+
+.topbar		{ margin:0px; padding:0px; background:#000; height:65px;}
+.topbar a	{ margin:0px; padding:0px; font-weight:bold; font-size:24px; color:#FF6C00; line-height:60px; text-decoration:none;}
+.topbar .logo{ padding:4px 0px 0px 0px;}
+.topbar .logo span	{ font-size:11px; left:-120px; position:relative; top:6px; color:#CCC; font-family:Arial, Helvetica, sans-serif;}
+
+.banner		{ margin:0px; padding:30px 0px 50px 0px; background:url(../../images/img/bridgecall/banner-bg.png) no-repeat bottom; width:960px;}
+.banner-img	{ margin:0px 150px 0px 0px; padding:0px; float:right;}
+.banner-text{ margin:90px 0px 0px 150px; padding:0px; float:left;}
+.banner-text p{ margin:0px; padding:0px; color:#666; line-height:36px; font-size:18px;}
+.banner-text .download{ padding:20px 0px 0px 0px;}
+.banner-text .download a{ text-decoration:none;}
+.banner-text .download a img{ float:left;}
+.banner-text .download span{ margin:0px 10px; color:#545454; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; text-shadow:1px 1px 1px #fff; line-height:65px;}
+.banner-text .download a:hover span{ text-shadow:none;}
+
+#page_seperator { background: url(../../images/img/bridgecall/page_seperator.gif) repeat-x scroll center top transparent; height:2px; 
+					 width:100%;}
+#nav { margin-top:-1px; background: url(../../images/img/bridgecall/horizontal_seperator.gif) repeat-x center bottom;}
+#nav ul { padding:0px; height:40px; list-style:none; margin:0px auto; width:960px;}
+#nav ul li { float:left; margin-right:15px; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; font-size:15px;}
+#nav ul li a.current { background:none repeat scroll 0 0 #DDDDDD; color:#000000;}
+#nav ul li a { color:#666666; display:block; font-weight:normal; padding:12px 25px; text-decoration:none;}
+#bottom_content { background:url(../../images/img/bridgecall/dark-shadow.png) no-repeat scroll center top transparent;}
+
+.container		{ margin:0px; padding:20px 0px 20px 0px;}
+.content		{ margin:0px; padding:0px 0px;}
+.list			{ margin:0px; padding:0px 0px 0px 20px;}
+.list li		{ margin:0px; padding:0px 0px 0px 30px; display:block; list-style:none; background:url(../../images/img/bridgecall/right.png) no-repeat left; font-size:15px; color:#333; line-height:28px;}
+
+.box			{ margin:10px 16px; padding:20px; background:#D3D3D3; border-radius:5px; width:246px; float:left; text-align:center;}
+.box p			{ margin:0px; padding:10px 0px 0px 0px; font-size:13px; color:#666; line-height:18px; text-align:left;}
+
+.footer-seperator{ margin:20px 0px 0px 0px; padding:0px;}
+.site-info		{ margin:0px; padding:10px 0px; text-align:right; font-size:11px; color:#666666;}
+.site-info a	{ color:#ED6504; text-decoration:none;}
+
+
+/* footer */
+.footer-bg	{ margin:0px; padding:2px 0px 0px 0px; background:url(../../images/img/bridgecall/page_seperator.gif) repeat-x scroll center top transparent;}
+.footer{	margin:0px auto 0 auto; font: 12px/18px Georgia,"Times New Roman",Times,serif;
+	background: url(../../images/img/bg-header.gif);
+	width: 100%;
+}
+.footer h3{ margin:0px; padding:0px;}
+.footer ul {
+	margin:0px auto; padding:0px;
+	color: #EEEEEE;
+	width: 930px;
+	list-style: none;
+}
+.footer li {
+	padding: 10px 0;
+	float: left;
+}
+.footer ul ul {
+	width: 150px;
+	float: left;
+
+}
+.footer ul ul.network {
+	margin: 0 0 0 180px;
+	text-align: right;
+	float: right;	
+}
+.footer li li {
+	padding: 0 0 5px 0;
+	width: 200px;
+	float: none;
+}
+.footer li h3 {
+	padding: 0 0 10px 0;	
+	color: #80AA31;
+}
+.footer li a,
+.footer li a:visited {
+	color: #EEEEEE;
+	border: none;
+	text-decoration: none;
+}
+.footer li a:hover {
+	color: #EEEEEE;
+	border: none;
+	text-decoration: none;
+}
+
+
+
+#facebookPost	{ background:transparent url(../../images/img/facebook.png) no-repeat scroll 0px 0px; height:34px; left:2px;
+				  position:fixed; top:280px; width:40px;}
+#facebookPost a { display:block; height:34px; width:40px; border:none; text-decoration:none;}
+#twitterPost    { background:transparent url(../../images/img/twitter.png) no-repeat scroll 0px 0px; height:34px; left:2px;
+				  position:fixed; top:316px; width:40px;}
+#twitterPost a	{ display:block; height:34px; width:40px; border:none; text-decoration:none;}
+#stumblePost	{ background:transparent url(../../images/img/stumbleupon.png) no-repeat scroll 0px 0px; height:34px; left:2px;
+				  position:fixed; top:352px; width:40px;}
+#stumblePost a	{ display:block; height:34px; width:40px; border:none; text-decoration:none;}

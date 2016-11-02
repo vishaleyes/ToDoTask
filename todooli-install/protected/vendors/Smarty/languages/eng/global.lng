@@ -1,0 +1,1385 @@
+//Global
+_BTN_SUBMIT_=Submit
+_BTN_CONTINUE_=Continue
+_BTN_CANCEL_=Cancel
+_BTN_OK_=Ok
+_BTN_HISTORY_=History
+_BTN_LOGIN_=Login
+_BTN_LOGOUT_=Logout
+_BTN_YES_=Yes
+_BTN_NO_=No
+_BTN_APPLY_=Apply
+_BTN_DONE_=Done
+_BTN_OPEN_=Open
+_BTN_CLOSE_=Close
+_BTN_REASSIGN_=Reassign
+_BTN_ASSIGN_BACK_=Assign back
+_BTN_BACK_=Back
+_BTN_ADD_INVITE_=Add Invite
+_BTN_VIEW_=view
+_BTN_DELETE_=delete
+_BTN_ATTACH_=attachment
+_GO_=Go
+_MOBILE_TIMEZONE_=Timezone
+_CAPTCHA_DESC_=To prevent automated SPAM submissions, we request you to type the characters you see in the picture below: (letters are not case-sensitive)
+_REMIND_ME_=Remind Me
+_INDEX_PAGE_CHECK_APPS_=Check our apps &gt;&gt;
+_MOBILE_LOGO_DESC_=to get things done
+
+
+
+
+
+
+//Sign up page
+_SIGNUP_CREATE_ACCOUNT_=Create an account
+_SIGNUP_REG_ABOUT_YOURSELF_=Please tell us about your self. You will use your email or phone number to login to your _SITENAME_NO_CAPS_.com account
+_SIGNUP_REG_FULL_NAME_=Full name
+_SIGNUP_REG_EMAIL_=Email
+_SIGNUP_REG_PHONE_=Phone number
+_SIGNUP_REG_VERIFY_NOW_=Verify now
+_SIGNUP_REG_SMS_=Can receive SMS on this? 
+_SIGNUP_REG_VERIFY_PHONE_=To verify the phone number, text "Verify
+_SIGNUP_REG_VERIFY_NUMBER_=to (408)645-7916.
+_SIGNUP_REG_OK_=OK
+_SIGNUP_REG_PASSWORD_=Password
+_SIGNUP_REG_CONFIRM_PASSWORD_=Confirm password
+_CAPTCHA_=Captcha
+_TIMEZONE_=Timezone
+_SIGNUP_REG_SAFE_=Safe &amp; Secure
+_SIGNUP_REG_QUICK_=Quick &amp; Easy
+_SIGNUP_REG_CLEAR_=Clear &amp; Simple
+_SIGNUP_REG_REQUIRED_=Fields marked with * are required.
+
+
+//About page
+_ABOUT_DESC_=About _SITENAME_ - to get things done.
+_ABOUT_DESC_1_=Located in heart of silicon valley, _SITENAME_, Inc. makes apps that enable real time location based transactions.  Here are a few of our apps:
+
+_ABOUT_DESC_2_=<b>_SITENAME_.com</b> is our real time shared todo lists where not only you can track your own TODO tasks but also the tasks you have assigned to others. This helps in managing your TODO items or TODO items you have assigned to oithers. You can set up time based reminders for pending TODOs, setup location based reminders for TODO items and so on. Its FREE to signup and you can just get things done better.
+
+_ABOUT_DESC_3_=<b>Finditnear.com:</b>  Finditnear.com makes it easy for merchants and consumers to connect. It enables consumers to ask for what they want in real time at the location they prefer and enables merchants to create buzz in real time and connect instantly with consumers near their locations. We also enable merchants to send personalized (patent pending) "just for me" messages/coupons to customers through Finditnear. The advantage is that unlike email loyalty coupons that stay trapped in email and often received at wrong location and wrong time - the customers now see these "personalized loyalty based coupons" location based along with other coupons in their finditnear app. This increases the chance of redemption - and keeps the loyalty coupons on top of their list. We call it end of loyalty coupons that stay trapped in email. 
+
+_ABOUT_DESC_4_=<b>Jobsmo.com:</b> Jobsmo.com is the mobile way to hire and get hired! It revolutionizes hiring hourly workforce.  Jobsmo.com replaces the "Now Hiring" sign on window.
+Employers do not need to visit a website to post jobs or connect with candidates. And Seekers do not need a website to get found. You can use jobsmo right from your phone - SMS, iPhone app, Android app, mobile web etc. And of course you can use the traditional website
+
+_MOBILE_DESC_3_=Finditnear.com makes it easy for merchants and consumers to connect. It enables consumers to ask for what they want in real time at the location they prefer and enables merchants to create buzz in real time and connect instantly with consumers near their locations. We also enable merchants to send personalized (patent pending) "just for me" messages/coupons to customers through Finditnear. The advantage is that unlike email loyalty coupons that stay trapped in email and often received at wrong location and wrong time - the customers now see these "personalized loyalty based coupons" location based along with other coupons in their finditnear app. This increases the chance of redemption - and keeps the loyalty coupons on top of their list. We call it end of loyalty coupons that stay trapped in email. 
+
+_MOBILE_DESC_4_=Jobsmo.com is the mobile way to hire and get hired! It revolutionizes hiring hourly workforce.  Jobsmo.com replaces the "Now Hiring" sign on window.
+Employers do not need to visit a website to post jobs or connect with candidates. And Seekers do not need a website to get found. You can use jobsmo right from your phone - SMS, iPhone app, Android app, mobile web etc. And of course you can use the traditional website
+
+_ABOUT_DESC_4-1_=jobsmo.com.
+
+_ABOUT_DESC_4-2_=With Jobsmo, employers and seekers find an instant match near them.
+
+_ABOUT_DESC_5_=<b>Bridgecall:</b> Bridgecall is our mobile app solution to enable you to join your conference calls easily with just a few keystrokes.
+
+_MOBILE_DESC_5_=Bridgecall is our mobile app solution to enable you to join your conference calls easily with just a few keystrokes.
+_MOBILE_DESC_6_=Share your device UDID for beta testing by email or SMS.
+_MOBILE_ABOUT_MORE_=More
+_MOBILE_APP_=Our Apps
+_MOBILE_FINDITNEAR_=Finditnear.com
+_MOBILE_JOBSMO_=Jobsmo.com
+_MOBILE_BRIDGECALL_=Bridgecall
+_MOBILE_SHAREUDID_=Share UDID
+
+//Activate page
+_ACTIVATE_HEADER_=Account activation
+_ACTIVATE_EMAIL_ACTIVATION_=Email activation.
+_ACTIVATE_EMAIL_=Email
+_ACTIVATE_CAPTCHA_=Captcha
+_ACTIVATE_PHONE_ACTIVATION_=Phone number activation.
+_ACTIVATE_PHONE_=Phone number
+
+
+
+//Contact page
+_CONTACT_HEADER_=Contact us
+_CONTACT_NAME_=Your name
+_CONTACT_EMAIL_=Your email address
+_CONTACT_COMMENT_=Your comment or question
+_CONTACT_LOCATION_=Location
+_CON_ADD_USA_=USA
+_CON_ADD_USA_HEAD_=Headquarters: 
+_CON_ADD_USA_1_=1250 Oakmead Parkway #210
+_CON_ADD_USA_2_=Sunnyvale,
+_CON_ADD_USA_3_=CA 94085
+_CON_ADD_NO_=Contact No.
+_CON_ADD_USA_4_=+14085018870
+_CON_ADD_EMAIL_=Email id:
+_CON_ADD_EMAIL_SEND_=info@_SITENAME_NO_CAPS_.com
+_CON_ADD_INDIA_=INDIA
+_CON_ADD_INDIA_1_=406,Shantam complex,
+_CON_ADD_INDIA_2_=Opp. Navneet house,
+_CON_ADD_INDIA_3_=Near Gurukul road, Memnagar,
+_CON_ADD_INDIA_4_=Ahmedabad,
+_CON_ADD_INDIA_5_=Gujarat (India).
+_CON_ADD_INDIA_6_=+9179-40301438
+
+
+// WEB SITE ERROR PAGE
+_SITE_ERROR_PAGE_1_=Sorry, the requested page does not exist.
+_SITE_ERROR_PAGE_2_=Try going to the
+_SITE_ERROR_PAGE_3_=home page and navigating to your page from there.
+_SITE_ERROR_PAGE_4_=You can
+_SITE_ERROR_PAGE_5_=contact us
+_SITE_ERROR_PAGE_6_=if you need help.
+_SITE_ERROR_PAGE_7_=_SITENAME_
+
+
+//Forgot password page
+_FORGOT_PASSWORD_=Forgot password
+_FORGOT_EMAIL_PHONE_=Enter email or phone number:
+
+
+
+//howitworks page
+_HOW_IT_WORKS_=How _SITENAME_ - to get things done. work
+_HOW_IT_WORKS_DESC_=Page under development.
+
+
+
+//Help page
+_HELP_NEED_HELP_=Looks like you need some help?
+_HELP_FIND_SOLUTION_=Let us help you find a solution.
+_HELP_FORGOT_PASSWORD_=I forgot my password
+_HELP_ACCOUNT_INACTIVE_=My account is inactive
+_HELP_CONTACT_US_=Contact us and we'll help you out
+
+
+//index page
+_INDEX_PAGE_SIGNUP_NOW_=Signup now
+_INDEX_PAGE_DESC_=To get things done!
+_INDEX_PAGE_DESC_1_=Shared todo lists!
+_INDEX_PAGE_DESC_2_=Not just track what you are doing
+_INDEX_PAGE_DESC_3_=but track the tasks you assign to others.
+_INDEX_PAGE_DESC_4_=Collaborate better.
+_INDEX_PAGE_DESC_5_=_SITENAME_.com revolutionizes how you get things done!
+_INDEX_PAGE_DESC_6_=the mobile way to hire or get hired!
+_INDEX_PAGE_DESC_7_=TODO Network - to get things done!
+_INDEX_PAGE_DESC_8_=instant match near you!
+_INDEX_PAGE_DESC_9_=Join conference calls with a few keystrokes!
+_INDEX_PAGE_DESC_10_=Share UDID for testing!
+_INDEX_PAGE_DESC_11_=Solve your business needs
+_INDEX_PAGE_LOCATION_=Located in heart of silicon valley, _SITENAME_, Inc. makes apps that enable real time location based transactions. 
+_INDEX_PAGE_CHECKOUT_OUR_APP_=Checkout our other apps:
+
+
+
+//MOBILE SITE ERROR PAGE
+_MOBILE_SITE_ERROR_PAGE_1_=Sorry, the requested page does not exist.
+_MOBILE_SITE_ERROR_PAGE_2_=Try going to the
+_MOBILE_SITE_ERROR_PAGE_3_=home page and navigating to your page from there.
+_MOBILE_SITE_ERROR_PAGE_4_=You can
+_MOBILE_SITE_ERROR_PAGE_5_=contact us
+_MOBILE_SITE_ERROR_PAGE_6_=if you need help.
+_MOBILE_SITE_ERROR_PAGE_7_=_SITENAME_
+
+
+
+//Password confirm page
+_PASSWORD_CONFIRM_HEADER_=Forgot password verification
+_FORGOT_PASSWORD_VERIFICATION_DESC_=Please use verification code from your email or sms for reset password request.
+_PASSWORD_CONFIRM_TOKEN_=Verification code :
+_PASSWORD_CONFIRM_NEW_PASSWORD_=New password : 
+_PASSWORD_CONFIRM_CONFIRM_PASSWORD_=Confirm password :
+_PASSWORD_CONFIRM_OR_=Or
+_PASSWORD_CONFIRM_JOIN_=Join _SITENAME_ - to get things done.
+_PASSWORD_CONFIRM_SIGN_IN_=Sign in to _SITENAME_ - to get things done.
+
+
+//Sign in page
+_SIGNIN_EMAIL_PHONE_=Email or Phone
+_SIGNIN_PASSWORD_=Password 
+_SIGNIN_CANT_ACCESS_=I can't access my account
+_SIGNIN_REMEMBER_=Remember it
+_SIGNIN_SIGNIN_=Sign in
+_SIGNIN_OR_=Or
+_SIGNIN_JOIN_=Join _SITENAME_ - to get things done.
+
+
+//sms page
+_SMS_DESC_=_SITENAME_ - to get things done.
+_SMS_DESC_1_=Page under development.
+
+
+
+//terms & Conditions page
+_TERMS_DESC_=T &amp; C _SITENAME_ - to get things done.
+_TERMS_DESC_1_=Page under development.
+
+
+//privancy page
+_PRIVACY_HEADER_=Privacy policy
+_PRIVACY_HEADER_DESC_=Your privacy is our top concern. No fine prints. No large agreements. We never share your identity except your username.
+
+
+
+//Verify phone page
+_VERIFY_PHONE_HEADER_=Account activation required
+
+
+
+//Moblile page
+_MOBILE_PAGE_DESC_=Mobile Use _SITENAME_ - to get things done.
+_MOBILE_PAGE_DESC_1_=Page under development.
+
+
+//footer page
+_HOME_APPS_=Apps
+_HOME_APPS_FINDITNEAR_=Finditnear
+_HOME_APPS_JOBSMO_=Jobsmo
+_HOME_APPS_BRIDGE_=Bridge Call
+_HOME_APPS_UDID_=Shareudid
+_HOME_FOOTER_CONTACT_=Contact &amp; Support
+_HOME_ABOUT_=About
+_HOME_CONTACT_US_=Contact us
+_HOME_T&C_ =T&C
+_HOME_PRIVACY_=Privacy
+_HOME_FOOTER_HELP_=Help
+_HOME_FOOTER_FOLLOW_US_=Follow us
+_HOME_HEADER_TITLE_NAME_=_SITENAME_ - to get things done
+_HOME_HEADER_HOW_WORKS_=How it works
+_HOME_EMAIL_OR_PHONE_=Email/phone
+_HOME_PASSWORD_=Password
+_LOGIN_SIGNIN_BUTTON_=Sign in
+_HOME_HOME_=Home
+_HOME_ACCESS_ACCOUNT_=I can't access my account
+_HOME_REMEMBER_=Remember it
+_FOOTER_ADD_=_SITENAME_ Inc.
+_FOOTER_ADD_1_=Headquarters: 1250 Oakmead Parkway #210
+_FOOTER_ADD_2_=Sunnyvale, CA 94085
+_FOOTER_ADD_3_=+14085018870
+_FOOTER_OTHERS_=others..
+_FOOTER_ADD_4_=info@_SITENAME_NO_CAPS_.com
+_FOOTER_ADD_5_=&copy; 2012 _SITENAME_ Inc.
+_HOME_SEARCH_ASSIGN_To_=Assigned to name
+_HOME_SEARCH_ASSIGN_BY_=Assigner name
+
+
+//After login header page
+_HEADER_MY_PROFILE_=MY PROFILE
+_HEADER_ABOUT_ME_=About me
+_HEADER_CHANGE_PASSWORD_=Change password
+_HEADER_CLOSE_ACCOUNT_=Close account
+_HEADER_MY_WORK_=My work report
+_HEADER_MY_LISTS_=MY LISTS
+_HEADER_TODO_ITEMS_=TODO ITEMS
+_HEADER_MY_TODO_=MY TODO
+_HEADER_ASSIGN_ME_=ASSIGNED BY ME
+_HEADER_OTHER_TODO_=OTHERS TODO
+_HEADER_MY_NETWORK_=MY NETWORK
+_HEADER_INVITES_=INVITES
+_HEADER_REMINDERS_=REMINDERS
+
+
+
+
+//My profile page
+_ABOUTME_PHONE_MESSAGE_=Are you sure you want to delete this phone number?
+_ABOUTME_PHONE_CONFIRMATION_DIALOG_=Confirmation dialog
+_ABOUTME_DELETE_EMAIL_ACCOUNT_=Are you sure you want to delete this email account?
+_ABOUTME_EMAIL_CONFIRMATION_DIALOG_=Confirmation dialog
+_MY_PROFILE_=My profile
+_MY_PROFILE_FULL_NAME_=Full name
+_MY_PROFILE_EMAIL_=Email
+_MY_PROFILE_PHONES_=Phones
+_MY_PROFILE_ADD_PHONE_=Add phone number
+_MY_PROFILE_PHONE_VERIFY_NOW_=Verify now
+_MY_PROFILE_PHONE_VERIFIED_=Verified   
+_MY_PROFILE_PHONE_DELETE_NOW_=Delete now
+_MY_PROFILE_ADD_REMOVE_PHONE_=Add/Remove phone
+_MY_PROFILE_PHONE_DELETE_OR_VERIFY_=Please either delete or verify your unverified number.
+_ABOUTME_OR_=or
+_MY_PROFILE_SPECIFY_PHONE_NUMBER_=Please specify the phone number.
+_MY_PROFILE_PHONE_ALREADY_VERIFIED_=You already have a verified number.If you add another previous one will be deleted.
+_MY_PROFILE_PHONE_RECEIVE_SMS_=Can receive SMS on this?
+
+
+//social links
+_MY_PROFILE_SOCIAL_LINKS_=Social links
+_MY_PROFILE_ADD_LINKEDIN_=Add linkedin link
+_MY_PROFILE_SPECIFY_LINKEDIN_=Please specify your linkedin URL
+_MY_PROFILE_EG_LINKEDIN_=e.g. http://www.linkedin.com/...
+_MY_PROFILE_ADD_TWITTER_=Add twitter link
+_MY_PROFILE_SPECIFY_TWITTER_=Please specify your twitter URL
+_MY_PROFILE_EG_TWITTER_=e.g. http://www.twitter.com/...
+_MY_PROFILE_ADD_FACEBOOK_=Add facebook link
+_MY_PROFILE_SPECIFY_FACEBOOK_=Please specify your facebook URL
+_MY_PROFILE_EG_FACEBOOK_=e.g. http://www.facebook.com/...
+_MY_PROFILE_UPLOAD_AVATAR_=Upload avatar
+
+
+//reminder page
+_EDIT_REMINDER_=Edit reminder
+_ADD_REMINDER_=Add reminder
+_LIST_NAME_=List name
+_ALL_=All
+_REM_STATUS_=Status
+_REM_ANY_=ANY
+_REM_OPEN_=OPEN
+_REM_CLOSE_=CLOSE
+_REM_DUE_DATE_=DueDate
+_REM_TODAY_=Today
+_REM_WEEK_=This week
+_REM_AT_=At
+
+
+
+//INVITE PAGE
+_INVITE_NEW_USER_=Invite new user
+_INVITE_TODO_LIST_=TODO list name
+_INVITE_NO_LIST_=No list
+_INVITE_NEW_TODO_LIST_=New TODO list
+_INVITE_=Invite
+_INVITE_EXAMPLE_=For Example : xxxx@gmail.com,yyyy@gmail.com
+_INVITE_ADD_TODO_=Add TODO list
+_INVITE_DESC_=Description
+
+
+
+//Addtodoitem page
+_ADD_TODO_=Add TODO
+_ADD_TODO_LIST_NAME_=TODO list name
+_ADD_TODO_CREATE_NEW_=Create new TODO list
+_ADD_TODO_TITLE_=Title
+_ADD_TODO_DESC_=Description
+_ADD_TODO_ATTACH_=Attachment(Optional)
+_ADD_TODO_PRIORITY_=Priority
+_ADD_TODO_DUE_DATE_=DueDate
+_ADD_TODO_ASSIGN_=Assign
+_ADD_TODO_ASSIGN_SELF_=Self
+_ADD_TODO_ASSIGN_OTHER_=Other
+_ADD_TODO_SELECT_EMAIL_=Select email
+_ADD_TODO_LIST_=Add TODO list
+_ADD_TODO_DESC_=Description
+_ADD_TODO_INVITE_=Invite
+_ADD_TODO_INVITE_EXAMPLE_=For Example : xxxx@gmail.com,yyyy@gmail.com
+_ADD_TODO_NO_LIST_=No list
+_ADD_TODO_PRIORITY_LOW_=LOW
+_ADD_TODO_PRIORITY_MEDIUM_=MEDIUM
+_ADD_TODO_PRIORITY_HIGH_=HIGH
+_ADD_TODO_PRIORITY_URGENT_=URGENT
+
+
+
+//Addtodolist page
+_TODO_LIST_ADD_TODO_=Add TODO list
+_TODO_LIST_TODO_NAME_=TODO list name
+_TODO_LIST_DESC_=Description
+_TODO_LIST_INVITE_=Invite
+_TODO_LIST_INVITE_EXAMPLE_=For Example : xxxx@gmail.com,yyyy@gmail.com
+
+
+
+//Assign back page
+_ASSIGN_BACK_=Assign back
+_ASSIGN_BACK_COMMENT_=Comment here
+
+
+
+//AssignByMe page
+_ASSIGNED_BY_ME_=Assigned by me
+_ASSIGNED_BY_ME_TODO_=TODO
+_ASSIGNED_BY_ME_NO_=No
+_ASSIGNED_BY_ME_ASSIGNED_TO=Assigned to
+_ASSIGNED_BY_ME_ASSIGED_LIST_NAME=List name
+_ASSIGNED_BY_ME_ASSIGNED_TITLE_=Title
+_ASSIGNED_BY_ME_ASSIGNED_DUE_DATE_=Due Date
+_ASSIGNED_BY_ME_ASSIGNED_STATUS_=Status
+_ASSIGNED_BY_ME_ASSIGNED_PRIORITY_=Priority
+_ASSIGNED_BY_ME_ASSIGNED_DATE_=Date
+_ASSIGNED_BY_ME_ASSIGNED_MORE_=more..
+_ASSIGNED_BY_ME_ASSIGNED_NO_DESC_=No description.
+_ASSIGNED_BY_ME_ASSIGNED_NO_ITEM_=No items found.
+_ASSIGNED_BY_ME_ASSIGNED_VIEW_=View
+_ASSIGNED_BY_ME_ASSIGNED_REASSIGN_=reassign
+_ASSIGNED_BY_ME_ASSIGNED_DELETE_=delete
+_ASSIGNED_BY_ME_ASSIGNED_EMAIL_=email
+
+
+
+//AssignByMe Ajax page
+_ASSIGNED_BY_ME_AJAX_=Assigned by me
+_ASSIGNED_BY_ME_AJAX_TODO_=TODO
+_ASSIGNED_BY_ME_AJAX_NO_=No
+_ASSIGNED_BY_ME_AJAX_TO=Assigned to
+_ASSIGNED_BY_ME_AJAX_LIST_NAME=List name
+_ASSIGNED_BY_ME_AJAX_TITLE_=Title
+_ASSIGNED_BY_ME_AJAX_DUE_DATE_=Due date
+_ASSIGNED_BY_ME_AJAX_STATUS_=Status
+_ASSIGNED_BY_ME_AJAX_PRIORITY_=Priority
+_ASSIGNED_BY_ME_AJAX_MORE_=more..
+_ASSIGNED_BY_ME_AJAX_NO_DESC_=No description.
+_ASSIGNED_BY_ME_AJAX_VIEW_=View
+_ASSIGNED_BY_ME_AJAX_REASSIGN_=reassign
+_ASSIGNED_BY_ME_AJAX_DELETE_=delete
+_ASSIGNED_BY_ME_AJAX_CLOSE_=close
+_ASSIGNED_BY_ME_AJAX_EMAIL_=email
+_ASSIGNED_BY_ME_AJAX_NO_ITEM_=No assigned by me TODO items.
+_ASSIGNED_BY_ME_AJAX_CLOSE_TODO_=Are you sure want to close this TODO item?
+
+
+
+//Change password page
+_PROFILE_CHANGE_MY_PASSWORD_=Change password
+_PROFILE_OLD_PASSWORD_=Old password
+_PROFILE_NEW_PASSWORD_=New password
+_PROFILE_CONFIRM_PASSWORD_=Confirm password
+
+
+
+//Comment page
+_COMMENT_NO_COMMENTS_=No comments
+_COMMENT_HISTORY_=Comment history
+
+
+
+//Description page
+_DESCRIPTION_TITLE_=Title
+_DESCRIPTION_TODO_LIST_=TODO list
+_DESCRIPTION_DESC_=Description
+_DESCRIPTION_ATTACH_=Attachment
+_DESCRIPTION_ASSIGN_BY_=Assign by
+_DESCRIPTION_ASSIGN_TO_=Assign to
+_DESCRIPTION_DUE_DATE_=Due date
+_DESCRIPTION_STATUS_=Status
+_DESCRIPTION_MORE_=Read more
+_DESCRIPTION_ADD_COMMENT_=Add Comment
+_DESCRIPTION_EDIT_TODO_=Edit TODO item
+_DESCRIPTION_TODO_LIST_NAME_=TODO list name
+_DESCRIPTION_INVITE_=Invite
+_DESCRIPTION_INVITE_EXAMPLE_=For Example : xxxx@gmail.com,yyyy@gmail.com
+_DESCRIPTION_ASSIGN_BACK_=Assign back
+_DESCRIPTION_COMMENT_HERE_=Comment here
+
+
+//Home page
+_HOME_HEADER_HI_=Hi
+_HOME_TODO_LIST_=TODO lists
+_HOME_ALL_=All
+_HOME_OPEN_=Open
+_HOME_DONE_=Done
+_HOME_CLOSE_=Close
+
+
+//Invites page
+_INVITE_DETAIL_=details
+_INVITES_INVITE_LIST_=Invite list
+_INVITES_TODO_NAME_=TODO list name
+_INVITES_TODO_LIST_=TODO list
+_INVITES_ROLE_=Role
+_INVITES_INVITED_TIME_=Invited time
+_INVITES_INVITED_BY_=Invited by
+_INVITES_MEMBER_=Member
+_INVITES_MANAGER_=Manager
+_INVITES_INVITATION_=view invitation
+_INVITES_ACCEPT_=accept
+_INVITES_INVITATION_DELETE_=delete invitation
+_INVITES_NO_ACTIVE_=No active invites found.
+_REM_INVITES_LOGO_=invite
+_INVITE_DESCRIPTION_=Description
+_INVITE_CREATED_=Created by
+
+
+
+//Invites Ajax page
+_INVITES_AJAX_INVITES_=Invites
+_INVITES_AJAX_BY_=By
+_INVITES_AJAX_MEMBER_=Member
+_INVITES_AJAX_MANAGER_=Manager
+_INVITES_AJAX_INVITATION_=view invitation
+_INVITES_AJAX_ACCEPT_=accept
+_INVITES_AJAX_INVITATION_DELETE_=delete invitation
+_INVITES_AJAX_NO_ACTIVE_=No active invites found.
+_INVITES_AJAX_MORE_=View more
+
+
+
+// Items page
+_ITEMS_MY_TODO_=My TODO list
+_ITEMS_PROJECT_NAME_=TODO list name
+_ITEMS_TITLE_=Title
+_ITEMS_DESC_=Description
+_ITEMS_ASSIGN_BY_=Assign by
+_ITEMS_DUE_DATE_=Due date
+_ITEMS_STATUS_=Status
+_ITEMS_PRIORITY_=Priority
+_ITEMS_NO_ITEM_=No iteam found.
+
+
+
+//ITEM AJAX PAGE
+_ITEMS_AJAX_TODO_=TODO items
+_ITEMS_AJAX_MY_TODO_=My TODO
+_ITEMS_AJAX_ASSIGNED_BY_=Assigned by me
+_ITEMS_AJAX_OTHER_=Others TODO
+_ITEMS_AJAX_NO_ACTIVE_=No active invites found.
+
+
+
+//LEFT VIEW PAGE
+_LEFT_VIEW_PROFILE_=Profile
+_LEFT_VIEW_EDIT_=edit
+_LEFT_VIEW_ADD_EMAIL_=Add email
+_LEFT_VIEW_FACEBOOK_=facebook
+_LEFT_VIEW_TWITTER_=twitter
+_LEFT_VIEW_LINKEDIN_=linkedin
+_LEFT_VIEW_UPLOAD_AVATAR_=Upload Avatar
+
+
+
+//list ajax page
+_LIST_AJAX_TODO_=TODO lists
+_LIST_AJAX_ADD_TODO_=add TODO list
+_LIST_AJAX_ALL_=All
+_LIST_AJAX_NO_ACTIVE_=No active invites found.
+
+
+
+//list description page
+_LIST_DESC_CREATED_=CreatedBy
+_LIST_DESC_DESC_=Description
+_LIST_DESC_STATUS_=Status
+_LIST_DESC_AT_=Created at
+_LIST_DESC_MEMBER_=Members
+_LIST_DESC_NAME_=Name
+_LIST_DESC_EMAIL_=Email
+_LIST_DESC_SINCE_=Since
+_LIST_DESC_INACTIVE_=Inactive
+_LIST_DESC_ACTIVE_=Active
+_LIST_DESC_BLOCK_=Block
+_LIST_DESC_NO_MEMBER_=No members available.
+
+
+
+//more history page
+_MORE_HISTORY_TODO_=TODO item history
+
+
+
+//MY ITEMS PAGE
+_MY_ITEMS_MY_TODO_=My TODO items
+
+
+
+_MY_LISTS_ADD_TODO_=Add TODO list
+_MY_LISTS_MY_TODO_=My TODO lists
+_MY_LISTS_TODO_=TODO list
+_MY_LISTS_LIST_NAME_=List name
+_MY_LISTS_CREATED_=Created by
+_MY_LISTS_DESC_=Description
+_MY_LISTS_TOTAL_=Total
+_MY_LISTS_PENDING_=Pending
+_MY_LISTS_CREATED_DATE_=Created date
+_MY_LISTS_VIEW_=view
+_MY_LISTS_DELETE_=delete
+_NO_MY_LISTS_TODO_=No TODO lists.
+
+
+
+//Account activation link page
+_LOGO_ALTER_=_SITENAME_.com - to get things done
+_TMP_ACCOUNT_ACTIVATION_HELLO_=Hello
+_TMP_ACCOUNT_ACTIVATION_CLICK_ACTIVATE_=Please activate your _SITENAME_ account by clicking this link
+_TMP_ACCOUNT_ACTIVATION_VERIFY_NOW_=Verify now
+_TMP_ACCOUNT_ACTIVATION_ACTIVATED_=Once you have activated the account, you can start using your _SITENAME_NO_CAPS_.com account.
+_EMAIL_TEMP_THANKS_MESSAGE_=Thanks,
+_EMAIL_TEMP_USING_=Using http://www._SITENAME_NO_CAPS_.com.
+_EMAIL_TEMP_DO_NOT_REPLY_=Please DO NOT REPLY to this email.
+		
+		
+
+//all list reminder template page
+_TMP_ALL_REM_MY_TODO_=My TODO
+_TMP_ALL_REM_NO_=No
+_TMP_ALL_REM_ASSIGN_BY_=Assign by
+_TMP_ALL_REM_LIST_NAME_=List name
+_TMP_ALL_REM_TITLE_=Title
+_TMP_ALL_REM_DUE_DATE_=Due date
+_TMP_ALL_REM_PRIORITY_=Priority
+_TMP_ALL_REM_STATUS_=Status
+_TMP_ALL_ASSIGNED_ME_=Assigned by me
+_TMP_ALL_REM_ASSIGN_TO_=Assign to
+_TMP_ALL_REM_OTHERS_=Others TODO
+_TMP_REMINDER_HELLO_=Hello
+
+
+
+//ASSIGN TASK LINK & ASSIGN TASK LINK REGISTER TEMPLATE PAGE
+_ASSIGN_TASK_HI_=Hi
+_ASSIGN_YOU_ASSIGNED_=You have been assigned
+_ASSIGN_TASK_BY_=By
+_ASSIGN_TASK_TITLE_=Title
+_ASSIGN_TASK_DUE_DATE_=Due date
+_ASSIGN_TASK_CLICK_HERE_OTHER_=Click here to see your other TODO items.
+_ASSIGN_TASK_DESC_=To track all TODO items, please join _SITENAME_.com.
+_ASSIGN_TASK_DESC_1_=Click here to join.
+
+
+
+//COMMENT TEMPLATE PAGE
+_TMP_COMMENT_HI_=Hi
+_TMP_COMMENT_ITEM_COMMENTED_=Item commented, that have been assigned to you
+_TMP_COMMENT_TODO_ITEM_NAME_=TODO item name
+_TMP_COMMENT_TODO_LIST_NAME_=TODO list name
+_TMP_COMMENT_BY_=Comment by
+_TMP_COMMENT_COMMENT_=Comment
+_TMP_COMMENT_CLICK_SEE_OTHER_=Click here to see your TODO item comment.
+
+
+//Contact Us link page
+_TMP_CONTACT_US_COMMENT_=Comment
+_TMP_CONTACT_US_INFO_=Contact us information
+_TMP_CONTACT_US_FULLNAME_=Full name
+_TMP_CONTACT_US_EMAIL_=Email
+
+
+
+//Forgot password link page
+_EMAIL_TMP_FORGOT_PASSWORD_HELLO_=Hello
+_EMAIL_TMP_FORGOT_PASSWORD_VERIFICATION_CODE_=You requested to reset your password. <br /><br />To reset your password, you will need verification code
+_EMAIL_TMP_FORGOT_PASSWORD_RESET_=<br />To reset your password, please click
+
+
+
+//INVITE CONFORMATION TEMPLATE PAGE
+_TMP_INVITE_HI_=Hi
+_TMP_INVITE_YOU_INVITED_=You are invited by
+_TMP_INVITE_AT_=at _SITENAME_.
+_TMP_INVITE_USE_LINK_=Use below link to create your account and join
+_TMP_INVITE_LIST_=list
+_TMP_INVITE_REGISTER_=Register
+
+
+
+//INVITE REGISTER CONFIRNATION TEMPATE PAGE
+_TMP_REG_INVITE_HI_=Hi
+_TMP_REG_INVITE_YOU_INVITED_=You are invited by
+_TMP_REG_INVITE_AT_=at _SITENAME_.
+_TMP_REG_INVITE_ACCEPT_=Accept
+_TMP_REG_INVITE_USE_LINK_=Use below link to login into your account.
+
+
+
+//ITEM CLOSED TEMPLATE PAGE
+_TMP_ITEM_COSED_HI_=Hi
+_TMP_ITEM_COSED_=Item closed, that have been assigned to you
+_TMP_ITEM_COSED_NEW_STATUS_=New status
+_TMP_ITEM_COSED_BY_=By
+_TMP_ITEM_COSED_TITLE_=Title
+_TMP_ITEM_COSED_DUE_DATE_=Due date
+_TMP_ITEM_COSED_CREATED_=Created data
+_TMP_ITEM_COSED_CLICK_SEE_OTHER_=Click here to see your other TODO items.
+
+//ITEM TITLE/PRIORITY/DUEDATE UPDATED
+_TMP_ITEM_UPDATED_=TODO item updated
+_TMP_ITEM_STATUS_=Status
+
+//ITEM OPEN TEMPLATE PAGE
+_EMAIL_TEMP_USE_BELOW_LINK_=Use below link to see TODO item detail:
+_EMAIL_TEMP_DESCRIPTION_=Description
+_TMP_ITEM_OPEN_HI_=Hi
+_TMP_ITEM_OPEN_=Item done, that have been assigned to you
+_TMP_ITEM_OPEN_NEW_STATUS_=New status
+_TMP_ITEM_OPEN_BY_=By
+_TMP_ITEM_OPEN_TITLE_=Title
+_TMP_ITEM_OPEN_DUE_DATE_=Due date
+_TMP_ITEM_OPEN_CREATED_=Created data
+_TMP_ITEM_OPEN_CLICK_SEE_OTHER_=Click here to see your other TODO items.
+_TMP_ITEM_OPEN_ASSIGN_BY_=Assign by
+_TODO_LINK_VIEW_=Click here to see TODO
+
+/ITEM DONE
+
+_TMP_ITEM_DONE_= Marked done for your TODO.
+
+//USER CONFORMATION TEMPLATE PAGE
+_TMP_USER_HELLO_=Hello
+_TMP_USER_THANKS_SIGNUP_=Thank you for signing up for a _SITENAME_ account.
+_TMP_USER_CONFIRM_LINK_=Please confirm your _SITENAME_ account by clicking following link
+_TMP_USER_VERIFY_NOW_=Verify now
+_TMP_USER_ONCE_VERIFIED_=Once you have verified your account, you can start getting alerts for todo that become available in your list.
+
+
+
+//my network page
+_NET_INVITE_=Invite to my TODO network
+_NET_MY_TODO_NET_=My TODO network
+_NET_FULL_NAME_=Full name
+_NET_EMAIL_=Email
+_NET_CREATED_=Created
+_NET_VIEW_=view
+_NET_DELETE_=delete
+_NET_NO_NETWORK_=No network user found.
+_NET_ADD_NETWORK_=ADD my TODO network
+_NET_TODO_LIST_NAME_=TODO list name
+_NET_NO_LIST_=No list
+_NETWORK_FNAME_=First name
+_NETWORK_LNAME_=Last name
+_NETWORK_SELECT_=Select
+_NETWORK_MY_LIST_=My network list
+_NETWORK_MY_USER_=User
+
+
+
+//NETWORK USER DETAILS PAGE
+_NETWORK_DETAIL_=My network user details
+_NETWORK_DETAIL_F_NAME_=First name
+_NETWORK_DETAIL_L_NAME_=Last name
+_NETWORK_DETAIL_EMAIL_=Email
+_NETWORK_DETAIL_CREATED_=Created
+_NETWORK_DETAIL_BACK_=Back
+
+
+
+//MY TODO AJAX PAGE
+_MY_TODO_AJAX_=My TODO
+_MY_TODO_AJAX_NO_=No
+_MY_TODO_AJAX_ASSIGN_BY_=Assigned by
+_MY_TODO_AJAX_LIST_NAME_=List name
+_MY_TODO_AJAX_TITLE_=Title
+_MY_TODO_AJAX_DUE_DATE_=Due date
+_MY_TODO_AJAX_PRIORITY_=Priority
+_MY_TODO_AJAX_STATUS_=Status
+_MY_TODO_AJAX_MORE_=more..
+_MY_TODO_AJAX_NO_DESC_=No description.
+_MY_TODO_AJAX_NO_TODO_ITEM_=No my TODO items.
+
+
+
+//MY TODO ITEMS PAGE
+_MY_ADD_=Add new TODO
+_TODO_ITEMS_MY_TODO_=My TODO items
+_TODO_ITEMS_NO_=No
+_TODO_ITEMS_ASSIGN_BY_=Assigned by
+_TODO_ITEMS_LIST_NAME_=List name
+_TODO_ITEMS_TITLE_=Title
+_TODO_ITEMS_DUE_DATE_=Due date
+_TODO_ITEMS_PRIORITY_=Priority
+_TODO_ITEMS_STATUS_=Status
+_TODO_ITEMS_MORE_=more..
+_TODO_ITEMS_NO_DESC_=No description.
+_TODO_ITEMS_NO_ITEMS_=No TODO items.
+
+
+
+//MY WORK STATUS PAGE
+_MY_WORK_TODO_LIST_=TODO lists
+_MY_WORK_PENDING_TODO_=Pending TODO items
+_MY_WORK_DONE_TODO_=Done TODO items
+
+
+
+//OTHER TODO PAGE
+_OTHER_TODO_TODO_LIST_=Others TODO list
+_OTHER_TODO_TODO_=TODO
+_OTHER_TODO_NO_=No
+_OTHER_TODO_ASSIGNED_BY_=Assigned by
+_OTHER_TODO_ASSIGNED_TO_=Assigned to
+_OTHER_TODO_LIST_NAME_=List name
+_OTHER_TODO_TITLE_=Title
+_OTHER_TODO_DUE_DATE_=Due date
+_OTHER_TODO_PRIORITY_=Priority
+_OTHER_TODO_STATUS_=Status
+_OTHER_TODO_MORE_=more..
+_OTHER_TODO_NO_DESC_=No description.
+_OTHER_TODO_NO_ITEMS_=No TODO items.
+
+
+
+/OTHER TODO AJAX PAGE
+_OTHER_TODO_AJAX_OTHER_=Others TODO
+_OTHER_TODO_AJAX_NO_=No
+_OTHER_TODO_AJAX_ASSIGNED_BY_=Assigned by
+_OTHER_TODO_AJAX_ASSIGNED_TO_=Assigned to
+_OTHER_TODO_AJAX_LIST_NAME_=List name
+_OTHER_TODO_AJAX_TITLE_=Title
+_OTHER_TODO_AJAX_DUE_DATE_=Due date
+_OTHER_TODO_AJAX_PRIORITY_=Priority
+_OTHER_TODO_AJAX_STATUS_=Status
+_OTHER_TODO_AJAX_MORE_=more..
+_OTHER_TODO_AJAX_NO_DESC_=No description.
+_OTHER_TODO_AJAX_NO_ITEMS_=No other TODO items.
+_OTHER_TODO_AJAX_SHOWS_=Shows
+
+
+
+//REASSIGN TASK PAGE
+_REASSIGN_TASK_TODO_=Reassign TODO
+_REASSIGN_TASK_NEW_USER_=New user
+_REASSIGN_TASK_FROM_NTEWORK_=From network
+
+
+
+//REMINDERS PAGE
+_ADD_REM_=Add reminder
+_MY_REMINDERS_=My reminders
+_REMINDERS_TODO_LIST_=TODO list
+_REMINDERS_STATUS_=Status
+_REMINDERS_DUE_DATE_=Due date
+_REMINDERS_DURATION_=Duration
+_REMINDERS_TIME_=Time
+_EDIT_REM_=edit reminder
+_DEL_REM_=delete reminder
+_REMIND_=remind me
+_REMINDERS_NO_ACTIVE_=No active reminders found.
+_REM_INVITES_=Invites
+_REMINDERS_MORE_=View more
+_VIEW_REM_=view reminder
+_REMINDERS_SUMMARY_ONLY_=Summary only
+
+
+
+//REMINDER VIEW MORE PAGE
+_REM_VIEW_REMINDER_=remider
+_REM_VIEW_PROJECT_NAME_=TODO list name
+_REM_VIEW_DURATION_=Duration
+_REM_VIEW_CREATED_=Created at
+_REM_VIEW_NO_INVITES_=No invites found.
+
+
+
+
+//Setting page
+_SETTING_HEADER_=Close account
+_SETTING_DELETE_CONFIRM_=Are you sure you want to close your account ?
+_SETTING_WHY_CLOSE_=Why would you like to close your account?
+_SETTING_DUPLICATE_=I have a duplicate account
+_SETTING_MANY_MAILS_=I am getting too many emails
+_SETTING_MEMBERSHIP_=I am not getting any value from my membership
+_SETTING_ANOTHER_SERVICE_=I am using a different professional service
+_SETTING_OTHER_=Other
+_SETTING_CONFIRMATION_DIALOG_=Confirmation dialog
+
+
+
+//VIEW MORE INVITE PAGE
+_INVITE_VIEW_DETAILS_=  details
+_INVITE_VIEW_PROJECT_NAME_=TODO list name
+_INVITE_VIEW_DESC_=Description
+_INVITE_VIEW_CREATED_BY_=Created by
+_INVITE_VIEW_ROLE_=Role
+_INVITE_VIEW_MEMBER_=Member
+_INVITE_VIEW_MANAGER_=Manager
+_INVITE_VIEW_INVITED_TIME_=Invited time
+_INVITE_VIEW_NO_INVITE_=No invites found.
+
+
+
+//---------------------------------------------MOBILE PAGE------------------------------------
+--------------------------------------------------------------------------------------------//
+
+//Global
+_MOBILE_CAPTCHA_=Captcha
+_MOBILE_USER_TIMEZONE_=Timezone
+
+
+
+//mobile about page
+_MOBILE_ABOUT_DESC_=About us
+_MOBILE_ABOUT_DESC_1_=Located in heart of silicon valley, _SITENAME_, Inc. makes apps that enable real time location based transactions.  Here are a few of our apps:
+
+_MOBILE_ABOUT_DESC_2_=<b>_SITENAME_.com</b> is our real time shared todo lists where not only you can track your own TODO tasks but also the tasks you have assigned to others. This helps in managing your TODO items or TODO items you have assigned to oithers. You can set up time based reminders for pending TODOs, setup location based reminders for TODO items and so on. Its FREE to signup and you can just get things done better.
+
+_MOBILE_ABOUT_DESC_3_=<b>Finditnear.com:</b>  Finditnear.com makes it easy for merchants and consumers to connect. It enables consumers to ask for what they want in real time at the location they prefer and enables merchants to create buzz in real time and connect instantly with consumers near their locations. We also enable merchants to send personalized (patent pending) "just for me" messages/coupons to customers through Finditnear. The advantage is that unlike email loyalty coupons that stay trapped in email and often received at wrong location and wrong time - the customers now see these "personalized loyalty based coupons" location based along with other coupons in their finditnear app. This increases the chance of redemption - and keeps the loyalty coupons on top of their list. We call it end of loyalty coupons that stay trapped in email. 
+
+_ABOUT_DESC_4_=<b>Jobsmo.com:</b> Jobsmo.com is the mobile way to hire and get hired! It revolutionizes hiring hourly workforce.  Jobsmo.com replaces the "Now Hiring" sign on window.
+Employers do not need to visit a website to post jobs or connect with candidates. And Seekers do not need a website to get found. You can use jobsmo right from your phone - SMS, iPhone app, Android app, mobile web etc. And of course you can use the traditional website
+
+_MOBILE_ABOUT_DESC_4-1_=jobsmo.com.
+
+_MOBILE_ABOUT_DESC_4-2_=With Jobsmo, employers and seekers find an instant match near them.
+
+_MOBILE_ABOUT_DESC_5_=<b>Bridgecall:</b> Bridgecall is our mobile app solution to enable you to join your conference calls easily with just a few keystrokes.
+
+
+
+//Mobile Contact us page
+_MOBILE_USER_CONTACT_TITLE_=Contact us
+_MOBILE_USER_CONTACT_MANDATORY_=Fields with * are mandatory
+_MOBILE_USER_CONTACT_NAME_=Your name
+_MOBILE_USER_CONTACT_EMAIL_=Your email address
+_MOBILE_USER_CONTACT_COMMENT_=Your comment or question
+
+
+
+//Mobile Account activation page
+_MOBILE_USER_ACCOUNT_ACTIVATION_TITLE_=Account activation
+_MOBILE_USER_ACCOUNT_ACTIVATION_EMAIL_ACTIVATION_=Email activation
+_MOBILE_USER_ACCOUNT_ACTIVATION_EMAIL_=Email
+_MOBILE_USER_ACCOUNT_ACTIVATION_PHONE_ACTIVATION_=Phone number activation
+_MOBILE_USER_ACCOUNT_ACTIVATION_PHONE_=Phone number
+
+
+
+//Mobile Forgot password page
+_MOBILE_USER_FORGOT_PASSWORD_=Forgot password
+_MOBILE_USER_FORGOT_PASSWORD_ENTER_=Enter email or phone number
+
+
+
+//Mobile Login page
+_MOBILE_USER_LOGIN_=Login
+_MOBILE_USER_LOGIN_EMAIL_PHONE_=Email or Phone
+_MOBILE_USER_LOGIN_PASSWORD_=Password
+_MOBILE_USER_LOGIN_REMEMBER_=Remember me
+_MOBILE_USER_LOGIN_ACCESS_=I can't access my account
+_MOBILE_USER_LOGIN_FINDIT_=Finditnear.com
+_MOBILE_USER_LOGIN_FINDIT_DESC_=Connect for instantaneous, location aware fresh transaction opportunities from mobile
+_MOBILE_USER_LOGIN_JOBSMO_=JobsMo.com
+_MOBILE_USER_LOGIN_JOBSMO_DESC_=The mobile way to hire and get hired! Jobsmo.com is revolutionizing hiring hourly workers!
+_MOBILE_USER_LOGIN_RTLS_=RFID/RTLS Apps
+_MOBILE_USER_LOGIN_RTLS_DESC_=RFID/RTLS Apps to solve your business needs.
+_MOBILE_USER_LOGIN_BRIDGE_=Bridge Call
+_MOBILE_USER_LOGIN_BRIDGE_DESC_=No more pain in joining conference calls from your iPhone. Join conference calls with a few keystrokes from your iPhone!
+_MOBILE_USER_LOGIN_JUST_ME_=Just for me
+_MOBILE_USER_LOGIN_JUST_ME_DESC_=Location based loyalty programs. No more loyalty rewards lost in email or paper cards. The only loyalty card you need to carry.
+
+
+//Mobile Help page
+_MOBILE_USER_HELP_TITLE_=Looks like you need some help?
+_MOBILE_USER_HELP_SOLUTION_=Let us help you find a solution
+_MOBILE_USER_HELP_FORGOT_=I forgot my password
+_MOBILE_USER_HELP_INACTIVE_=My account is inactive
+_MOBILE_USER_HELP_CONTACT_=Contact us and we'll help you out
+
+
+
+//Mobile password confirm page
+_MOBILE_USER_PASS_CONFIRM_TITLE_=Forgot password verification
+_MOBILE_USER_PASS_CONFIRM_TOKEN_=Verification code
+_MOBILE_USER_PASS_CONFIRM_NEW_PASSWORD_=New password
+_MOBILE_USER_PASS_CONFIRM_CONFIRM_PASSWORD_=Confirm password 
+
+
+
+
+//Mobile Signup page
+_MOBILE_USER_SIGNUP_CREATE_ACCOUNT_=Create an account
+_MOBILE_USER_SIGNUP_ABOUT_YOURSELF_=Please tell us about your self. You will use your email or phone number to login to your _SITENAME_NO_CAPS_.com account 
+_MOBILE_USER_SIGNUP_MANDATORY_=Fields with * are mandatory
+_MOBILE_USER_SIGNUP_FULLNAME_=Full name (firstname lastname)
+_MOBILE_USER_SIGNUP_EMAIL_PHONE_=Please specify email or phone or both
+_MOBILE_USER_SIGNUP_EMAIL_=Email
+_MOBILE_USER_SIGNUP_PHONE_=Phone number
+_MOBILE_USER_SIGNUP_SMS_=Can receive SMS on this?
+_MOBILE_USER_SIGNUP_PASSWORD_=Password
+_MOBILE_USER_SIGNUP_CONFIRM_PASSWORD_=Confirm password
+_MOBILE_USER_SIGNUP_VERIFY_NOW_=Verify now
+
+
+
+//Mobile term & condition page
+_MOBILE_USER_TERM_=T &amp; C _SITENAME_ - to get things done.
+_MOBILE_USER_TERM_DESC_=Page under development.
+
+
+
+//Mobile privacy page
+_MOBILE_USER_PRIVACY_=Privacy policy
+_MOBILE_USER_PRIVACY_DESC_=Your privacy is our top concern. No fine prints. No large agreements. We never share your identity except your username.
+
+
+
+//Mobile about me page
+_MOBILE_USER_ABOUT_ME_=About me
+_MOBILE_USER_ABOUT_ME_FULL_NAME_=Full name
+_MOBILE_USER_ABOUT_ME_EMAIL_=Email  
+_MOBILE_USER_ABOUT_ME_DELETE_EMAIL_=Are you sure you want to delete email from account?
+
+
+
+//Mobile Add network page
+_MOBILE_ADD_NETWORK_ADD_TODO_=Add my TODO network
+_MOBILE_ADD_NETWORK_EMAIL_=Email
+_MOBILE_ADD_NETWORK_TODO_LIST_NAME_=TODO list name
+_MOBILE_ADD_NETWORK_NO_LIST_=No list
+_MOBILE_ADD_NETWORK_BACK_NETWORK_=Back to my network
+
+
+
+//mobile Add reminder page
+_MOBILE_USER_REM_ADD_REM_=Add reminder
+_MOBILE_USER_REM_EDIT_REM_=Edit reminder
+_MOBILE_USER_REM_LIST_NAME_=List name
+_MOBILE_USER_REM_ALL_=All
+_MOBILE_USER_REM_STATUS_=Status
+_MOBILE_USER_REM_STATUS_ANY_=ANY
+_MOBILE_USER_REM_STATUS_OPEN_=OPEN
+_MOBILE_USER_REM_STATUS_CLOSE_=CLOSE
+_MOBILE_USER_REM_DUE_DATE_=DueDate
+_MOBILE_USER_REM_DUE_DATE_TODAY_=Today
+_MOBILE_USER_REM_DUE_DATE_ANY_=Any
+_MOBILE_USER_REM_DUE_DATE_WEEK_=This week
+_MOBILE_USER_REM_AT_=At
+_MOBILE_USER_REM_BACK_REM_=Back to reminders
+
+
+
+//Mobile Add todo invite page
+_MOBILE_USER_ADD_INVITE_NEW_=Invite new user
+_MOBILE_USER_ADD_INVITE_TODO_LIST_=TODO list name
+_MOBILE_USER_ADD_INVITE_NO_LIST_=No list
+_MOBILE_USER_ADD_INVITE_INVITE_=Invite (For Example : xxxx@gmail.com,yyyy@gmail.com)
+_MOBILE_USER_ADD_INVITE_BACK_INVITE_=Back to invites
+
+
+
+//Mobile Add todo invite page
+_MOBILE_USER_ADD_ITEMS_TODO_=Add TODO items
+_MOBILE_USER_ADD_ITEMS_TODO_LIST_NAME_=TODO list name
+_MOBILE_USER_ADD_ITEMS_NO_LIST_=No list
+_MOBILE_USER_ADD_ITEMS_TITLE_=Title
+_MOBILE_USER_ADD_ITEMS_DESC_=Description
+_MOBILE_USER_ADD_ITEMS_PRIORITY_=Priority
+_MOBILE_USER_ADD_ITEMS_PRIORITY_LOW_=LOW
+_MOBILE_USER_ADD_ITEMS_PRIORITY_MEDIUM_=MEDIUM
+_MOBILE_USER_ADD_ITEMS_PRIORITY_HIGH_=HIGH
+_MOBILE_USER_ADD_ITEMS_PRIORITY_URGENT_=URGENT
+_MOBILE_USER_ADD_ITEMS_DUE_DATE_=DueDate
+_MOBILE_USER_ADD_ITEMS_DATE_FORMATE_=(YYYY-MM-DD)
+_MOBILE_USER_ADD_ITEMS_ASSIGN_=Assign
+_MOBILE_USER_ADD_ITEMS_ASSIGN_SELF_=Self
+_MOBILE_USER_ADD_ITEMS_ASSIGN_OTHER_=Other
+_MOBILE_USER_ADD_ITEMS_SELECT_EMAIL_=Select email
+
+
+
+//Mobile Add todo list page
+_MOBILE_USER_ADD_LIST_TODO_=Add TODO list
+_MOBILE_USER_ADD_LIST_TODO_NAME_=TODO list name
+_MOBILE_USER_ADD_LIST_DESC_=Description
+_MOBILE_USER_ADD_LIST_INVITE_=Invite
+_MOBILE_USER_ADD_LIST_INVITE_EXAMPLE_=(For Example : xxxx@gmail.com,yyyy@gmail.com)
+_MOBILE_USER_ADD_LIST_BACK_=Back to My List
+_MOBILE_USER_ADD_TODO_BACK_=Back to My TODO items
+
+
+
+
+//Mobile Change password page
+_MOBILE_USER_CHANGE_PASSWORD_=Change password
+_MOBILE_USER_CHANGE_OLD_PASSWORD_=Old password
+_MOBILE_USER_CHANGE_NEW_PASSWORD_=New password
+_MOBILE_USER_CHANGE_CONFIRM_PASSWORD_=Confirm password
+
+
+
+//Mobile Delete Account confirm page
+_MOBILE_USER_DELETE_ACCOUNT_CONFIRM_=Are you sure want to delete this
+
+
+
+//Mobile Delete confirm page
+_MOBILE_USER_DELETE_CONFIRM_=Are you sure want to delete this
+
+
+
+//Mobile Description page
+_MOBILE_USER_DESC_LIST_=TODO list
+_MOBILE_USER_DESC_TITLE_=Title
+_MOBILE_USER_DESC_DESC_=Description
+_MOBILE_USER_DESC_ATTACH_=Attachment
+_MOBILE_USER_DESC_ASSIGN_BY_=Assign by
+_MOBILE_USER_DESC_ASSIGN_TO_=Assign to
+_MOBILE_USER_DESC_DUE_DATE_=Due date
+_MOBILE_USER_DESC_ADD_COMMENT_=Add comment
+_MOBILE_USER_DESC_NO_COMMENT_=No comments
+
+
+
+//Mobile Facebook link Page
+_MOBILE_USER_FACEBOOK_LINK_=Facebook link
+_MOBILE_USER_FACEBOOK_EG_=Please specify your facebook URL e.g. http://www.facebook.com/...
+
+
+
+
+//Mobile Linkedin link page
+_MOBILE_USER_LINKEDIN_LINK_=Linkedin link
+_MOBILE_USER_LINKEDIN_LINK_EG_=Please specify your linkedin URL e.g. http://www.linkedin.com/... 
+
+
+
+
+//Mobile Twitter link page
+_MOBILE_USER_TWITTER_LINK_=Twitter link
+_MOBILE_USER_LINKEDIN_LINK_EG_=Please specify your linkedin URL e.g. http://www.linkedin.com/... 
+
+
+
+
+//Mobile Home page
+_MOBILE_USER_HOME_MY_TODO_=My TODO
+_MOBILE_USER_HOME_ASSIGNED_BY_=Assigned by
+_MOBILE_USER_HOME_LIST_NAME_=List name
+_MOBILE_USER_HOME_TITLE_=Title
+_MOBILE_USER_HOME_DESC_=Description
+_MOBILE_USER_HOME_DUE_DATE_=Due date
+_MOBILE_USER_HOME_PRIORITY_=Priority
+_MOBILE_USER_HOME_STATUS_=Status
+_MOBILE_USER_HOME_NO_TODO_=No TODO items.
+
+
+
+//Mobile Invites page
+_MOBILE_USER_INVITES_LIST_=Invites list
+_MOBILE_USER_INVITES_CLICK_ADD_=Click here to add invite
+_MOBILE_USER_INVITES_PROJECT_NAME_=TODO list name
+_MOBILE_USER_INVITES_MEMBER_=Member
+_MOBILE_USER_INVITES_MANAGER_=Manager
+_MOBILE_USER_INVITES_INVITED_TIME_=Invited time
+_MOBILE_USER_INVITES_INVITED_BY_=Invited by
+_MOBILE_USER_INVITES_ACCEPT_=Accept
+_MOBILE_USER_INVITES_DELETE_=Delete
+_MOBILE_USER_INVITES_NO_LIST_=No TODO list invite.
+_MOBILE_USER_INVITES_ROLE_=Role
+
+
+
+
+//Mobile list descrition page
+_MOBILE_USER_LIST_DESC_CREATED_BY_=CreatedBy
+_MOBILE_USER_LIST_DESC_DESC_=Description
+_MOBILE_USER_LIST_DESC_STATUS_=Status
+_MOBILE_USER_LIST_DESC_CREATED_AT_=Created at
+_MOBILE_USER_LIST_DESC_MEMBERS_=Members
+_MOBILE_USER_LIST_DESC_NAME_=Name
+_MOBILE_USER_LIST_DESC_EMAIL_=Email
+_MOBILE_USER_LIST_DESC_SINCE_=Since
+_MOBILE_USER_LIST_DESC_NO_MEMBERS_=No members available.
+_MOBILE_USER_LIST_DESC_BACK_=Back to my list
+
+
+
+//Mobile my lists page
+_MOBILE_USER_MY_LISTS_MY_TODO_=My todo lists
+_MOBILE_USER_MY_LISTS_CLICK_ADD_=Click here to add TODO list
+_MOBILE_USER_MY_LISTS_LIST_NAME_=List name
+_MOBILE_USER_MY_LISTS_DESC_=Description
+_MOBILE_USER_MY_LISTS_CREATED_DATE_=Created date
+_MOBILE_USER_MY_LISTS_VIEW_=View
+_MOBILE_USER_MY_LISTS_NO_LIST_=No TODO lists.
+
+
+
+//Mobile my network page
+_MOBILE_USER_MY_NETWORK_LISTS_=My network list
+_MOBILE_USER_MY_NETWORK_CLICK_ADD_=Click here to add new network
+_MOBILE_USER_MY_NETWORK_FULL_NAME_=Full name
+_MOBILE_USER_MY_NETWORK_EMAIL_=Email
+_MOBILE_USER_MY_NETWORK_CREATED_=Created
+_MOBILE_USER_MY_NETWORK_DELETE_=Delete
+_MOBILE_USER_MY_NETWORK_NO_NETWORK_=No network user found.
+
+
+
+//Mobile my network user page
+_MOBILE_USER_NET_USER_LIST_=My network list
+_MOBILE_USER_NET_USER_=User
+_MOBILE_USER_NET_USER_F_NAME_=First name
+_MOBILE_USER_NET_USER_L_NAME_=Last name
+_MOBILE_USER_NET_USER_EMAIL_=Email
+_MOBILE_USER_NET_USER_SELECT_=Select
+_MOBILE_USER_NET_USER_NO_NETWORK_=No network user found.
+
+
+
+//Mobile mytodo page
+_MOBILE_USER_MY_TODO_ASSIGNED_BY_=Assigned by me
+_MOBILE_USER_MY_TODO_ASSIGNED_TO_=Assigned to
+_MOBILE_USER_MY_TODO_PROJECT_NAME_=List name
+_MOBILE_USER_MY_TODO_TITLE_=Title
+_MOBILE_USER_MY_TODO_DESC_=Description
+_MOBILE_USER_MY_TODO_DUE_DATE_=Due date
+_MOBILE_USER_MY_TODO_STATUS_=Status
+_MOBILE_USER_MY_TODO_PRIORITY_=Priority
+_MOBILE_USER_MY_TODO_DATE_=Date
+_MOBILE_USER_MY_TODO_VIEW_=View
+_MOBILE_USER_MY_TODO_DELETE_=Delete
+_MOBILE_USER_MY_TODO_EMAIL_=Email
+_MOBILE_USER_MY_TODO_NO_ITEMS_=No items found.
+
+
+
+//Mobile my todo list page
+_MOBILE_USER_TODO_LISTS_TODO_=My TODO
+_MOBILE_USER_TODO_LISTS_ASSIGNED_BY_=Assigned by
+_MOBILE_USER_TODO_LISTS_LIST_NAME_=List name
+_MOBILE_USER_TODO_LISTS_TITLE_=Title
+_MOBILE_USER_TODO_LISTS_DESC_=Description
+_MOBILE_USER_TODO_LISTS_DUE_DATE_=Due date
+_MOBILE_USER_TODO_LISTS_PRIORITY_=Priority
+_MOBILE_USER_TODO_LISTS_STATUS_=Status
+_MOBILE_USER_TODO_LISTS_DATE_=Date
+_MOBILE_USER_TODO_LISTS_VIEW_=View
+_MOBILE_USER_TODO_LISTS_DELETE_=Delete
+_MOBILE_USER_TODO_LISTS_NO_TODO_=No TODO items.
+
+
+
+//MOBILE OTHER TODO PAGE
+_MOBILE_USER_OTHERS_TODO_LIST_=Others TODO items
+_MOBILE_USER_OTHERS_ASSIGNED_BY_=Assigned by
+_MOBILE_USER_OTHERS_ASSIGNED_TO_=Assigned to
+_MOBILE_USER_OTHERS_LIST_NAME_=List name
+_MOBILE_USER_OTHERS_TITLE_=Title
+_MOBILE_USER_OTHERS_DESC_=Description
+_MOBILE_USER_OTHERS_DUE_DATE_=Due date
+_MOBILE_USER_OTHERS_PRIORITY_=Priority
+_MOBILE_USER_OTHERS_STATUS_=Status
+_MOBILE_USER_OTHERS_VIEW_=View
+_MOBILE_USER_OTHERS_NO_ITEMS_=No items found.
+
+
+
+//MOBILE REMINDER PAGE
+_MOBILE_USER_REM_LIST_=Reminders list
+_MOBILE_USER_REM_CLICK_ADD_=Click here to add reminder
+_MOBILE_USER_REM_PROJECT_NAME_=TODO list name
+_MOBILE_USER_REM_STATUS_=Status
+_MOBILE_USER_REM_DUE_DATE_=Due date
+_MOBILE_USER_REM_DURATION_=Duration
+_MOBILE_USER_REM_TIME_=Time
+_MOBILE_USER_REM_EDIT_=Edit
+_MOBILE_USER_REM_DELETE_=Delete
+_MOBILE_USER_REM_EMAIL_=Email
+_MOBILE_USER_REM_NO_ACTIVE_=No active reminders found.
+
+
+
+
+//Mobile Setting page
+_MOBILE_USER_SETTING_HEADER_=Close account
+_MOBILE_USER_SETTING_WHY_CLOSE_=Why would you like to close your account?
+_MOBILE_USER_SETTING_DUPLICATE_=I have a duplicate account
+_MOBILE_USER_SETTING_MANY_MAILS_=I am getting too many emails
+_MOBILE_USER_SETTING_MEMBERSHIP_=I am not getting any value from my membership
+_MOBILE_USER_SETTING_ANOTHER_SERVICE_=I am using a different professional service
+_MOBILE_USER_SETTING_OTHER_=Other
+
+
+
+//Mobile setting tab page
+_MOBILE_USER_SETTING_TAB_MY_PROFILE_=My profile
+_MOBILE_USER_SETTING_TAB_ABOUT_ME_=About me
+_MOBILE_USER_SETTING_TAB_CHANGE_PASS_=Change password
+_MOBILE_USER_SETTING_TAB_CLOSE_ACCOUNT_=Close my account
+
+
+
+//Mobile todo tab page
+_MOBILE_USER_TODO_TAB_TODO_ITEMS_=TODO items
+_MOBILE_USER_TODO_TAB_CLICK_ADD_=Click here to add new TODO
+_MOBILE_USER_TODO_TAB_MY_TODO_=My TODO
+_MOBILE_USER_TODO_TAB_ASSIGNED_BY_=Assigned by me
+_MOBILE_USER_TODO_TAB_OTHER_TODO_=Others TODO
+
+
+
+
+//mobile main page
+_MOBILE_USER_MAIN_HOME_TITLE_=_SITENAME_ - to get things done
+_MOBILE_USER_HEADER_CONTACT_US_=Contact us
+_MOBILE_USER_HEADER_HI_=Hi
+_MOBILE_USER_BACK_TO_=Back to
+_MOBILE_USER_MAIN_HOME_=Home
+_MOBILE_USER_MAIN_MY_PROFILE_=My profile
+_MOBILE_USER_MAIN_MY_LISTS_=My lists
+_MOBILE_USER_MAIN_TODO_ITEMS_=TODO items
+_MOBILE_USER_MAIN_MY_NETWORK_=My TODO Network
+_MOBILE_USER_MAIN_INVITE_=Invite
+_MOBILE_USER_MAIN_REMINDERS_=Reminders
+_MOBILE_USER_MAIN_LINKEDIN_=Linkedin link
+_MOBILE_USER_MAIN_FACEBOOK_=Facebook link
+_MOBILE_USER_MAIN_TWITTER_=Twitter link
+_MOBILE_USER_MAIN_TERM_=T & C
+_MOBILE_USER_MAIN_TOP_PAGE_=Top of page
+_MOBILE_USER_MAIN_PRIVACY_=Privacy
+_MOBILE_USER_MAIN_ABOUT_=About
+_MOBILE_USER_MAIN_ABOUT_US_=About us
+_MOBILE_USER_MAIN_FINDITNEAR_=Finditnear
+_MOBILE_USER_MAIN_JOBSMO_=Jobsmo
+_MOBILE_USER_MAIN_BRIDGE_=Bridge Call
+_MOBILE_USER_MAIN_UDID_=Share UDID
+_MOBILE_USER_MAIN_CLICK_HERE_=Click here to
+_MOBILE_USER_MAIN_REGISTER_=Register
+_MOBILE_USER_MAIN_FOOTER_NAME_=&copy; 2012 _SITENAME_, Inc. 
+_MOBILE_USER_MAIN_OUR_APPS_=Our Apps
+_MOBILE_USER_MAIN_MY_TODO_=My TODO
+_MOBILE_USER_MAIN_ASSIGN_ME_=Assigned by me
+_MOBILE_USER_MAIN_OTHERS_TODO_=Others TODO
+_MOBILE_USER_MAIN_REMINDERS_=Reminders
+_MOBILE_USER_MAIN_INVITATION_=Invitation
+
+_SUMMARY_ONLY_=Summary only
+_REMINDER_NAME_=Reminder name
+_REMINDER_LIST_NAME_=Name
+
+
+// Todo Item widget
+_MOBILE_USER_MY_TODO_=My TODO
+_MOBILE_USER_ASSIGN_BY_ME_TODO_=Assigned by me
+_MOBILE_USER_OTHERS_TODO_=Others TODO
+
+//mobile comment page
+_MOBILE_COMMENT_PAGE_=Comment History
+_MOBILE_COMMENT_NO_FOUND_=No history found.
+_MOBILE_USER_TODO_ITEM_COUNT_ = TODO item count
+
+//bridge call
+_MOBILE_BRIDGECALL_HEADER_=_SITENAME_ Inc. - Bridge Call
+_MOBILE_BRIDGECALL_TITLE_=to get things done
+_MOBILE_BRIDGECALL_CONATCT_=Contact Us
+_MOBILE_BRIDGECALL_APP_=Click here to download mobile app! 
+_MOBILE_BRIDGECALL_LOGO_=Bridge Call
+_MOBILE_BRIDGECALL_DESC_1_=Join conference calls from your iPhone with a few keystrokes! 
+_MOBILE_BRIDGECALL_OVERVIEW_=App Overview
+_MOBILE_BRIDGECALL_DESC_2_=Calling conference calls from phone is painful as too many keystrokes - the phone number, the meeting number, the special characters... This bridgecall app makes joining your conference calls easy! It allows you to dial into your conference calls from your iphone calendars with almost no key strokes.
+_MOBILE_BRIDGECALL_DESC_3_=All you need to do is add information about the bridge number you use for the conference calls. Bridge number is the phone number you use for conference call. 
+_MOBILE_BRIDGECALL_MORE_=More
+_MOBILE_BRIDGECALL_DESC_4_=Join conference calls with a few keystokes
+_MOBILE_BRIDGECALL_DESC_4_=Add a bridge number
+_MOBILE_BRIDGECALL_DESC_5_=App displays your iphone calendar with meeting numbers highlighted
+_MOBILE_BRIDGECALL_DESC_6_=Touch the CALL Button to join conference bridge
+_MOBILE_BRIDGECALL_FINDITNEAR_=Finditnear
+_MOBILE_BRIDGECALL_JOBSMO_=Jobsmo
+_MOBILE_BRIDGECALL_SHARE_UDID_=Share UDID
+_MOBILE_BRIDGECALL_PRIVACY_=Privacy Policy
+_MOBILE_BRIDGECALL_ABOUT_US_=About us
+_MOBILE_BRIDGECALL_TODOOLI_=_SITENAME_, Inc.
+_MOBILE_BRIDGECALL_DESC_7_= All you need to do is add information about the bridge number you use for the conference calls. Bridge number is the phone number you use for conference call. Typically after this phone number you pause and then enter the meeting number followed by a # or some other character. At the time when add a bridge number, the app allows you to specify the options. For many conference bridges, the defaults will work great. Please change as per your conference call system.
+_MOBILE_BRIDGECALL_DESC_8_=This app uses pattern matching to find meeting number from the event notes. It uses patterns such as "Meeting Number:" to find the meeting number. You can change these patterns in settings page.
+_MOBILE_BRIDGECALL_DESC_9_=This app shows a CALL button in the event details for you to touch and call!
+_MOBILE_BRIDGECALL_DESC_10_=It's that easy!
+_MOBILE_BRIDGECALL_DESC_11_=Join conference calls with a few keystrokes!
+_MOBILE_BRIDGECALL_DOWNLOAD_=Download Now
+_MOBILE_BRIDGECALL_HOME_=Home
+_MOBILE_BRIDGECALL_SCREENSHOT_=Screenshots
+_MOBILE_BRIDGECALL_COMPANY_=Company
+_MOBILE_BRIDGECALL_DESC_12_=See all your iphone calendar events with meeting number highlighted.
+_MOBILE_BRIDGECALL_DESC_13_=Add different phone numbers that you use for conference calls.
+_MOBILE_BRIDGECALL_DESC_14_=Setup default bridge for one touch call or select bridge right at the time of conf.
+
+//ShareUdid
+_MOBILE_SHAREUDID_DESC_=Share UDID for testing iPhone, iPod, iPad apps!
+_MOBILE_SHAREUDID_OVERVIEW_=Overview
+_MOBILE_SHAREUDID_DESC_1_=Sharing UDID for a new person can be very painful. This app makes asking testers to send their UDID easily.
+_MOBILE_SHAREUDID_DESC_2_=All you need to do is start the app and it has email or sms button and you can touch those buttons and send.
+_MOBILE_SHAREUDID_DESC_3_=Send UDID easily!
+_MOBILE_SHAREUDID_DESC_4_=Start the app
+_MOBILE_SHAREUDID_DESC_5_=App displays buttons to share UDID by email or SMS
+_MOBILE_SHAREUDID_DESC_6_=Touch the Button and send
+_MOBILE_SHAREUDID_DESC_7_=Share UDID easily for testing!
+_MOBILE_SHAREUDID_DESC_8_=Run the app
+_MOBILE_SHAREUDID_DESC_9_=Share by email or SMS
+_MOBILE_SHAREUDID_TODOOLI_=_SITENAME_ Inc., - Share UDID for testing
+_MOBILE_SHAREUDID_DESC_10_=Use the SMS or email to share your device UDID.
+
+
+
+
+//MOBILE FINDITNEAR PAGE
+_MOBILE_FINDITNEAR_DESC_=_SITENAME_ Inc. - Finditnear - Instant match near you - Jobs, classifieds, events, deals, coupons, personals, housing and more...
+

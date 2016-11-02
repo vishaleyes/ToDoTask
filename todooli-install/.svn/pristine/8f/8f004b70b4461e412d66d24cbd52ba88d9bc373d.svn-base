@@ -1,0 +1,213 @@
+/* ie 8/7 */
+
+
+/* 1. CONTENT MASK AND COLUMN ADJUSTMENTS
+==================================================================== */
+
+.mask {
+	width: 923px;
+	/*min-height: 923px;*/
+	overflow: hidden !important;
+}
+.mask ul {
+	margin: 0 0 0 -156px;	
+}
+.mask li {
+	overflow: hidden;
+	z-index: 100 !important;
+}
+.mask li.currentItem{ background:url(../img/targeted-offer.jpg);}
+.mask .wrap .top,
+.mask .wrap .btm,
+.mask .wrap .full {
+	display: none;
+}
+
+.desc {
+	width: 200px;
+	position: absolute;
+	top: 90px;
+	left: -80px;
+	display: none;
+	z-index: 11;
+}
+
+.c1 { left: 155px; }
+.c2 { left: 463px; }
+.c3 { left: 771px; }
+.c4 { left: 1079px; }
+
+
+.r1 { top: 0; }
+.r2 { top: 154px; }
+.r3 { top: 308px; }
+.r4 { top: 462px; }
+.r5 { top: 616px; }
+.r6 { top: 770px; }
+.r7 { top: 924px; }
+.r8 { top: 1078px; }
+.r9 { top: 1232px; }
+
+.r1,.r3,.r5,.r7,.r9 {
+	margin-left: -154px !important;
+}
+
+/* project rollovers */
+
+li .ie {
+	display: none;	
+}
+li:hover .ie {
+	display: block;	
+	cursor: pointer;
+	z-index: 10;
+}
+
+/* 2. FULL-SCREEN BACKGROUND
+==================================================================== */
+
+.feature .wrap {
+	overflow: hidden;
+	width: 263px;
+	height: 263px;
+}
+.feature.identity .wrap {
+	background: url(../img/img_identity-full-ie.jpg) 0 0 no-repeat;
+}	
+.feature.alpert .wrap {
+	background: url(../img/img_alpert-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.cupcake .wrap {
+	background: url(../img/img_cupcake-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.snapdragon .wrap {
+	background: url(../img/img_snapdragon-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.alem .wrap {
+	background: url(../img/img_alem-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.blackcreek .wrap {
+	background: url(../img/img_blackcreek-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.giantnerd .wrap {
+	background: url(../img/img_giantnerd-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.jess .wrap {
+	background: url(../img/img_jess-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.contact .wrap {
+	background: url(../img/img_contact-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.eric .wrap {
+	background: url(../img/img_eric-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.brainspark .wrap {
+	background: url(../img/img_brainspark-full-ie.jpg) 0 0 no-repeat;
+}
+.feature.blog .wrap {
+	background: url(../img/img_blog-full-ie.jpg) 0 0 no-repeat;
+}
+
+.feature .c2.r1 .wrap { background-position: -612px -180px; }
+.feature .c3.r1 .wrap { background-position: -830px -398px; }
+
+.feature .c1.r2 .wrap { background-position: -394px -180px; }
+.feature .c2.r2 .wrap { background-position: -612px -398px; }
+.feature .c3.r2 .wrap { background-position: -830px -616px; }
+
+.feature .c2.r3 .wrap { background-position: -394px -398px; }
+.feature .c3.r3 .wrap { background-position: -612px -616px; }
+
+.feature .c1.r4 .wrap { background-position: -176px -398px; }
+.feature .c2.r4 .wrap { background-position: -394px -616px; }
+.feature .c3.r4 .wrap { background-position: -612px -834px; }
+
+.feature .c2.r5 .wrap { background-position: -176px -616px; }
+.feature .c3.r5 .wrap { background-position: -394px -834px; }
+
+
+/* project rollovers activeated when a full-screen project is turned on */
+
+.feature.identity .c2.r1:hover .wrap, .feature.alpert .c2.r1:hover .wrap,
+.feature.cupcake .c2.r1:hover .wrap, .feature.jess .c2.r1:hover .wrap, .feature.alem .c2.r1:hover .wrap,
+.feature.snapdragon .c2.r1:hover .wrap, .feature.giantnerd .c2.r1:hover .wrap,
+.feature.blog .c2.r1:hover .wrap, .feature.blackcreek .c2.r1:hover .wrap, .feature.contact .c2.r1:hover .wrap,
+.feature.eric .c2.r1:hover .wrap, .feature.brainspark .c2.r1:hover .wrap
+{ background: url(../img/img_identity-ie.png) 45px 45px no-repeat;  }
+
+.feature.identity .c3.r1:hover .wrap, .feature.alpert .c3.r1:hover .wrap,
+.feature.cupcake .c3.r1:hover .wrap, .feature.jess .c3.r1:hover .wrap, .feature.alem .c3.r1:hover .wrap,
+.feature.snapdragon .c3.r1:hover .wrap, .feature.giantnerd .c3.r1:hover .wrap,
+.feature.blog .c3.r1:hover .wrap, .feature.blackcreek .c3.r1:hover .wrap, .feature.contact .c3.r1:hover .wrap,
+.feature.eric .c3.r1:hover .wrap, .feature.brainspark .c3.r1:hover .wrap
+{ background: url(../img/img_alpert-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c1.r2:hover .wrap, .feature.alpert .c1.r2:hover .wrap,
+.feature.cupcake .c1.r2:hover .wrap, .feature.jess .c1.r2:hover .wrap, .feature.alem .c1.r2:hover .wrap,
+.feature.snapdragon .c1.r2:hover .wrap, .feature.giantnerd .c1.r2:hover .wrap,
+.feature.blog .c1.r2:hover .wrap, .feature.blackcreek .c1.r2:hover .wrap, .feature.contact .c1.r2:hover .wrap,
+.feature.eric .c1.r2:hover .wrap, .feature.brainspark .c1.r2:hover .wrap
+{ background: url(../img/img_binocular-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c2.r2:hover .wrap, .feature.alpert .c2.r2:hover .wrap,
+.feature.cupcake .c2.r2:hover .wrap, .feature.jess .c2.r2:hover .wrap, .feature.alem .c2.r2:hover .wrap,
+.feature.snapdragon .c2.r2:hover .wrap, .feature.giantnerd .c2.r2:hover .wrap,
+.feature.blog .c2.r2:hover .wrap, .feature.blackcreek .c2.r2:hover .wrap, .feature.contact .c2.r2:hover .wrap,
+.feature.eric .c2.r2:hover .wrap, .feature.brainspark .c2.r2:hover .wrap
+{ background: url(../img/img_jess-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c3.r2:hover .wrap, .feature.alpert .c3.r2:hover .wrap,
+.feature.cupcake .c3.r2:hover .wrap, .feature.jess .c3.r2:hover .wrap, .feature.alem .c3.r2:hover .wrap,
+.feature.snapdragon .c3.r2:hover .wrap, .feature.giantnerd .c3.r2:hover .wrap,
+.feature.blog .c3.r2:hover .wrap, .feature.blackcreek .c3.r2:hover .wrap, .feature.contact .c3.r2:hover .wrap,
+.feature.eric .c3.r2:hover .wrap, .feature.brainspark .c3.r2:hover .wrap
+{ background: url(../img/img_alem-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c2.r3:hover .wrap, .feature.alpert .c2.r3:hover .wrap,
+.feature.cupcake .c2.r3:hover .wrap, .feature.jess .c2.r3:hover .wrap, .feature.alem .c2.r3:hover .wrap,
+.feature.snapdragon .c2.r3:hover .wrap, .feature.giantnerd .c2.r3:hover .wrap,
+.feature.blog .c2.r3:hover .wrap, .feature.blackcreek .c2.r3:hover .wrap, .feature.contact .c2.r3:hover .wrap,
+.feature.eric .c2.r3:hover .wrap, .feature.brainspark .c2.r3:hover .wrap
+{ background: url(../img/img_snapdragon-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c3.r3:hover .wrap, .feature.alpert .c3.r3:hover .wrap,
+.feature.cupcake .c3.r3:hover .wrap, .feature.jess .c3.r3:hover .wrap, .feature.alem .c3.r3:hover .wrap,
+.feature.snapdragon .c3.r3:hover .wrap, .feature.giantnerd .c3.r3:hover .wrap,
+.feature.blog .c3.r3:hover .wrap, .feature.blackcreek .c3.r3:hover .wrap, .feature.contact .c3.r3:hover .wrap,
+.feature.eric .c3.r3:hover .wrap, .feature.brainspark .c3.r3:hover .wrap
+{ background: url(../img/img_giantnerd-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c1.r4:hover .wrap, .feature.alpert .c1.r4:hover .wrap,
+.feature.cupcake .c1.r4:hover .wrap, .feature.jess .c1.r4:hover .wrap, .feature.alem .c1.r4:hover .wrap,
+.feature.snapdragon .c1.r4:hover .wrap, .feature.giantnerd .c1.r4:hover .wrap,
+.feature.blog .c1.r4:hover .wrap, .feature.blackcreek .c1.r4:hover .wrap, .feature.contact .c1.r4:hover .wrap,
+.feature.eric .c1.r4:hover .wrap, .feature.brainspark .c1.r4:hover .wrap
+{ background: url(../img/img_blog-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c2.r4:hover .wrap, .feature.alpert .c2.r4:hover .wrap,
+.feature.cupcake .c2.r4:hover .wrap, .feature.jess .c2.r4:hover .wrap, .feature.alem .c2.r4:hover .wrap,
+.feature.snapdragon .c2.r4:hover .wrap, .feature.giantnerd .c2.r4:hover .wrap,
+.feature.blog .c2.r4:hover .wrap, .feature.blackcreek .c2.r4:hover .wrap, .feature.contact .c2.r4:hover .wrap,
+.feature.eric .c2.r4:hover .wrap, .feature.brainspark .c2.r4:hover .wrap
+{ background: url(../img/img_blackcreek-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c3.r4:hover .wrap, .feature.alpert .c3.r4:hover .wrap,
+.feature.cupcake .c3.r4:hover .wrap, .feature.jess .c3.r4:hover .wrap, .feature.alem .c3.r4:hover .wrap,
+.feature.snapdragon .c3.r4:hover .wrap, .feature.giantnerd .c3.r4:hover .wrap,
+.feature.blog .c3.r4:hover .wrap, .feature.blackcreek .c3.r4:hover .wrap, .feature.contact .c3.r4:hover .wrap,
+.feature.eric .c3.r4:hover .wrap, .feature.brainspark .c3.r4:hover .wrap
+{ background: url(../img/img_contact-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c2.r5:hover .wrap, .feature.alpert .c2.r5:hover .wrap,
+.feature.cupcake .c2.r5:hover .wrap, .feature.jess .c2.r5:hover .wrap, .feature.alem .c2.r5:hover .wrap,
+.feature.snapdragon .c2.r5:hover .wrap, .feature.giantnerd .c2.r5:hover .wrap,
+.feature.blog .c2.r5:hover .wrap, .feature.blackcreek .c2.r5:hover .wrap, .feature.contact .c2.r5:hover .wrap,
+.feature.eric .c2.r5:hover .wrap, .feature.brainspark .c2.r5:hover .wrap
+{ background: url(../img/img_eric-ie.png) 45px 45px no-repeat; }
+
+.feature.identity .c3.r5:hover .wrap, .feature.alpert .c3.r5:hover .wrap,
+.feature.cupcake .c3.r5:hover .wrap, .feature.jess .c3.r5:hover .wrap, .feature.alem .c3.r5:hover .wrap,
+.feature.snapdragon .c3.r5:hover .wrap, .feature.giantnerd .c3.r5:hover .wrap,
+.feature.blog .c3.r5:hover .wrap, .feature.blackcreek .c3.r5:hover .wrap, .feature.contact .c3.r5:hover .wrap,
+.feature.eric .c3.r5:hover .wrap, .feature.brainspark .c3.r5:hover .wrap
+{ background: url(../img/img_brainspark-ie.png) 45px 45px no-repeat; }
